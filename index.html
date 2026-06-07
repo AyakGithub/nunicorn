@@ -229,6 +229,16 @@ input[type=date]::-webkit-calendar-picker-indicator {
   0%,100% { transform: translateY(0px); }
   50%      { transform: translateY(-8px); }
 }
+
+.beta-badge{display:inline-flex;align-items:center;padding:2px 8px;background:linear-gradient(135deg,#FF8C7A,#C5B8FF);border-radius:20px;font-size:10px;font-weight:800;color:white;letter-spacing:0.04em;vertical-align:middle;margin-left:5px;}
+.fab-feedback{position:absolute;bottom:84px;right:14px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#FF8C7A,#C5B8FF);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 18px rgba(255,140,122,0.45);z-index:50;transition:transform 0.15s;}
+.fab-feedback:active{transform:scale(0.93);}
+.star-row{display:flex;gap:8px;justify-content:center;margin:12px 0;}
+.star-btn{font-size:28px;background:none;border:none;cursor:pointer;opacity:0.3;transition:all 0.15s;padding:2px;}
+.star-btn.on{opacity:1;transform:scale(1.15);}
+
+.fb-tag{padding:6px 12px;border-radius:20px;border:1.5px solid var(--primary);background:white;font-size:11px;font-weight:600;color:var(--primary-dark);cursor:pointer;transition:all 0.15s;}
+.fb-tag.sel{background:var(--primary);color:white;}
 </style>
 <script type="application/ld+json">
 {
@@ -395,7 +405,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 <div class="screen" id="screen-home">
   <div class="hbar" style="display:flex;justify-content:space-between;align-items:center;">
-    <div><p style="font-size:11px;color:var(--text-sub);">반가워요 🌸</p><p class="htitle" id="home-title">뉴니콘</p></div>
+    <div><p style="font-size:11px;color:var(--text-sub);">반가워요 🌸</p><p class="htitle" id="home-title">뉴니콘 <span class="beta-badge">BETA</span></p></div>
     <button onclick="showScreen('profile')" style="background:var(--primary-light);border:none;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);" id="home-avatar">👶</button>
   </div>
   <div class="scroll-body">
@@ -621,8 +631,50 @@ input[type=date]::-webkit-calendar-picker-indicator {
   </div>
 </div>
 
+<button class="fab-feedback" onclick="showModal('feedback-modal')" title="의견 보내기" aria-label="피드백">💌</button>
 <div id="toast"></div>
 
+
+<div class="modal-overlay" id="feedback-modal" onclick="cmbg(event,'feedback-modal')">
+  <div class="modal-sheet">
+    <div class="mhandle"></div>
+    <div style="text-align:center;margin-bottom:4px;">
+      <div style="font-size:32px;margin-bottom:6px;">💌</div>
+      <p style="font-size:17px;font-weight:800;color:var(--text);margin:0 0 4px;">의견을 들려주세요!</p>
+      <p style="font-size:12px;color:var(--text-sub);">뉴니콘 베타 서비스 개선에 큰 도움이 돼요 🙏</p>
+    </div>
+    <!-- 별점 -->
+    <div style="margin:10px 0;">
+      <p style="font-size:12px;font-weight:700;color:var(--text-sub);text-align:center;margin-bottom:2px;">전반적인 만족도</p>
+      <div class="star-row" id="star-row">
+        <button class="star-btn" data-v="1" onclick="setStars(1)">⭐</button>
+        <button class="star-btn" data-v="2" onclick="setStars(2)">⭐</button>
+        <button class="star-btn" data-v="3" onclick="setStars(3)">⭐</button>
+        <button class="star-btn" data-v="4" onclick="setStars(4)">⭐</button>
+        <button class="star-btn" data-v="5" onclick="setStars(5)">⭐</button>
+      </div>
+    </div>
+    <!-- 카테고리 -->
+    <div style="margin-bottom:12px;">
+      <p style="font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:7px;">어떤 점이 불편했나요? (복수 선택)</p>
+      <div style="display:flex;flex-wrap:wrap;gap:7px;" id="fb-tags">
+        <button class="fb-tag" onclick="toggleTag(this)">OCR 인식 오류</button>
+        <button class="fb-tag" onclick="toggleTag(this)">AI 상담 답변 부정확</button>
+        <button class="fb-tag" onclick="toggleTag(this)">화면이 느려요</button>
+        <button class="fb-tag" onclick="toggleTag(this)">기능이 부족해요</button>
+        <button class="fb-tag" onclick="toggleTag(this)">사용법이 어려워요</button>
+        <button class="fb-tag" onclick="toggleTag(this)">특이사항 없어요 👍</button>
+      </div>
+    </div>
+    <!-- 자유 의견 -->
+    <div class="field" style="margin-bottom:14px;">
+      <label class="flabel">추가로 하고 싶은 말이 있으면 적어주세요</label>
+      <textarea id="fb-text" rows="3" placeholder="어떤 기능이 있으면 좋겠어요?" style="width:100%;padding:11px 14px;border:none;border-radius:var(--radius-sm);font-size:13px;color:var(--text);background:var(--bg);outline:none;box-shadow:inset 0 2px 6px rgba(74,65,61,0.06);resize:none;font-family:inherit;box-sizing:border-box;"></textarea>
+    </div>
+    <button class="btn-p" id="fb-submit-btn" onclick="submitFeedback()" style="border-radius:20px;">의견 보내기 🚀</button>
+    <p style="font-size:10px;color:var(--text-hint);text-align:center;margin-top:8px;">익명으로 전송되며 서비스 개선에만 활용돼요</p>
+  </div>
+</div>
 <div class="modal-overlay" id="add-modal" onclick="cmbg(event,'add-modal')">
   <div class="modal-sheet">
     <div class="mhandle"></div>
@@ -1594,6 +1646,68 @@ function cmbg(e,id){if(e.target.id===id)closeModal(id);}
 
 // ===== TOAST =====
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400);}
+
+// ===== FEEDBACK =====
+let fbStars = 0;
+
+function setStars(n) {
+  fbStars = n;
+  document.querySelectorAll('#star-row .star-btn').forEach((b, i) => {
+    b.classList.toggle('on', i < n);
+  });
+}
+
+function toggleTag(el) {
+  el.classList.toggle('sel');
+}
+
+async function submitFeedback() {
+  const btn = document.getElementById('fb-submit-btn');
+  const text = document.getElementById('fb-text').value.trim();
+  const tags = [...document.querySelectorAll('#fb-tags .fb-tag.sel')].map(b => b.textContent);
+
+  if (!fbStars) { showToast('별점을 선택해주세요 ⭐'); return; }
+
+  btn.disabled = true;
+  btn.textContent = '전송 중...';
+
+  const payload = {
+    rating    : fbStars,
+    tags      : tags,
+    message   : text,
+    age_label : getRef().label,
+    child_months: S.profile.months || null,
+    created_at: new Date().toISOString(),
+  };
+
+  let saved = false;
+  // Supabase에 저장 시도
+  if (supa) {
+    try {
+      const { error } = await supa.from('feedback').insert([payload]);
+      if (!error) saved = true;
+    } catch(e) {}
+  }
+  // fallback: localStorage에 임시 저장
+  if (!saved) {
+    const fbList = JSON.parse(localStorage.getItem('nn_fb') || '[]');
+    fbList.push(payload);
+    localStorage.setItem('nn_fb', JSON.stringify(fbList));
+    saved = true;
+  }
+
+  closeModal('feedback-modal');
+  // 초기화
+  fbStars = 0;
+  document.querySelectorAll('#star-row .star-btn').forEach(b => b.classList.remove('on'));
+  document.querySelectorAll('#fb-tags .fb-tag').forEach(b => b.classList.remove('sel'));
+  document.getElementById('fb-text').value = '';
+  btn.disabled = false;
+  btn.textContent = '의견 보내기 🚀';
+
+  showToast('소중한 의견 감사해요! 💜');
+}
+
 function resetAll(){if(!confirm('모든 데이터를 삭제할까요?'))return;localStorage.clear();location.reload();}
 </script>
 </body>
