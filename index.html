@@ -1159,7 +1159,7 @@ function renderHome(){
   const ref=getRef();
   const exactMonths = S.profile.birthdate ? calcMonthsFromBirthdate(S.profile.birthdate) : S.profile.months;
   if (S.profile.birthdate) { S.profile.months = exactMonths; S.profile.emoji = getAutoEmoji(exactMonths, S.profile.gender||''); }
-  document.getElementById('home-title').textContent=S.profile.name+'의 뉴니콘';
+  document.getElementById('home-title').innerHTML=S.profile.name+'의 뉴니콘 <span class="beta-badge">BETA</span>';
   
   const ha = document.getElementById('home-avatar');
   if(S.profile.emoji==='🦄') {
