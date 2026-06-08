@@ -231,8 +231,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
 }
 
 .beta-badge{display:inline-flex;align-items:center;padding:2px 8px;background:linear-gradient(135deg,#FF8C7A,#C5B8FF);border-radius:20px;font-size:10px;font-weight:800;color:white;letter-spacing:0.04em;vertical-align:middle;margin-left:5px;}
-.fab-feedback{position:fixed;bottom:calc(68px + env(safe-area-inset-bottom,0px));right:14px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#FF8C7A,#C5B8FF);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 18px rgba(255,140,122,0.45);z-index:50;transition:transform 0.15s;}
-.fab-feedback:active{transform:scale(0.93);}
 .star-row{display:flex;gap:8px;justify-content:center;margin:12px 0;}
 .star-btn{font-size:28px;background:none;border:none;cursor:pointer;opacity:0.3;transition:all 0.15s;padding:2px;}
 .star-btn.on{opacity:1;transform:scale(1.15);}
@@ -616,6 +614,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
       <div id="member-status-display"></div>
     </div>
     <div class="card">
+      <div class="sr" onclick="showModal('feedback-modal')"><span style="font-size:14px;font-weight:600;color:var(--text);">💌 의견 보내기</span><span style="font-size:13px;color:var(--text-sub);">›</span></div>
+    </div>
+    <div class="card">
       <p style="font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:8px;">앱 정보</p>
       <div class="sr" style="cursor:default;"><span style="font-size:14px;font-weight:600;color:var(--text);">버전</span><span style="font-size:13px;color:var(--text-sub);">1.2.0</span></div>
     </div>
@@ -631,7 +632,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
   </div>
 </div>
 
-<button class="fab-feedback" onclick="showModal('feedback-modal')" title="의견 보내기" aria-label="피드백">💌</button>
 <div id="toast"></div>
 
 
