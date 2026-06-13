@@ -153,7 +153,7 @@ input:focus,select:focus{box-shadow:inset 0 2px 6px rgba(74,65,61,0.06),0 0 0 2.
 .bnav{background:var(--card);border-radius:22px 22px 0 0;box-shadow:0 -4px 20px rgba(74,65,61,0.08);display:flex;padding:8px 0 calc(18px + env(safe-area-inset-bottom));flex-shrink:0;z-index:2;}
 .ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:4px 0;}
 .ni-icon{font-size:20px;}
-.ni-label{font-size:10px;color:var(--text-hint);font-weight:600;}
+.ni-label{font-size:9px;color:var(--text-hint);font-weight:600;}
 .ni.active .ni-label{color:var(--primary-dark);font-weight:800;}
 .bubble{background:var(--card);border-radius:16px 16px 16px 3px;padding:11px 14px;box-shadow:var(--shadow-sm);font-size:13px;color:var(--text);line-height:1.6;}
 .cony-row{display:flex;align-items:flex-end;gap:8px;margin-bottom:12px;}
@@ -269,7 +269,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   <p>영양정보 라벨을 찍으면 나이에 딱 맞는 분석을 해드려요. 영양제 라벨을 찍으면 나이에 딱 맞는 분석을 해드려요. AI 코니에게 무엇이든 물어보세요 🦄</p>
   <div class="pc-feat"><div class="pc-feat-icon">📸</div><div><h2 style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">라벨 사진 스캔</h2><p>영양성분표를 찍으면 성분을 자동 분석해요</p></div></div>
   <div class="pc-feat"><div class="pc-feat-icon">💬</div><div><h2 style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">AI 코니 상담</h2><p>병용 금기, 복용 시간, 권장량 뭐든 물어봐요</p></div></div>
-  <div class="pc-feat"><div class="pc-feat-icon">📊</div><div><h2 style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">데이터 인사이트</h2><p>스캔할수록 우리 아이 패턴이 쌓여요</p></div></div>
+  <div class="pc-feat"><div class="pc-feat-icon">📊</div><div><h2 style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">우리아이 영양 리포트</h2><p>스캔할수록 우리 아이 패턴이 쌓여요</p></div></div>
   <div style="background:var(--card);border-radius:20px;padding:8px 16px;font-size:12px;font-weight:600;color:var(--text-sub);box-shadow:var(--shadow-sm);display:inline-flex;gap:6px;align-items:center;margin-top:8px;">🦄 영유아부터 키즈까지 · 맞춤 영양 가이드</div>
 </div>
 
@@ -429,6 +429,23 @@ input[type=date]::-webkit-calendar-picker-indicator {
         <span style="font-size:26px;">💬</span>AI 상담
       </button>
     </div>
+    <!-- ✅ 신뢰 뱃지 — KDRIs 기준 + 약사 검수 (파스텔톤) -->
+    <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+      <div style="background:linear-gradient(135deg,#E8F8F3,#FFFBEC);border-radius:20px;
+                  padding:8px 13px;display:flex;align-items:center;gap:6px;
+                  border:1px solid #B8E8D5;box-shadow:0 2px 8px rgba(136,216,192,0.2);">
+        <span style="font-size:15px;">🏥</span>
+        <span style="font-size:10px;font-weight:700;color:#1F7A50;line-height:1.4;">
+          보건복지부·한국영양학회<br>KDRIs 기준 적용
+        </span>
+      </div>
+      <div style="background:linear-gradient(135deg,#EDE9FF,#FFF0EE);border-radius:20px;
+                  padding:8px 13px;display:flex;align-items:center;gap:6px;
+                  border:1px solid #D5CFFF;box-shadow:0 2px 8px rgba(197,184,255,0.2);">
+        <span style="font-size:15px;">💊</span>
+        <span style="font-size:10px;font-weight:700;color:#5B4DCC;line-height:1.4;">약사 검수 완료</span>
+      </div>
+    </div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
       <p style="font-size:12px;font-weight:700;color:var(--text-sub);">💊 오늘 영양제</p>
       <button onclick="showModal('add-modal')" style="background:var(--primary);color:white;border:none;border-radius:18px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;">+ 추가</button>
@@ -436,14 +453,42 @@ input[type=date]::-webkit-calendar-picker-indicator {
     <div class="card" style="padding:8px 14px;" id="home-supp-list"></div>
     <p style="font-size:12px;font-weight:700;color:var(--text-sub);margin-top:6px;margin-bottom:6px;">📊 이 나이 권장량</p>
     <div class="card" id="home-ref-table" style="padding:10px 14px;"></div>
-    <button onclick="showScreen('insights')" style="background:var(--card);color:var(--text);border:none;border-radius:var(--radius-sm);padding:12px;font-size:13px;font-weight:700;width:100%;cursor:pointer;box-shadow:var(--shadow-sm);margin-top:4px;display:flex;align-items:center;justify-content:center;gap:6px;">📊 코니 인사이트 보기</button>
+    <button onclick="showScreen('insights')" style="background:var(--card);color:var(--text);border:none;border-radius:var(--radius-sm);padding:12px;font-size:13px;font-weight:700;width:100%;cursor:pointer;box-shadow:var(--shadow-sm);margin-top:4px;display:flex;align-items:center;justify-content:center;gap:6px;">📊 우리아이 영양 리포트 보기</button>
+
+    <!-- 💬 AI 코니 예시 질문 섹션 — 다른 엄마들의 인기 질문 -->
+    <div style="margin-top:16px;margin-bottom:4px;">
+      <p style="font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:10px;">다른 엄마들은 이런 걸 물어봤어요! 💬</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <!-- 말풍선 버튼 1 -->
+        <button onclick="askCony('오메가3랑 유산균 같이 먹여도 되나요?')"
+          style="background:var(--card);border:1.5px solid #FFD6D0;border-radius:18px 18px 18px 4px;
+                 padding:11px 15px;text-align:left;font-size:12px;font-weight:600;color:var(--text);
+                 cursor:pointer;box-shadow:var(--shadow-sm);transition:transform 0.1s;line-height:1.5;">
+          💬 오메가3랑 유산균 같이 먹여도 되나요?
+        </button>
+        <!-- 말풍선 버튼 2 -->
+        <button onclick="askCony('돌아기 철분제 어떤 걸 먹여야 해요?')"
+          style="background:var(--card);border:1.5px solid #FFD6D0;border-radius:18px 18px 18px 4px;
+                 padding:11px 15px;text-align:left;font-size:12px;font-weight:600;color:var(--text);
+                 cursor:pointer;box-shadow:var(--shadow-sm);transition:transform 0.1s;line-height:1.5;">
+          💬 돌아기 철분제 어떤 걸 먹여야 해요?
+        </button>
+        <!-- 말풍선 버튼 3 -->
+        <button onclick="askCony('비타민D는 언제 먹이는 게 좋아요?')"
+          style="background:var(--card);border:1.5px solid #FFD6D0;border-radius:18px 18px 18px 4px;
+                 padding:11px 15px;text-align:left;font-size:12px;font-weight:600;color:var(--text);
+                 cursor:pointer;box-shadow:var(--shadow-sm);transition:transform 0.1s;line-height:1.5;">
+          💬 비타민D는 언제 먹이는 게 좋아요?
+        </button>
+      </div>
+    </div>
     <div style="height:10px;"></div>
   </div>
   <div class="bnav">
     <div class="ni active" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
-    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">스캔</span></div>
+    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
     <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
-    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">인사이트</span></div>
+    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></div>
     <div class="ni" onclick="showScreen('profile')"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></div>
   </div>
 </div>
@@ -500,9 +545,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
   </div>
   <div class="bnav">
     <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
-    <div class="ni active" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">스캔</span></div>
+    <div class="ni active" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
     <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
-    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">인사이트</span></div>
+    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></div>
     <div class="ni" onclick="showScreen('profile')"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></div>
   </div>
 </div>
@@ -530,9 +575,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
   </div>
   <div class="bnav">
     <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
-    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">스캔</span></div>
+    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
     <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
-    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">인사이트</span></div>
+    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></div>
     <div class="ni" onclick="showScreen('profile')"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></div>
   </div>
 </div>
@@ -562,9 +607,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
   </div>
   <div class="bnav">
     <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
-    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">스캔</span></div>
+    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
     <div class="ni active" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
-    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">인사이트</span></div>
+    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></div>
     <div class="ni" onclick="showScreen('profile')"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></div>
   </div>
 </div>
@@ -577,21 +622,21 @@ input[type=date]::-webkit-calendar-picker-indicator {
   <div class="scroll-body" id="schedule-body"></div>
   <div class="bnav">
     <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
-    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">스캔</span></div>
+    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
     <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
-    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">인사이트</span></div>
+    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></div>
     <div class="ni" onclick="showScreen('profile')"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></div>
   </div>
 </div>
 
 <div class="screen" id="screen-insights">
-  <div class="hbar"><p class="htitle">📊 코니 인사이트</p><p style="font-size:11px;color:var(--text-sub);">우리 아이 영양 패턴</p></div>
+  <div class="hbar"><p class="htitle">📊 우리아이 영양 리포트</p><p style="font-size:11px;color:var(--text-sub);">우리 아이 영양 패턴</p></div>
   <div class="scroll-body" id="insights-body"></div>
   <div class="bnav">
     <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
-    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">스캔</span></div>
+    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
     <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
-    <div class="ni active" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">인사이트</span></div>
+    <div class="ni active" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></div>
     <div class="ni" onclick="showScreen('profile')"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></div>
   </div>
 </div>
@@ -625,9 +670,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
   </div>
   <div class="bnav">
     <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
-    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">스캔</span></div>
+    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
     <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
-    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">인사이트</span></div>
+    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></div>
     <div class="ni active" onclick="showScreen('profile')"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></div>
   </div>
 </div>
@@ -735,11 +780,24 @@ input[type=date]::-webkit-calendar-picker-indicator {
 </div>
 
 <div class="modal-overlay" id="en-modal" onclick="cmbg(event,'en-modal')"><div class="modal-sheet"><div class="mhandle"></div><p style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:16px;">✏️ 이름 변경</p><div class="field"><input type="text" id="en-inp" placeholder="아이 이름"></div><button class="btn-p" onclick="saveName()">저장</button></div></div>
+<!-- 나이 변경 모달 — 생년월일 직접 입력 방식 -->
 <div class="modal-overlay" id="ea-modal" onclick="cmbg(event,'ea-modal')">
-  <div class="modal-sheet"><div class="mhandle"></div><p style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:16px;">🎂 나이 변경</p>
-    <div class="age-grid" id="edit-age-grid" style="margin-bottom:16px;">
-      <button class="age-btn hl" data-months="3">0~6개월</button><button class="age-btn hl" data-months="9">7~12개월</button><button class="age-btn hl" data-months="18">13~24개월</button>
-      <button class="age-btn" data-months="30">25~36개월</button><button class="age-btn" data-months="48">37~72개월</button><button class="age-btn" data-months="96">6~12세</button>
+  <div class="modal-sheet">
+    <div class="mhandle"></div>
+    <p style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:6px;">🎂 생년월일 변경</p>
+    <p style="font-size:12px;color:var(--text-sub);margin-bottom:16px;">입력하면 현재 개월 수를 자동으로 계산해요</p>
+    <!-- 생년월일 date 입력 -->
+    <div class="field" style="margin-bottom:12px;">
+      <label class="flabel" style="margin-bottom:5px;">🎂 아이의 생년월일</label>
+      <input type="date" id="ea-birthdate" onchange="previewEAAge()"
+        style="width:100%;padding:14px 16px;border:none;border-radius:14px;font-size:16px;font-weight:700;
+               color:#4A413D;background:#FFF0EE;outline:none;cursor:pointer;font-family:inherit;appearance:none;">
+    </div>
+    <!-- 개월 수 미리보기 -->
+    <div id="ea-age-preview" style="display:none;margin-bottom:16px;
+         background:linear-gradient(135deg,#FFE5E0,#FFFBEC);border-radius:12px;padding:12px 16px;">
+      <p style="font-size:14px;font-weight:800;color:#4A413D;margin:0;" id="ea-age-text"></p>
+      <p style="font-size:12px;color:#9A8F8B;margin:4px 0 0;" id="ea-age-label"></p>
     </div>
     <button class="btn-p" onclick="saveAge()">저장</button>
   </div>
@@ -1455,6 +1513,16 @@ async function sendChat(){
   }
 }
 
+// 예시 질문 버튼 → AI상담 화면 열고 자동 전송
+function askCony(question){
+  showScreen('chat');
+  // 화면 전환 후 약간의 딜레이를 두고 입력창에 질문 세팅 & 전송
+  setTimeout(()=>{
+    const inp=document.getElementById('chat-input');
+    if(inp){inp.value=question;sendChat();}
+  },350);
+}
+
 // ===== SIGNUP =====
 async function doSignup(){
   const email=document.getElementById('su-email').value.trim();
@@ -1609,7 +1677,31 @@ function renderProfile(){
   }
 }
 function saveName(){const v=document.getElementById('en-inp').value.trim();if(!v)return;S.profile.name=v;save();closeModal('en-modal');renderProfile();renderHome();showToast('이름 변경됨 💛');}
-function saveAge(){const s=document.querySelector('#edit-age-grid .age-btn.selected');if(!s)return;S.profile.months=parseInt(s.dataset.months);save();closeModal('ea-modal');renderProfile();renderHome();showToast('나이 변경됨 🎂');}
+
+// 생년월일 → 개월 수 미리보기 (ea-modal)
+function previewEAAge(){
+  const bd=document.getElementById('ea-birthdate')?.value;
+  const preview=document.getElementById('ea-age-preview');
+  if(!bd){preview.style.display='none';return;}
+  const months=calcMonthsFromBirthdate(bd);
+  const label=getAgeLabel(months);
+  const emoji=months<=12?'👶':months<=36?'🧒':'🧒';
+  document.getElementById('ea-age-text').textContent=
+    emoji+' 생후 '+months+'개월 (만 '+Math.floor(months/12)+'세 '+(months%12)+'개월)';
+  document.getElementById('ea-age-label').textContent=
+    label+' · '+(months<=24?'⭐ 핵심 성장기':'성장기');
+  preview.style.display='block';
+}
+// 생년월일로 나이 저장 (date input 버전)
+function saveAge(){
+  const bd=document.getElementById('ea-birthdate')?.value;
+  if(!bd){showToast('생년월일을 입력해주세요');return;}
+  const months=calcMonthsFromBirthdate(bd);
+  if(months<0||months>200){showToast('올바른 날짜를 입력해주세요');return;}
+  S.profile.birthdate=bd;
+  S.profile.months=months;
+  save();closeModal('ea-modal');renderProfile();renderHome();showToast('나이 변경됨 🎂');
+}
 function selChild(e){S.profile.emoji=e;save();closeModal('ee-modal');renderProfile();renderHome();}
 
 // ===== SUPPS =====
@@ -1632,7 +1724,17 @@ function delSupp(id){
 }
 
 // ===== MODAL =====
-function showModal(id){document.getElementById(id).classList.add('open');if(id==='en-modal')document.getElementById('en-inp').value=S.profile.name;}
+function showModal(id){
+  document.getElementById(id).classList.add('open');
+  // 이름 모달: 현재 이름 채우기
+  if(id==='en-modal') document.getElementById('en-inp').value=S.profile.name;
+  // 생년월일 모달: 기존 생년월일 채우고 미리보기 갱신
+  if(id==='ea-modal'){
+    const inp=document.getElementById('ea-birthdate');
+    if(inp && S.profile.birthdate) inp.value=S.profile.birthdate;
+    previewEAAge();
+  }
+}
 function closeModal(id){
   document.getElementById(id).classList.remove('open');
   // signup 모달 초기화
@@ -1647,6 +1749,16 @@ function cmbg(e,id){if(e.target.id===id)closeModal(id);}
 
 // ===== TOAST =====
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400);}
+
+// 예시 질문 버튼 → AI상담 화면 열고 자동 전송
+function askCony(question){
+  showScreen('chat');
+  // 화면 전환 후 약간의 딜레이를 두고 입력창에 질문 세팅 & 전송
+  setTimeout(()=>{
+    const inp=document.getElementById('chat-input');
+    if(inp){inp.value=question;sendChat();}
+  },350);
+}
 
 // ===== FEEDBACK =====
 let fbStars = 0;
