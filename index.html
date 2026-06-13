@@ -1670,10 +1670,15 @@ function renderProfile(){
       pa.style.cssText='width:68px;height:68px;background:var(--card);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 10px;box-shadow:var(--shadow);';
       pa.textContent=S.profile.emoji;
   }
+  // 생년월일이 있으면 정확한 개월수, 없으면 범위 라벨 표시
+  const exactMonths = S.profile.birthdate ? calcMonthsFromBirthdate(S.profile.birthdate) : S.profile.months;
+  const ageDisplay = S.profile.birthdate
+    ? '생후 ' + exactMonths + '개월 (만 ' + Math.floor(exactMonths/12) + '세 ' + (exactMonths%12) + '개월)'
+    : ref.label;
   document.getElementById('profile-name').textContent=S.profile.name;
-  document.getElementById('profile-age').textContent=ref.label+(ref.baby?' 👶':'')+' · '+S.supplements.length+'가지 영양제';
+  document.getElementById('profile-age').textContent=ageDisplay+(ref.baby?' 👶':'')+' · '+S.supplements.length+'가지 영양제';
   document.getElementById('ps-name').textContent=S.profile.name;
-  document.getElementById('ps-age').textContent=ref.label;
+  document.getElementById('ps-age').textContent=ageDisplay;
   document.getElementById('ps-emoji').textContent=S.profile.emoji;
   const ms=document.getElementById('member-status-display');
   if(supaUser){
