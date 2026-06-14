@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -602,6 +602,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
       <div class="cony-svg" style="width:56px;height:56px;margin:0 auto 10px;"></div>
       <p style="font-size:15px;font-weight:800;color:var(--text);margin-bottom:6px;">더 자세한 상담은 가입 후!</p>
       <p style="font-size:12px;color:var(--text-sub);line-height:1.6;margin-bottom:16px;">오늘 무료 상담을 모두 사용했어요.<br>가입하면 하루 <b>10회</b> 상담 + 맞춤 분석이 가능해요!</p>
+      <button onclick="signInWithKakao()" style="width:100%;border-radius:20px;padding:12px;background:#FEE500;color:#3C1E1E;border:none;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:6px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.717 1.566 5.112 3.938 6.54L5 21l4.267-2.247A11.2 11.2 0 0012 19.2c5.523 0 10-3.477 10-8.4S17.523 3 12 3z"/></svg>
+        카카오로 1초 가입
+      </button>
       <button class="btn-p" onclick="showModal('signup-modal')" style="border-radius:20px;margin-bottom:8px;">🌟 무료 가입하고 계속하기</button>
       <p style="font-size:11px;color:var(--text-hint);">내일 자정에 무료 횟수가 초기화돼요</p>
     </div>
@@ -767,6 +771,19 @@ input[type=date]::-webkit-calendar-picker-indicator {
       <div style="background:var(--primary-light);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:14px;">
         <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px;"><span>비회원</span><span style="color:var(--text-sub);">하루 3회 · 간단 답변</span></div>
         <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="font-weight:700;color:var(--primary-dark);">멤버 (무료)</span><span style="font-weight:700;color:var(--primary-dark);">하루 10회 · 상세 답변</span></div>
+      </div>
+      <!-- 소셜 로그인 -->
+      <button onclick="signInWithKakao()" style="width:100%;border-radius:18px;padding:11px;background:#FEE500;color:#3C1E1E;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px;font-size:14px;font-weight:700;cursor:pointer;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.717 1.566 5.112 3.938 6.54L5 21l4.267-2.247A11.2 11.2 0 0012 19.2c5.523 0 10-3.477 10-8.4S17.523 3 12 3z"/></svg>
+        카카오로 1초 가입
+      </button>
+      <button onclick="signInWithGoogle()" style="width:100%;border-radius:18px;padding:10px;background:white;color:#4A413D;border:1.5px solid #ddd;box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px;font-size:14px;font-weight:600;cursor:pointer;">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:18px;height:18px;">구글로 1초 가입
+      </button>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <div style="flex:1;height:1px;background:rgba(74,65,61,0.1);"></div>
+        <span style="font-size:11px;color:var(--text-hint);">또는 이메일로</span>
+        <div style="flex:1;height:1px;background:rgba(74,65,61,0.1);"></div>
       </div>
       <div class="field"><label class="flabel">이메일</label><input type="email" id="su-email" placeholder="이메일 주소 입력"></div>
       <div class="field"><label class="flabel">비밀번호</label><input type="password" id="su-pw" placeholder="6자 이상"></div>
@@ -1037,13 +1054,24 @@ function initSupa() {
     supa = window.supabase.createClient(SUPA_URL, SUPA_KEY);
     supa.auth.onAuthStateChange(async (event, session) => {
       supaUser = session?.user || null;
-      if (supaUser) {
+      if (supaUser && event === 'SIGNED_IN') {
+        // 로그인 직후: 마이그레이션 → 데이터 로드 → 화면 복원
+        await runPendingMigration(supaUser.id);
+        await loadFromSupa();
+        const restoreScreen = localStorage.getItem('nn_restore_screen');
+        if (restoreScreen && restoreScreen !== 'ob' && restoreScreen !== 'ob2') {
+          localStorage.removeItem('nn_restore_screen');
+          showScreen(restoreScreen);
+        }
+        renderProfile();
+        renderHome();
+      } else if (supaUser) {
         await loadFromSupa();
         renderProfile();
         renderHome();
       }
     });
-    // Handle OAuth redirect
+    // OAuth 리다이렉트 복귀 처리
     supa.auth.getSession().then(({ data: { session } }) => {
       if (session) {
         supaUser = session.user;
@@ -1053,8 +1081,72 @@ function initSupa() {
   } catch(e) { console.warn('Supabase init error:', e); }
 }
 
+// ── 소셜 로그인 전 localStorage 데이터 스냅샷 저장 ──────────
+function savePendingMigration() {
+  const screenId = (document.querySelector('.screen.active')?.id || 'screen-home').replace('screen-', '');
+  const scanData = JSON.parse(localStorage.getItem('nn_a2') || '{"scans":[]}');
+  localStorage.setItem('nn_pending_migration', JSON.stringify({
+    profile:       S.profile,
+    supplements:   S.supplements,
+    scans:         scanData.scans || [],
+    restoreScreen: screenId
+  }));
+}
+
+// ── 로그인 후 Supabase로 데이터 마이그레이션 ─────────────────
+async function runPendingMigration(userId) {
+  const raw = localStorage.getItem('nn_pending_migration');
+  if (!raw) return;
+  let pending;
+  try { pending = JSON.parse(raw); } catch(e) { return; }
+  try {
+    // 1) 아이 정보 → user_children
+    if (pending.profile?.name) {
+      await supa.from('user_children').upsert({
+        user_id:   userId,
+        name:      pending.profile.name,
+        birthdate: pending.profile.birthdate || null,
+        gender:    pending.profile.gender    || '',
+        months:    pending.profile.months    || 18,
+        emoji:     pending.profile.emoji     || '👶'
+      }, { onConflict: 'user_id' });
+    }
+    // 2) 스캔 기록 → scan_history (summary 형태)
+    if (pending.scans?.length) {
+      const rows = pending.scans.map(s => ({
+        user_id:       userId,
+        product_name:  s.name || '',
+        age_label:     s.age  || '',
+        nutrient_keys: s.keys || [],
+        inputs:        {},
+        scanned_at:    s.ts ? new Date(s.ts).toISOString() : new Date().toISOString()
+      }));
+      await supa.from('scan_history').insert(rows);
+    }
+    // 3) 복원 화면 기록
+    if (pending.restoreScreen) {
+      localStorage.setItem('nn_restore_screen', pending.restoreScreen);
+    }
+    localStorage.removeItem('nn_pending_migration');
+    showToast('✅ 이전 데이터가 계정에 연동됐어요!');
+  } catch(e) {
+    console.warn('Migration error:', e);
+    localStorage.removeItem('nn_pending_migration');
+  }
+}
+
+async function signInWithKakao() {
+  if (!supa) return;
+  savePendingMigration();
+  await supa.auth.signInWithOAuth({
+    provider: 'kakao',
+    options: { redirectTo: window.location.origin }
+  });
+}
+
 async function signInWithGoogle() {
   if (!supa) return;
+  savePendingMigration();
   await supa.auth.signInWithOAuth({
     provider: 'google',
     options: { redirectTo: window.location.origin }
@@ -1072,6 +1164,18 @@ async function signOutSupa() {
 async function syncToSupa() {
   if (!supa || !supaUser) return;
   try {
+    // user_children 동기화 (생년월일 포함)
+    if (S.profile.name) {
+      await supa.from('user_children').upsert({
+        user_id:   supaUser.id,
+        name:      S.profile.name,
+        birthdate: S.profile.birthdate || null,
+        gender:    S.profile.gender    || '',
+        months:    S.profile.months    || 18,
+        emoji:     S.profile.emoji     || '👶'
+      }, { onConflict: 'user_id' });
+    }
+    // 기존 profiles 호환 유지
     await supa.from('profiles').upsert({
       id: supaUser.id,
       name: S.profile.name,
@@ -1102,11 +1206,22 @@ async function syncToSupa() {
 async function loadFromSupa() {
   if (!supa || !supaUser) return;
   try {
-    const { data: profile } = await supa.from('profiles').select('*').eq('id', supaUser.id).single();
-    if (profile?.name) {
-      S.profile.name = profile.name;
-      S.profile.months = profile.months || S.profile.months;
-      S.profile.emoji = profile.emoji || S.profile.emoji;
+    // user_children 우선 로드 (생년월일 포함)
+    const { data: child } = await supa.from('user_children').select('*').eq('user_id', supaUser.id).single();
+    if (child?.name) {
+      S.profile.name      = child.name;
+      S.profile.birthdate = child.birthdate || S.profile.birthdate;
+      S.profile.gender    = child.gender    || S.profile.gender;
+      S.profile.months    = child.months    || S.profile.months;
+      S.profile.emoji     = child.emoji     || S.profile.emoji;
+    } else {
+      // fallback: 기존 profiles 테이블
+      const { data: profile } = await supa.from('profiles').select('*').eq('id', supaUser.id).single();
+      if (profile?.name) {
+        S.profile.name   = profile.name;
+        S.profile.months = profile.months || S.profile.months;
+        S.profile.emoji  = profile.emoji  || S.profile.emoji;
+      }
     }
     const { data: supps } = await supa.from('supplements').select('*').eq('user_id', supaUser.id);
     if (supps?.length) {
@@ -1372,7 +1487,20 @@ function analyzeNutrients(){
   });
   if(!Object.keys(inputs).length){showToast('성분을 하나 이상 입력해주세요');return;}
   const ref=getRef();lastResult={name,inputs,ref,timing:document.getElementById('scan-timing').value};
-  logA('scan',{name,inputs});renderResult(name,inputs,ref);showScreen('result');
+  logA('scan',{name,inputs});
+  // 로그인 상태면 scan_history에도 실시간 저장
+  if (supa && supaUser) {
+    supa.from('scan_history').insert({
+      user_id:       supaUser.id,
+      product_name:  name,
+      age_label:     ref.label,
+      nutrient_keys: Object.keys(inputs),
+      inputs:        inputs,
+      timing:        lastResult.timing,
+      scanned_at:    new Date().toISOString()
+    }).catch(e => console.warn('scan_history:', e));
+  }
+  renderResult(name,inputs,ref);showScreen('result');
 }
 function renderResult(name,inputs,ref){
   document.getElementById('result-title').textContent=name;
@@ -1696,7 +1824,17 @@ function renderProfile(){
   } else if(S.member){
     ms.innerHTML=`<div style="display:flex;align-items:center;gap:8px;"><span style="font-size:20px;">🌟</span><div><p style="font-size:13px;font-weight:700;color:var(--text);">${S.member.name}</p><p style="font-size:11px;color:var(--text-sub);">하루 10회 상담 · ${S.member.email}</p></div></div>`;
   }else{
-    ms.innerHTML=`<div style="text-align:center;padding:8px 0;"><p style="font-size:12px;color:var(--text-sub);margin-bottom:10px;">비회원 · 하루 3회 무료 상담</p><button class="btn-p" onclick="signInWithGoogle()" style="border-radius:18px;padding:10px;background:white;color:#4A413D;border:1.5px solid #ddd;box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px;"><img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:18px;height:18px;">구글로 로그인</button><button class="btn-p" onclick="showModal('signup-modal')" style="border-radius:18px;padding:10px;">📧 이메일로 가입하기</button></div>`;
+    ms.innerHTML=`<div style="text-align:center;padding:8px 0;">
+      <p style="font-size:12px;color:var(--text-sub);margin-bottom:10px;">비회원 · 하루 3회 무료 상담</p>
+      <button onclick="signInWithKakao()" style="width:100%;border-radius:18px;padding:11px;background:#FEE500;color:#3C1E1E;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.12);display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px;font-size:14px;font-weight:700;cursor:pointer;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.717 1.566 5.112 3.938 6.54L5 21l4.267-2.247A11.2 11.2 0 0012 19.2c5.523 0 10-3.477 10-8.4S17.523 3 12 3z"/></svg>
+        카카오로 로그인
+      </button>
+      <button onclick="signInWithGoogle()" style="width:100%;border-radius:18px;padding:10px;background:white;color:#4A413D;border:1.5px solid #ddd;box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px;font-size:14px;font-weight:600;cursor:pointer;">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:18px;height:18px;">구글로 로그인
+      </button>
+      <button class="btn-p" onclick="showModal('signup-modal')" style="border-radius:18px;padding:10px;">📧 이메일로 가입하기</button>
+    </div>`;
   }
 }
 function saveName(){const v=document.getElementById('en-inp').value.trim();if(!v)return;S.profile.name=v;save();closeModal('en-modal');renderProfile();renderHome();showToast('이름 변경됨 💛');}
