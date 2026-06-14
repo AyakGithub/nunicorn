@@ -1441,7 +1441,10 @@ function initChat(){
   if(!msgs.innerHTML){
     chatHistory=[];
     const ref=getRef();
-    const wMsg=`안녕하세요! 저는 **코니**예요 🦄\n\n${S.profile.name}(${ref.label}) 영양제에 대해 뭐든 물어보세요! ${ref.baby?'👶 이 시기는 특히 비타민D, 철분, 오메가3가 중요해요!':''}`;
+    // 생년월일 있으면 정확한 개월수, 없으면 범위 라벨 표시
+    const exactM = S.profile.birthdate ? calcMonthsFromBirthdate(S.profile.birthdate) : S.profile.months;
+    const ageStr = S.profile.birthdate ? `생후 ${exactM}개월` : ref.label;
+    const wMsg=`안녕하세요! 저는 **코니**예요 🦄\n\n${S.profile.name}(${ageStr}) 영양제에 대해 뭐든 물어보세요! ${ref.baby?'👶 이 시기는 특히 비타민D, 철분, 오메가3가 중요해요!':''}`;
     addChatMsg('ai',wMsg);
   }
   renderSuggestions();
@@ -1507,7 +1510,13 @@ async function sendChat(){
         supplements: S.supplements
       })
     });
-    const data = await res.json();
+    let data;
+    try { data = await res.json(); }
+    catch(jsonErr) {
+      removeTyping();
+      addChatMsg('ai',`🦄 응답 파싱 오류: ${res.status} ${res.statusText}`);
+      return;
+    }
     removeTyping();
     const answer = data.reply || data.error || '죄송해요, 잠시 후 다시 시도해주세요.';
     addChatMsg('ai', answer);
@@ -1517,7 +1526,8 @@ async function sendChat(){
     }
   } catch(e) {
     removeTyping();
-    addChatMsg('ai','🦄 연결에 문제가 생겼어요. 잠시 후 다시 시도해주세요!');
+    // 실제 오류 내용 표시 (디버깅용)
+    addChatMsg('ai',`🦄 연결 오류: ${e.message || e}`);
   }
 }
 
