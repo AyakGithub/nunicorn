@@ -92,12 +92,10 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{height:100%;background:#F5E6E0;font-family:-apple-system,'Pretendard','Apple SD Gothic Neo',sans-serif;}
 
-/* 아기 유니콘 코니 (절대 깨지지 않는 CDN 3D 이미지) */
-.cony-svg {
-  background-image: url("https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@latest/assets/Unicorn/3D/unicorn_3d.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+/* 뉴니콘 코니 캐릭터 이미지 공통 스타일 */
+.cony-img {
+  object-fit: contain;
+  display: block;
 }
 
 .pc-wrapper{display:flex;align-items:center;justify-content:center;gap:64px;min-height:100vh;padding:24px;}
@@ -272,7 +270,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 <body>
 <div class="pc-wrapper">
 <div class="pc-side">
-  <div class="cony-svg" style="width:48px;height:48px;margin-bottom:14px;"></div>
+  <img src="/images/cony-hi.png" class="cony-img" style="width:48px;height:48px;margin-bottom:14px;">
   <h1 style="font-size:34px;font-weight:800;color:#4A413D;line-height:1.2;margin-bottom:12px;">우리 아이<br><span style="color:var(--primary-dark);">영양제</span>를<br>똑똑하게</h1>
   <p>영양정보 라벨을 찍으면 나이에 딱 맞는 분석을 해드려요. 영양제 라벨을 찍으면 나이에 딱 맞는 분석을 해드려요. AI 코니에게 무엇이든 물어보세요 🦄</p>
   <div class="pc-feat"><div class="pc-feat-icon">📸</div><div><h2 style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">라벨 사진 스캔</h2><p>영양성분표를 찍으면 성분을 자동 분석해요</p></div></div>
@@ -294,7 +292,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
     <!-- 코니 캐릭터 -->
     <div style="position:relative;margin-bottom:14px;">
-      <div class="cony-svg" style="width:100px;height:100px;filter:drop-shadow(0 8px 20px rgba(255,140,122,0.35));animation:floatCony 3s ease-in-out infinite;"></div>
+      <img src="/images/cony-wave.png" class="cony-img" style="width:100px;height:100px;filter:drop-shadow(0 8px 20px rgba(255,140,122,0.35));animation:floatCony 3s ease-in-out infinite;">
       <!-- 말풍선 -->
       <div style="position:absolute;top:-10px;right:-70px;background:white;border-radius:14px 14px 14px 3px;padding:7px 11px;box-shadow:0 4px 14px rgba(74,65,61,0.12);white-space:nowrap;">
         <p style="font-size:11px;font-weight:700;color:#4A413D;margin:0;">안녕! 나는 코니야 🦄</p>
@@ -599,7 +597,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   <div class="scroll-body" id="chat-messages" style="padding:14px 14px 6px;"></div>
   <div id="chat-paywall" style="display:none;padding:14px;">
     <div class="paywall">
-      <div class="cony-svg" style="width:56px;height:56px;margin:0 auto 10px;"></div>
+      <img src="/images/cony-heart.png" class="cony-img" style="width:56px;height:56px;margin:0 auto 10px;">
       <p style="font-size:15px;font-weight:800;color:var(--text);margin-bottom:6px;">더 자세한 상담은 가입 후!</p>
       <p style="font-size:12px;color:var(--text-sub);line-height:1.6;margin-bottom:16px;">오늘 무료 상담을 모두 사용했어요.<br>가입하면 하루 <b>10회</b> 상담 + 맞춤 분석이 가능해요!</p>
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:4px;">
@@ -663,7 +661,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 <div class="screen" id="screen-profile">
   <div class="profile-hdr">
-    <div class="cony-svg" style="width:68px;height:68px;background-color:transparent;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;box-shadow:var(--shadow);" id="profile-avatar"></div>
+    <img src="/images/cony-smile.png" class="cony-img" style="width:68px;height:68px;margin:0 auto 10px;" id="profile-avatar">
     <p style="font-size:20px;font-weight:900;color:#4A413D;" id="profile-name">-</p>
     <p style="font-size:12px;color:#9A8F8B;margin-top:3px;" id="profile-age">-</p>
   </div>
@@ -1347,7 +1345,7 @@ function renderHome(){
   const ha = document.getElementById('home-avatar');
   if(S.profile.emoji==='🦄') {
       ha.textContent='';
-      ha.innerHTML='<div class="cony-svg" style="width:24px;height:24px;"></div>';
+      ha.innerHTML='<img src="/images/cony-side.png" class="cony-img" style="width:24px;height:24px;">';
   } else {
       ha.innerHTML='';
       ha.textContent=S.profile.emoji;
@@ -1729,7 +1727,7 @@ const TIPS={'아침 식후':'지용성 비타민은 아침 식사 후가 최적 
 const TICN={'아침 식후':'🌅','점심 식후':'☀️','저녁 식후':'🌙','취침 전':'😴','식사 무관':'⏰'};
 function renderSchedule(){
   const body=document.getElementById('schedule-body');
-  if(!S.supplements.length){body.innerHTML='<div style="text-align:center;padding:40px 20px;"><div class="cony-svg" style="width:56px;height:56px;margin:0 auto 10px;background-color:transparent;"></div><p style="font-size:13px;color:var(--text-sub);">라벨 스캔으로 영양제를 추가해봐요!</p></div>';return;}
+  if(!S.supplements.length){body.innerHTML='<div style="text-align:center;padding:40px 20px;"><img src="/images/cony-question.png" class="cony-img" style="width:72px;height:72px;margin:0 auto 10px;"><p style="font-size:13px;color:var(--text-sub);">라벨 스캔으로 영양제를 추가해봐요!</p></div>';return;}
   const t=today();if(!S.dailyLog[t])S.dailyLog[t]={};
   let html='';const bt={};
   S.supplements.forEach(s=>{if(!bt[s.timing])bt[s.timing]=[];bt[s.timing].push(s);});
@@ -1755,7 +1753,7 @@ function renderInsights(){
   const body=document.getElementById('insights-body');
   const a=getA();const total=a.scans.length;
   if(!total){
-    body.innerHTML=`<div style="padding:16px;"><div class="cony-row"><div class="cavatar" style="font-size:20px;">&#129412;</div><div class="bubble" style="font-size:12px;">아직 데이터가 없어요!<br>라벨 스캔을 하면 여기에 패턴이 쌓여요 📊</div></div><div style="text-align:center;padding:30px 0;"><div class="cony-svg" style="width:56px;height:56px;margin:0 auto 10px;background-color:transparent;"></div><p style="font-size:13px;color:var(--text-sub);">스캔할수록 인사이트가 쌓여요!</p></div><button class="btn-p" onclick="showScreen('scan')" style="margin-top:8px;">📸 라벨 스캔하러 가기</button></div>`;
+    body.innerHTML=`<div style="padding:16px;"><div class="cony-row"><div class="cavatar" style="font-size:20px;">&#129412;</div><div class="bubble" style="font-size:12px;">아직 데이터가 없어요!<br>라벨 스캔을 하면 여기에 패턴이 쌓여요 📊</div></div><div style="text-align:center;padding:30px 0;"><img src="/images/cony-read.png" class="cony-img" style="width:72px;height:72px;margin:0 auto 10px;"><p style="font-size:13px;color:var(--text-sub);">스캔할수록 인사이트가 쌓여요!</p></div><button class="btn-p" onclick="showScreen('scan')" style="margin-top:8px;">📸 라벨 스캔하러 가기</button></div>`;
     return;
   }
   const defTop=Object.entries(a.deficiencies).sort((x,y)=>y[1]-x[1]).slice(0,3);
@@ -1801,13 +1799,16 @@ function renderProfile(){
   const ref=getRef();
   const pa = document.getElementById('profile-avatar');
   if(S.profile.emoji==='🦄') {
+      pa.src='/images/cony-smile.png';
+      pa.className='cony-img';
+      pa.style.cssText='width:68px;height:68px;margin:0 auto 10px;display:block;';
       pa.textContent='';
-      pa.className='cony-svg';
-      pa.style.cssText='width:68px;height:68px;background-color:transparent;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;box-shadow:none;';
   } else {
-      pa.className='';
-      pa.style.cssText='width:68px;height:68px;background:var(--card);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 10px;box-shadow:var(--shadow);';
-      pa.textContent=S.profile.emoji;
+      // emoji일 때는 img 대신 span으로 교체
+      const span = document.createElement('span');
+      span.style.cssText='width:68px;height:68px;background:var(--card);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 10px;box-shadow:var(--shadow);';
+      span.textContent=S.profile.emoji;
+      pa.parentNode.replaceChild(span, pa);
   }
   // 생년월일이 있으면 정확한 개월수, 없으면 범위 라벨 표시
   const exactMonths = S.profile.birthdate ? calcMonthsFromBirthdate(S.profile.birthdate) : S.profile.months;
