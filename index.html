@@ -88,9 +88,9 @@
 }
 </script>
 <style>
-:root{--primary:#FFB3A7;--primary-dark:#FF8C7A;--primary-light:#FFF0EE;--mint:#88D8C0;--mint-light:#E8F8F3;--yellow:#FFEAA7;--yellow-light:#FFFBEC;--bg:#FDFCF8;--card:#FFFFFF;--text:#4A413D;--text-sub:#9A8F8B;--text-hint:#C9C0BC;--ok-bg:#E8F8F3;--warn-bg:#FFFBEC;--bad:#FF8C7A;--bad-bg:#FFF0EE;--radius:22px;--radius-sm:14px;--shadow:0 4px 20px rgba(74,65,61,0.08);--shadow-sm:0 2px 12px rgba(74,65,61,0.06);--shadow-p:0 6px 24px rgba(255,179,167,0.35);}
+:root{--primary:#F3A59B;--primary-dark:#E8847A;--primary-light:#FEF2F1;--mint:#C8E1D4;--mint-light:#EBF6F2;--yellow:#F3D68A;--yellow-light:#FBF7E8;--bg:#FFF9F4;--card:#FFFFFF;--text:#62534D;--text-sub:#9A8F8B;--text-hint:#C9C0BC;--ok-bg:#EBF6F2;--warn-bg:#FBF7E8;--bad:#E8847A;--bad-bg:#FEF2F1;--radius:22px;--radius-sm:14px;--shadow:0 4px 20px rgba(98,83,77,0.08);--shadow-sm:0 2px 12px rgba(98,83,77,0.06);--shadow-p:0 6px 24px rgba(243,165,155,0.35);}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-html,body{height:100%;background:#F5E6E0;font-family:-apple-system,'Pretendard','Apple SD Gothic Neo',sans-serif;}
+html,body{height:100%;background:#FFF9F4;font-family:-apple-system,'Pretendard','Apple SD Gothic Neo',sans-serif;}
 
 /* 뉴니콘 코니 캐릭터 이미지 공통 스타일 */
 .cony-img {
@@ -101,7 +101,7 @@ html,body{height:100%;background:#F5E6E0;font-family:-apple-system,'Pretendard',
 .pc-wrapper{display:flex;align-items:center;justify-content:center;gap:64px;min-height:100vh;padding:24px;}
 .pc-side{display:none;flex-direction:column;max-width:300px;}
 @media(min-width:900px){.pc-side{display:flex;}}
-.pc-side h1{font-size:34px;font-weight:800;color:#4A413D;line-height:1.2;margin-bottom:12px;}
+.pc-side h1{font-size:34px;font-weight:800;color:#62534D;line-height:1.2;margin-bottom:12px;}
 .pc-side h1 span{color:var(--primary-dark);}
 .pc-side p{font-size:14px;color:var(--text-sub);line-height:1.7;margin-bottom:28px;}
 .pc-feat{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;}
@@ -109,7 +109,7 @@ html,body{height:100%;background:#F5E6E0;font-family:-apple-system,'Pretendard',
 .pc-feat h3{font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;}
 .pc-feat p{font-size:12px;color:var(--text-sub);line-height:1.4;margin-bottom:0;}
 
-.app-shell{width:390px;height:844px;flex-shrink:0;position:relative;overflow:hidden;background:var(--bg);box-shadow:0 24px 64px rgba(74,65,61,0.2);border-radius:44px;}
+.app-shell{width:390px;height:844px;flex-shrink:0;position:relative;overflow:hidden;background:var(--bg);box-shadow:0 24px 64px rgba(98,83,77,0.2);border-radius:44px;}
 
 /* 모바일 화면 완벽 대응 (화면 붕 뜨는 현상 제거) */
 @media(max-width:768px){
@@ -134,7 +134,7 @@ html,body{height:100%;background:#F5E6E0;font-family:-apple-system,'Pretendard',
 
 /* 모바일 상단 노치 영역 대응 */
 .hbar{background:var(--card);padding:calc(16px + env(safe-area-inset-top)) 18px 12px;border-radius:0 0 22px 22px;box-shadow:var(--shadow-sm);flex-shrink:0;z-index:2;}
-.profile-hdr{background:linear-gradient(160deg,#FFD4CC 0%,#FFEAA7 100%);padding:calc(28px + env(safe-area-inset-top)) 18px 22px;text-align:center;flex-shrink:0;}
+.profile-hdr{background:linear-gradient(160deg,#F9D0CA 0%,#F3D68A 100%);padding:calc(28px + env(safe-area-inset-top)) 18px 22px;text-align:center;flex-shrink:0;}
 
 .htitle{font-size:17px;font-weight:800;color:var(--text);}
 .hback{display:flex;align-items:center;gap:10px;}
@@ -148,15 +148,15 @@ html,body{height:100%;background:#F5E6E0;font-family:-apple-system,'Pretendard',
 .tok{background:var(--ok-bg);color:#2E9E84;}
 .twarn{background:var(--warn-bg);color:#C8920A;}
 .tbad{background:var(--bad-bg);color:#D45A4A;}
-input[type=text],input[type=number],input[type=email],select{width:100%;padding:11px 14px;border:none;border-radius:var(--radius-sm);font-size:14px;color:var(--text);background:var(--bg);outline:none;box-shadow:inset 0 2px 6px rgba(74,65,61,0.06);appearance:none;}
-input:focus,select:focus{box-shadow:inset 0 2px 6px rgba(74,65,61,0.06),0 0 0 2.5px var(--primary);}
+input[type=text],input[type=number],input[type=email],select{width:100%;padding:11px 14px;border:none;border-radius:var(--radius-sm);font-size:14px;color:var(--text);background:var(--bg);outline:none;box-shadow:inset 0 2px 6px rgba(98,83,77,0.06);appearance:none;}
+input:focus,select:focus{box-shadow:inset 0 2px 6px rgba(98,83,77,0.06),0 0 0 2.5px var(--primary);}
 .flabel{display:block;font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:5px;}
 .field{margin-bottom:13px;}
 .pbar{height:7px;background:var(--bg);border-radius:4px;overflow:hidden;}
 .pbar-f{height:100%;border-radius:4px;transition:width 0.6s cubic-bezier(.4,0,.2,1);}
-#toast{position:absolute;bottom:96px;left:50%;transform:translateX(-50%) translateY(16px);background:rgba(74,65,61,0.9);color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:all 0.3s;white-space:nowrap;z-index:999;}
+#toast{position:absolute;bottom:96px;left:50%;transform:translateX(-50%) translateY(16px);background:rgba(98,83,77,0.9);color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:all 0.3s;white-space:nowrap;z-index:999;}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-.bnav{background:var(--card);border-radius:22px 22px 0 0;box-shadow:0 -4px 20px rgba(74,65,61,0.08);display:flex;padding:8px 0 calc(18px + env(safe-area-inset-bottom));flex-shrink:0;z-index:2;}
+.bnav{background:var(--card);border-radius:22px 22px 0 0;box-shadow:0 -4px 20px rgba(98,83,77,0.08);display:flex;padding:8px 0 calc(18px + env(safe-area-inset-bottom));flex-shrink:0;z-index:2;}
 .ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:4px 0;}
 .ni-icon{font-size:20px;}
 .ni-label{font-size:9px;color:var(--text-hint);font-weight:600;}
@@ -169,7 +169,7 @@ input:focus,select:focus{box-shadow:inset 0 2px 6px rgba(74,65,61,0.06),0 0 0 2.
 .age-btn.selected{background:var(--primary);color:#fff;box-shadow:var(--shadow-p);}
 .age-btn.hl{background:var(--yellow);color:#8B6200;}
 .age-btn.hl.selected{background:var(--primary);color:#fff;}
-.supp-item{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid rgba(74,65,61,0.06);}
+.supp-item{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid rgba(98,83,77,0.06);}
 .supp-item:last-child{border-bottom:none;}
 .savatar{width:42px;height:42px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:var(--shadow-sm);}
 .chkbtn{width:28px;height:28px;border-radius:50%;border:2px solid var(--text-hint);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
@@ -185,8 +185,8 @@ input:focus,select:focus{box-shadow:inset 0 2px 6px rgba(74,65,61,0.06),0 0 0 2.
 .chat-bubble{max-width:75%;padding:11px 14px;border-radius:18px;font-size:13px;line-height:1.6;}
 .chat-msg.ai .chat-bubble{background:var(--card);color:var(--text);border-radius:3px 18px 18px 18px;box-shadow:var(--shadow-sm);}
 .chat-msg.user .chat-bubble{background:var(--primary);color:#fff;border-radius:18px 3px 18px 18px;}
-.chat-input-row{display:flex;gap:8px;padding:10px 14px 20px;background:var(--card);border-top:1px solid rgba(74,65,61,0.06);flex-shrink:0;}
-.chat-input{flex:1;padding:10px 14px;border:none;border-radius:20px;font-size:14px;background:var(--bg);outline:none;box-shadow:inset 0 2px 6px rgba(74,65,61,0.06);}
+.chat-input-row{display:flex;gap:8px;padding:10px 14px 20px;background:var(--card);border-top:1px solid rgba(98,83,77,0.06);flex-shrink:0;}
+.chat-input{flex:1;padding:10px 14px;border:none;border-radius:20px;font-size:14px;background:var(--bg);outline:none;box-shadow:inset 0 2px 6px rgba(98,83,77,0.06);}
 .chat-send{width:38px;height:38px;border-radius:50%;background:var(--primary);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .chat-send svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;}
 .quota-bar{background:var(--primary-light);padding:8px 14px;display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:700;color:var(--primary-dark);flex-shrink:0;}
@@ -194,23 +194,23 @@ input:focus,select:focus{box-shadow:inset 0 2px 6px rgba(74,65,61,0.06),0 0 0 2.
 .typing-dots span:nth-child(2){animation-delay:0.2s;}
 .typing-dots span:nth-child(3){animation-delay:0.4s;}
 @keyframes dot{0%,80%,100%{transform:translateY(0);}40%{transform:translateY(-6px);}}
-.paywall{background:linear-gradient(135deg,#FFF0EE,#FFFBEC);border-radius:var(--radius);padding:20px;text-align:center;margin:12px;}
+.paywall{background:linear-gradient(135deg,#FEF2F1,#FBF7E8);border-radius:var(--radius);padding:20px;text-align:center;margin:12px;}
 /* Modals */
-.modal-overlay{position:absolute;inset:0;background:rgba(74,65,61,0.4);display:flex;align-items:flex-end;z-index:100;opacity:0;pointer-events:none;transition:opacity 0.25s;}
+.modal-overlay{position:absolute;inset:0;background:rgba(98,83,77,0.4);display:flex;align-items:flex-end;z-index:100;opacity:0;pointer-events:none;transition:opacity 0.25s;}
 .modal-overlay.open{opacity:1;pointer-events:all;}
 .modal-sheet{background:var(--card);border-radius:26px 26px 0 0;padding:18px 20px calc(36px + env(safe-area-inset-bottom));width:100%;transform:translateY(100%);transition:transform 0.3s cubic-bezier(.4,0,.2,1);}
 .modal-overlay.open .modal-sheet{transform:translateY(0);}
-.mhandle{width:36px;height:4px;background:rgba(74,65,61,0.15);border-radius:2px;margin:0 auto 18px;}
+.mhandle{width:36px;height:4px;background:rgba(98,83,77,0.15);border-radius:2px;margin:0 auto 18px;}
 .ob-deco{position:absolute;border-radius:50%;opacity:0.2;pointer-events:none;}
 
 /* 생년월일 날짜 입력 */
 input[type=date] {
   width:100%;
   padding:14px 16px;
-  border:2px solid #FFB3A7;
+  border:2px solid #F3A59B;
   border-radius:16px;
   font-size:16px;
-  color:#4A413D;
+  color:#62534D;
   background:white;
   outline:none;
   cursor:pointer;
@@ -219,16 +219,16 @@ input[type=date] {
   appearance:none;
 }
 input[type=date]:focus {
-  border-color:#FF8C7A;
+  border-color:#E8847A;
   box-shadow:0 0 0 3px rgba(255,179,167,0.25);
 }
 input[type=date]::-webkit-calendar-picker-indicator {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23FF8C7A' stroke-width='2'%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23E8847A' stroke-width='2'%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E");
   cursor:pointer;
   opacity:1;
   padding:2px;
 }
-.sr{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(74,65,61,0.06);cursor:pointer;}
+.sr{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(98,83,77,0.06);cursor:pointer;}
 .sr:last-child{border-bottom:none;}
 
 @keyframes floatCony {
@@ -236,7 +236,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   50%      { transform: translateY(-8px); }
 }
 
-.beta-badge{display:inline-flex;align-items:center;padding:2px 8px;background:linear-gradient(135deg,#FF8C7A,#C5B8FF);border-radius:20px;font-size:10px;font-weight:800;color:white;letter-spacing:0.04em;vertical-align:middle;margin-left:5px;}
+.beta-badge{display:inline-flex;align-items:center;padding:2px 8px;background:linear-gradient(135deg,#E8847A,#C8B7EE);border-radius:20px;font-size:10px;font-weight:800;color:white;letter-spacing:0.04em;vertical-align:middle;margin-left:5px;}
 .star-row{display:flex;gap:8px;justify-content:center;margin:12px 0;}
 .star-btn{font-size:28px;background:none;border:none;cursor:pointer;opacity:0.3;transition:all 0.15s;padding:2px;}
 .star-btn.on{opacity:1;transform:scale(1.15);}
@@ -271,7 +271,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 <div class="pc-wrapper">
 <div class="pc-side">
   <img src="/images/cony-face.png" class="cony-img" style="width:48px;height:48px;margin-bottom:14px;">
-  <h1 style="font-size:34px;font-weight:800;color:#4A413D;line-height:1.2;margin-bottom:12px;">우리 아이<br><span style="color:var(--primary-dark);">영양제</span>를<br>똑똑하게</h1>
+  <h1 style="font-size:34px;font-weight:800;color:#62534D;line-height:1.2;margin-bottom:12px;">우리 아이<br><span style="color:var(--primary-dark);">영양제</span>를<br>똑똑하게</h1>
   <p>영양정보 라벨을 찍으면 나이에 딱 맞는 분석을 해드려요. 영양제 라벨을 찍으면 나이에 딱 맞는 분석을 해드려요. AI 코니에게 무엇이든 물어보세요 🦄</p>
   <div class="pc-feat"><div class="pc-feat-icon">📸</div><div><h2 style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">라벨 사진 스캔</h2><p>영양성분표를 찍으면 성분을 자동 분석해요</p></div></div>
   <div class="pc-feat"><div class="pc-feat-icon">💬</div><div><h2 style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">AI 코니 상담</h2><p>병용 금기, 복용 시간, 권장량 뭐든 물어봐요</p></div></div>
@@ -282,49 +282,49 @@ input[type=date]::-webkit-calendar-picker-indicator {
 <div class="app-shell" id="app">
 
 <!-- ══ STEP 1: 웰컴 화면 ══ -->
-<div class="screen active" id="screen-ob" style="background:linear-gradient(175deg,#FFF0EE 0%,#FFFBEC 60%,#EDE9FF 100%);display:flex;flex-direction:column;overflow:hidden;">
+<div class="screen active" id="screen-ob" style="background:linear-gradient(175deg,#FEF2F1 0%,#FBF7E8 60%,#EDE7FC 100%);display:flex;flex-direction:column;overflow:hidden;">
   <!-- 배경 데코 -->
-  <div class="ob-deco" style="width:200px;height:200px;background:#FFB3A7;top:-80px;right:-60px;"></div>
-  <div class="ob-deco" style="width:120px;height:120px;background:#88D8C0;bottom:120px;left:-30px;"></div>
-  <div class="ob-deco" style="width:80px;height:80px;background:#C5B8FF;top:30%;right:-20px;"></div>
+  <div class="ob-deco" style="width:200px;height:200px;background:#F3A59B;top:-80px;right:-60px;"></div>
+  <div class="ob-deco" style="width:120px;height:120px;background:#C8E1D4;bottom:120px;left:-30px;"></div>
+  <div class="ob-deco" style="width:80px;height:80px;background:#C8B7EE;top:30%;right:-20px;"></div>
 
   <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top)+24px) 28px 0;position:relative;text-align:center;">
 
     <!-- 코니 캐릭터 -->
     <div style="position:relative;margin-bottom:14px;">
-      <img src="/images/cony-face.png" class="cony-img" style="width:100px;height:100px;filter:drop-shadow(0 8px 20px rgba(255,140,122,0.35));animation:floatCony 3s ease-in-out infinite;">
+      <img src="/images/cony-face.png" class="cony-img" style="width:100px;height:100px;filter:drop-shadow(0 8px 20px rgba(243,165,155,0.35));animation:floatCony 3s ease-in-out infinite;">
       <!-- 말풍선 -->
-      <div style="position:absolute;top:-10px;right:-70px;background:white;border-radius:14px 14px 14px 3px;padding:7px 11px;box-shadow:0 4px 14px rgba(74,65,61,0.12);white-space:nowrap;">
-        <p style="font-size:11px;font-weight:700;color:#4A413D;margin:0;">안녕! 나는 코니야 🦄</p>
+      <div style="position:absolute;top:-10px;right:-70px;background:white;border-radius:14px 14px 14px 3px;padding:7px 11px;box-shadow:0 4px 14px rgba(98,83,77,0.12);white-space:nowrap;">
+        <p style="font-size:11px;font-weight:700;color:#62534D;margin:0;">안녕! 나는 코니야 🦄</p>
       </div>
     </div>
 
     <!-- 메인 헤드라인 -->
-    <h1 style="font-size:28px;font-weight:900;color:#4A413D;line-height:1.25;margin:0 0 10px;letter-spacing:-0.5px;">
-      우리 아이 영양제<br><span style="background:linear-gradient(90deg,#FF8C7A,#C5B8FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">코니가 딱 맞게</span><br>분석해줄게요
+    <h1 style="font-size:28px;font-weight:900;color:#62534D;line-height:1.25;margin:0 0 10px;letter-spacing:-0.5px;">
+      우리 아이 영양제<br><span style="background:linear-gradient(90deg,#E8847A,#C8B7EE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">코니가 딱 맞게</span><br>분석해줄게요
     </h1>
     <p style="font-size:13px;color:#9A8F8B;margin:0 0 24px;line-height:1.6;">생년월일만 알려주면<br>나머지는 코니가 다 해줄게요 ✨</p>
 
     <!-- 가치 3가지 -->
     <div style="width:100%;max-width:310px;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
-      <div style="display:flex;align-items:center;gap:12px;background:white;border-radius:16px;padding:12px 16px;box-shadow:0 2px 12px rgba(74,65,61,0.07);">
-        <div style="width:38px;height:38px;background:#FFF0EE;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">📸</div>
-        <div style="text-align:left;"><p style="font-size:13px;font-weight:800;color:#4A413D;margin:0;">라벨 사진 한 장이면 끝</p><p style="font-size:11px;color:#9A8F8B;margin:2px 0 0;">성분 자동 분석 + 안전 체크</p></div>
+      <div style="display:flex;align-items:center;gap:12px;background:white;border-radius:16px;padding:12px 16px;box-shadow:0 2px 12px rgba(98,83,77,0.07);">
+        <div style="width:38px;height:38px;background:#FEF2F1;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">📸</div>
+        <div style="text-align:left;"><p style="font-size:13px;font-weight:800;color:#62534D;margin:0;">라벨 사진 한 장이면 끝</p><p style="font-size:11px;color:#9A8F8B;margin:2px 0 0;">성분 자동 분석 + 안전 체크</p></div>
       </div>
-      <div style="display:flex;align-items:center;gap:12px;background:white;border-radius:16px;padding:12px 16px;box-shadow:0 2px 12px rgba(74,65,61,0.07);">
-        <div style="width:38px;height:38px;background:#EDE9FF;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">💬</div>
-        <div style="text-align:left;"><p style="font-size:13px;font-weight:800;color:#4A413D;margin:0;">24시간 AI 코니 상담</p><p style="font-size:11px;color:#9A8F8B;margin:2px 0 0;">병용 금기 · 복용 시간 · 권장량</p></div>
+      <div style="display:flex;align-items:center;gap:12px;background:white;border-radius:16px;padding:12px 16px;box-shadow:0 2px 12px rgba(98,83,77,0.07);">
+        <div style="width:38px;height:38px;background:#EDE7FC;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">💬</div>
+        <div style="text-align:left;"><p style="font-size:13px;font-weight:800;color:#62534D;margin:0;">24시간 AI 코니 상담</p><p style="font-size:11px;color:#9A8F8B;margin:2px 0 0;">병용 금기 · 복용 시간 · 권장량</p></div>
       </div>
-      <div style="display:flex;align-items:center;gap:12px;background:white;border-radius:16px;padding:12px 16px;box-shadow:0 2px 12px rgba(74,65,61,0.07);">
-        <div style="width:38px;height:38px;background:#E8F8F3;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🏥</div>
-        <div style="text-align:left;"><p style="font-size:13px;font-weight:800;color:#4A413D;margin:0;">한국인 영양소 섭취기준 적용</p><p style="font-size:11px;color:#9A8F8B;margin:2px 0 0;">보건복지부 · 한국영양학회 기준</p></div>
+      <div style="display:flex;align-items:center;gap:12px;background:white;border-radius:16px;padding:12px 16px;box-shadow:0 2px 12px rgba(98,83,77,0.07);">
+        <div style="width:38px;height:38px;background:#EBF6F2;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🏥</div>
+        <div style="text-align:left;"><p style="font-size:13px;font-weight:800;color:#62534D;margin:0;">한국인 영양소 섭취기준 적용</p><p style="font-size:11px;color:#9A8F8B;margin:2px 0 0;">보건복지부 · 한국영양학회 기준</p></div>
       </div>
     </div>
   </div>
 
   <!-- 하단 CTA -->
   <div style="padding:0 24px calc(env(safe-area-inset-bottom)+20px);flex-shrink:0;">
-    <button onclick="showObStep2()" style="width:100%;background:linear-gradient(135deg,#FF8C7A,#C5B8FF);color:white;border:none;border-radius:22px;padding:17px;font-size:17px;font-weight:800;cursor:pointer;box-shadow:0 6px 24px rgba(255,140,122,0.4);letter-spacing:-0.3px;">
+    <button onclick="showObStep2()" style="width:100%;background:linear-gradient(135deg,#E8847A,#C8B7EE);color:white;border:none;border-radius:22px;padding:17px;font-size:17px;font-weight:800;cursor:pointer;box-shadow:0 6px 24px rgba(243,165,155,0.4);letter-spacing:-0.3px;">
       우리 아이 분석 시작하기 →
     </button>
     <p style="text-align:center;font-size:11px;color:#C9C0BC;margin:10px 0 0;">무료 · 30초면 완료</p>
@@ -332,17 +332,17 @@ input[type=date]::-webkit-calendar-picker-indicator {
 </div>
 
 <!-- ══ STEP 2: 정보 입력 ══ -->
-<div class="screen" id="screen-ob2" style="background:linear-gradient(160deg,#FFF0EE,#FFFBEC);display:flex;flex-direction:column;">
-  <div class="ob-deco" style="width:120px;height:120px;background:#FFB3A7;top:-40px;right:-20px;"></div>
-  <div class="ob-deco" style="width:70px;height:70px;background:#88D8C0;bottom:100px;left:-15px;"></div>
+<div class="screen" id="screen-ob2" style="background:linear-gradient(160deg,#FEF2F1,#FBF7E8);display:flex;flex-direction:column;">
+  <div class="ob-deco" style="width:120px;height:120px;background:#F3A59B;top:-40px;right:-20px;"></div>
+  <div class="ob-deco" style="width:70px;height:70px;background:#C8E1D4;bottom:100px;left:-15px;"></div>
 
   <!-- 상단 뒤로가기 + 진행 표시 -->
   <div style="display:flex;align-items:center;gap:12px;padding:calc(env(safe-area-inset-top)+14px) 20px 10px;flex-shrink:0;">
-    <button onclick="showScreen('ob')" class="bbtn"><svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#4A413D;fill:none;stroke-width:2.5;stroke-linecap:round;"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <button onclick="showScreen('ob')" class="bbtn"><svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#62534D;fill:none;stroke-width:2.5;stroke-linecap:round;"><polyline points="15 18 9 12 15 6"/></svg></button>
     <div style="flex:1;height:5px;background:#FFE0D9;border-radius:3px;overflow:hidden;">
-      <div style="width:100%;height:100%;background:linear-gradient(90deg,#FF8C7A,#C5B8FF);border-radius:3px;"></div>
+      <div style="width:100%;height:100%;background:linear-gradient(90deg,#E8847A,#C8B7EE);border-radius:3px;"></div>
     </div>
-    <span style="font-size:11px;font-weight:700;color:#FF8C7A;">2 / 2</span>
+    <span style="font-size:11px;font-weight:700;color:#E8847A;">2 / 2</span>
   </div>
 
   <div style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:6px 24px 10px;position:relative;">
@@ -350,8 +350,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
     <!-- 코니 말풍선 -->
     <div style="display:flex;align-items:flex-end;gap:8px;margin-bottom:18px;">
       <div class="cavatar" style="width:34px;height:34px;flex-shrink:0;overflow:hidden;"><img src="/images/cony-face.png" class="cony-img" style="width:100%;height:100%;object-fit:contain;"></div>
-      <div style="background:white;border-radius:14px 14px 14px 3px;padding:10px 14px;box-shadow:0 2px 10px rgba(74,65,61,0.07);">
-        <p style="font-size:13px;font-weight:700;color:#4A413D;margin:0 0 3px;">거의 다 왔어! 🎉</p>
+      <div style="background:white;border-radius:14px 14px 14px 3px;padding:10px 14px;box-shadow:0 2px 10px rgba(98,83,77,0.07);">
+        <p style="font-size:13px;font-weight:700;color:#62534D;margin:0 0 3px;">거의 다 왔어! 🎉</p>
         <p style="font-size:11px;color:#9A8F8B;margin:0;line-height:1.5;">아이 정보를 알면 딱 맞는<br>영양 가이드를 드릴 수 있어요!</p>
       </div>
     </div>
@@ -367,43 +367,43 @@ input[type=date]::-webkit-calendar-picker-indicator {
         <label class="flabel" style="margin-bottom:5px;">🎂 생년월일</label>
         <div style="display:grid;grid-template-columns:2.2fr 1fr 1fr;gap:8px;">
           <div style="position:relative;">
-            <select id="ob-year" onchange="updateOBAge()" style="width:100%;padding:14px 12px;border:none;border-radius:14px;font-size:14px;font-weight:700;color:#4A413D;background:#FFF0EE;outline:none;cursor:pointer;font-family:inherit;appearance:none;-webkit-appearance:none;">
+            <select id="ob-year" onchange="updateOBAge()" style="width:100%;padding:14px 12px;border:none;border-radius:14px;font-size:14px;font-weight:700;color:#62534D;background:#FEF2F1;outline:none;cursor:pointer;font-family:inherit;appearance:none;-webkit-appearance:none;">
               <option value="">년도</option>
             </select>
-            <span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);pointer-events:none;font-size:10px;color:#FF8C7A;">▼</span>
+            <span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);pointer-events:none;font-size:10px;color:#E8847A;">▼</span>
           </div>
           <div style="position:relative;">
-            <select id="ob-month" onchange="updateOBAge()" style="width:100%;padding:14px 8px;border:none;border-radius:14px;font-size:14px;font-weight:700;color:#4A413D;background:#FFF0EE;outline:none;cursor:pointer;font-family:inherit;appearance:none;-webkit-appearance:none;">
+            <select id="ob-month" onchange="updateOBAge()" style="width:100%;padding:14px 8px;border:none;border-radius:14px;font-size:14px;font-weight:700;color:#62534D;background:#FEF2F1;outline:none;cursor:pointer;font-family:inherit;appearance:none;-webkit-appearance:none;">
               <option value="">월</option>
             </select>
-            <span style="position:absolute;right:7px;top:50%;transform:translateY(-50%);pointer-events:none;font-size:10px;color:#FF8C7A;">▼</span>
+            <span style="position:absolute;right:7px;top:50%;transform:translateY(-50%);pointer-events:none;font-size:10px;color:#E8847A;">▼</span>
           </div>
           <div style="position:relative;">
-            <select id="ob-day" onchange="updateOBAge()" style="width:100%;padding:14px 8px;border:none;border-radius:14px;font-size:14px;font-weight:700;color:#4A413D;background:#FFF0EE;outline:none;cursor:pointer;font-family:inherit;appearance:none;-webkit-appearance:none;">
+            <select id="ob-day" onchange="updateOBAge()" style="width:100%;padding:14px 8px;border:none;border-radius:14px;font-size:14px;font-weight:700;color:#62534D;background:#FEF2F1;outline:none;cursor:pointer;font-family:inherit;appearance:none;-webkit-appearance:none;">
               <option value="">일</option>
             </select>
-            <span style="position:absolute;right:7px;top:50%;transform:translateY(-50%);pointer-events:none;font-size:10px;color:#FF8C7A;">▼</span>
+            <span style="position:absolute;right:7px;top:50%;transform:translateY(-50%);pointer-events:none;font-size:10px;color:#E8847A;">▼</span>
           </div>
         </div>
-        <div id="ob-age-preview" style="display:none;margin-top:8px;background:linear-gradient(135deg,#FFE5E0,#FFFBEC);border-radius:12px;padding:9px 14px;align-items:center;gap:10px;">
+        <div id="ob-age-preview" style="display:none;margin-top:8px;background:linear-gradient(135deg,#F9E8E6,#FBF7E8);border-radius:12px;padding:9px 14px;align-items:center;gap:10px;">
           <span style="font-size:22px;" id="ob-age-emoji">👶</span>
-          <div><p style="font-size:13px;font-weight:800;color:#4A413D;margin:0;" id="ob-age-text"></p><p style="font-size:11px;color:#9A8F8B;margin:2px 0 0;" id="ob-age-label"></p></div>
+          <div><p style="font-size:13px;font-weight:800;color:#62534D;margin:0;" id="ob-age-text"></p><p style="font-size:11px;color:#9A8F8B;margin:2px 0 0;" id="ob-age-label"></p></div>
         </div>
       </div>
 
       <div>
         <label class="flabel" style="margin-bottom:5px;">👶 성별</label>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-          <button type="button" id="btn-girl" onclick="selectGender('girl')" style="padding:14px;border:2px solid #FFB3A7;border-radius:14px;background:white;font-size:15px;font-weight:700;color:#9A8F8B;cursor:pointer;">👧 여아</button>
-          <button type="button" id="btn-boy" onclick="selectGender('boy')" style="padding:14px;border:2px solid #FFB3A7;border-radius:14px;background:white;font-size:15px;font-weight:700;color:#9A8F8B;cursor:pointer;">👦 남아</button>
+          <button type="button" id="btn-girl" onclick="selectGender('girl')" style="padding:14px;border:2px solid #F3A59B;border-radius:14px;background:white;font-size:15px;font-weight:700;color:#9A8F8B;cursor:pointer;">👧 여아</button>
+          <button type="button" id="btn-boy" onclick="selectGender('boy')" style="padding:14px;border:2px solid #F3A59B;border-radius:14px;background:white;font-size:15px;font-weight:700;color:#9A8F8B;cursor:pointer;">👦 남아</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- 하단 고정 버튼 -->
-  <div style="padding:10px 24px calc(env(safe-area-inset-bottom)+16px);flex-shrink:0;background:linear-gradient(to top,#FFF0EE 80%,transparent);">
-    <button class="btn-p" onclick="completeOB()" style="border-radius:22px;font-size:16px;padding:16px;width:100%;background:linear-gradient(135deg,#FF8C7A,#C5B8FF);box-shadow:0 6px 24px rgba(255,140,122,0.35);">분석 시작! 🎉</button>
+  <div style="padding:10px 24px calc(env(safe-area-inset-bottom)+16px);flex-shrink:0;background:linear-gradient(to top,#FEF2F1 80%,transparent);">
+    <button class="btn-p" onclick="completeOB()" style="border-radius:22px;font-size:16px;padding:16px;width:100%;background:linear-gradient(135deg,#E8847A,#C8B7EE);box-shadow:0 6px 24px rgba(243,165,155,0.35);">분석 시작! 🎉</button>
   </div>
 </div>
 
@@ -414,16 +414,16 @@ input[type=date]::-webkit-calendar-picker-indicator {
   </div>
   <div class="scroll-body">
     <div class="cony-row"><div class="cavatar"><img src="/images/cony-face.png" class="cony-img" style="width:100%;height:100%;object-fit:contain;"></div><div class="bubble" id="home-msg">오늘도 우리 아이 영양 챙겨봐요! 💪</div></div>
-    <div id="baby-banner" style="background:linear-gradient(135deg,#FFE5E0,#FFFBEC);border-radius:var(--radius);padding:12px 14px;margin-bottom:12px;display:none;align-items:center;gap:10px;">
+    <div id="baby-banner" style="background:linear-gradient(135deg,#F9E8E6,#FBF7E8);border-radius:var(--radius);padding:12px 14px;margin-bottom:12px;display:none;align-items:center;gap:10px;">
       <span style="font-size:24px;">👶</span>
-      <div><p style="font-size:13px;font-weight:800;color:#4A413D;">0~24개월 핵심 영양소 집중 관리</p><p style="font-size:11px;color:#9A8F8B;margin-top:2px;">비타민D · 철분 · 오메가3 중점 체크 중</p></div>
+      <div><p style="font-size:13px;font-weight:800;color:#62534D;">0~24개월 핵심 영양소 집중 관리</p><p style="font-size:11px;color:#9A8F8B;margin-top:2px;">비타민D · 철분 · 오메가3 중점 체크 중</p></div>
     </div>
-    <div style="background:linear-gradient(135deg,#FFB3A7,#FFEAA7);border-radius:var(--radius);padding:18px;margin-bottom:12px;position:relative;overflow:hidden;box-shadow:var(--shadow-p);">
+    <div style="background:linear-gradient(135deg,#F3A59B,#F3D68A);border-radius:var(--radius);padding:18px;margin-bottom:12px;position:relative;overflow:hidden;box-shadow:var(--shadow-p);">
       <div style="position:absolute;right:-10px;top:-10px;font-size:60px;opacity:0.15;">🌟</div>
-      <p style="font-size:11px;color:rgba(74,65,61,0.65);margin-bottom:4px;font-weight:700;">오늘의 영양 달성률</p>
+      <p style="font-size:11px;color:rgba(98,83,77,0.65);margin-bottom:4px;font-weight:700;">오늘의 영양 달성률</p>
       <div style="display:flex;align-items:flex-end;justify-content:space-between;">
-        <p style="font-size:36px;font-weight:900;color:#4A413D;" id="home-pct">0%</p>
-        <div style="font-size:11px;color:rgba(74,65,61,0.6);font-weight:700;" id="home-pct-d"></div>
+        <p style="font-size:36px;font-weight:900;color:#62534D;" id="home-pct">0%</p>
+        <div style="font-size:11px;color:rgba(98,83,77,0.6);font-weight:700;" id="home-pct-d"></div>
       </div>
       <div style="margin-top:10px;height:7px;background:rgba(255,255,255,0.35);border-radius:4px;overflow:hidden;"><div id="home-pbar" style="height:100%;background:white;border-radius:4px;transition:width 0.6s;width:0%;"></div></div>
     </div>
@@ -431,13 +431,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
       <button onclick="showScreen('scan')" style="background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);padding:14px 10px;font-size:12px;font-weight:700;cursor:pointer;box-shadow:var(--shadow-p);display:flex;flex-direction:column;align-items:center;gap:5px;">
         <span style="font-size:26px;">📸</span>라벨 스캔
       </button>
-      <button onclick="showScreen('chat')" style="background:linear-gradient(135deg,#EDE9FF,#E8F8F3);color:#5B4DCC;border:none;border-radius:var(--radius-sm);padding:14px 10px;font-size:12px;font-weight:700;cursor:pointer;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;gap:5px;">
+      <button onclick="showScreen('chat')" style="background:linear-gradient(135deg,#EDE7FC,#EBF6F2);color:#7B6DBB;border:none;border-radius:var(--radius-sm);padding:14px 10px;font-size:12px;font-weight:700;cursor:pointer;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;gap:5px;">
         <span style="font-size:26px;">💬</span>AI 상담
       </button>
     </div>
     <!-- ✅ 신뢰 뱃지 — KDRIs 기준 + 약사 검수 (파스텔톤) -->
     <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
-      <div style="background:linear-gradient(135deg,#E8F8F3,#FFFBEC);border-radius:20px;
+      <div style="background:linear-gradient(135deg,#EBF6F2,#FBF7E8);border-radius:20px;
                   padding:8px 13px;display:flex;align-items:center;gap:6px;
                   border:1px solid #B8E8D5;box-shadow:0 2px 8px rgba(136,216,192,0.2);">
         <span style="font-size:15px;">🏥</span>
@@ -445,11 +445,11 @@ input[type=date]::-webkit-calendar-picker-indicator {
           보건복지부·한국영양학회<br>KDRIs 기준 적용
         </span>
       </div>
-      <div style="background:linear-gradient(135deg,#EDE9FF,#FFF0EE);border-radius:20px;
+      <div style="background:linear-gradient(135deg,#EDE7FC,#FEF2F1);border-radius:20px;
                   padding:8px 13px;display:flex;align-items:center;gap:6px;
                   border:1px solid #D5CFFF;box-shadow:0 2px 8px rgba(197,184,255,0.2);">
         <span style="font-size:15px;">💊</span>
-        <span style="font-size:10px;font-weight:700;color:#5B4DCC;line-height:1.4;">약사 검수 완료</span>
+        <span style="font-size:10px;font-weight:700;color:#7B6DBB;line-height:1.4;">약사 검수 완료</span>
       </div>
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
@@ -565,7 +565,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   </div>
   <div class="scroll-body">
     <div class="cony-row"><div class="cavatar"><img src="/images/cony-face.png" class="cony-img" style="width:100%;height:100%;object-fit:contain;"></div><div class="bubble" id="result-msg">코니가 꼼꼼하게 분석했어요! ✨</div></div>
-    <div class="card" style="display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#FFF0EE,#FFFBEC);box-shadow:none;">
+    <div class="card" style="display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#FEF2F1,#FBF7E8);box-shadow:none;">
       <div id="grade-circle" style="width:56px;height:56px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;flex-shrink:0;box-shadow:var(--shadow);"></div>
       <div><p style="font-size:14px;font-weight:800;color:var(--text);" id="grade-text"></p><p style="font-size:11px;color:var(--text-sub);margin-top:2px;" id="grade-sub"></p></div>
     </div>
@@ -573,7 +573,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     <div class="card" id="result-nutrients" style="padding:14px;"></div>
     <p style="font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:8px;">💬 주의사항</p>
     <div id="result-interactions"></div>
-    <div class="card" style="background:linear-gradient(135deg,#E8F8F3,#FFFBEC);box-shadow:none;" id="result-tips"></div>
+    <div class="card" style="background:linear-gradient(135deg,#EBF6F2,#FBF7E8);box-shadow:none;" id="result-tips"></div>
     <div style="display:flex;gap:8px;margin-top:12px;margin-bottom:20px;">
       <button class="btn-s" style="flex:1;" onclick="showScreen('scan')">다시 입력</button>
       <button class="btn-p" style="flex:2;" onclick="saveToSchedule()">📅 일정에 추가</button>
@@ -609,7 +609,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
           <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/></svg>
           네이버로 1초 가입
         </button>
-        <button id="btn-login-google" onclick="signInWithGoogle()" style="width:100%;border-radius:18px;padding:11px;background:white;color:#4A413D;border:1.5px solid #ddd;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;">
+        <button id="btn-login-google" onclick="signInWithGoogle()" style="width:100%;border-radius:18px;padding:11px;background:white;color:#62534D;border:1.5px solid #ddd;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;">
           <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:16px;height:16px;">구글로 1초 가입
         </button>
       </div>
@@ -662,7 +662,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 <div class="screen" id="screen-profile">
   <div class="profile-hdr">
     <img src="/images/cony-smile.png" class="cony-img" style="width:68px;height:68px;margin:0 auto 10px;" id="profile-avatar">
-    <p style="font-size:20px;font-weight:900;color:#4A413D;" id="profile-name">-</p>
+    <p style="font-size:20px;font-weight:900;color:#62534D;" id="profile-name">-</p>
     <p style="font-size:12px;color:#9A8F8B;margin-top:3px;" id="profile-age">-</p>
   </div>
   <div class="scroll-body">
@@ -733,7 +733,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     <!-- 자유 의견 -->
     <div class="field" style="margin-bottom:14px;">
       <label class="flabel">추가로 하고 싶은 말이 있으면 적어주세요</label>
-      <textarea id="fb-text" rows="3" placeholder="어떤 기능이 있으면 좋겠어요?" style="width:100%;padding:11px 14px;border:none;border-radius:var(--radius-sm);font-size:13px;color:var(--text);background:var(--bg);outline:none;box-shadow:inset 0 2px 6px rgba(74,65,61,0.06);resize:none;font-family:inherit;box-sizing:border-box;"></textarea>
+      <textarea id="fb-text" rows="3" placeholder="어떤 기능이 있으면 좋겠어요?" style="width:100%;padding:11px 14px;border:none;border-radius:var(--radius-sm);font-size:13px;color:var(--text);background:var(--bg);outline:none;box-shadow:inset 0 2px 6px rgba(98,83,77,0.06);resize:none;font-family:inherit;box-sizing:border-box;"></textarea>
     </div>
     <button class="btn-p" id="fb-submit-btn" onclick="submitFeedback()" style="border-radius:20px;">의견 보내기 🚀</button>
     <p style="font-size:10px;color:var(--text-hint);text-align:center;margin-top:8px;">익명으로 전송되며 서비스 개선에만 활용돼요</p>
@@ -788,7 +788,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
           <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/></svg>
           네이버로 1초 가입
         </button>
-        <button id="btn-login-google" onclick="signInWithGoogle()" style="width:100%;border-radius:18px;padding:12px;background:white;color:#4A413D;border:1.5px solid #ddd;box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;gap:8px;font-size:15px;font-weight:600;cursor:pointer;">
+        <button id="btn-login-google" onclick="signInWithGoogle()" style="width:100%;border-radius:18px;padding:12px;background:white;color:#62534D;border:1.5px solid #ddd;box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;gap:8px;font-size:15px;font-weight:600;cursor:pointer;">
           <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:20px;height:20px;">구글로 1초 가입
         </button>
       </div>
@@ -808,12 +808,12 @@ input[type=date]::-webkit-calendar-picker-indicator {
       <label class="flabel" style="margin-bottom:5px;">🎂 아이의 생년월일</label>
       <input type="date" id="ea-birthdate" onchange="previewEAAge()"
         style="width:100%;padding:14px 16px;border:none;border-radius:14px;font-size:16px;font-weight:700;
-               color:#4A413D;background:#FFF0EE;outline:none;cursor:pointer;font-family:inherit;appearance:none;">
+               color:#62534D;background:#FEF2F1;outline:none;cursor:pointer;font-family:inherit;appearance:none;">
     </div>
     <!-- 개월 수 미리보기 -->
     <div id="ea-age-preview" style="display:none;margin-bottom:16px;
-         background:linear-gradient(135deg,#FFE5E0,#FFFBEC);border-radius:12px;padding:12px 16px;">
-      <p style="font-size:14px;font-weight:800;color:#4A413D;margin:0;" id="ea-age-text"></p>
+         background:linear-gradient(135deg,#F9E8E6,#FBF7E8);border-radius:12px;padding:12px 16px;">
+      <p style="font-size:14px;font-weight:800;color:#62534D;margin:0;" id="ea-age-text"></p>
       <p style="font-size:12px;color:#9A8F8B;margin:4px 0 0;" id="ea-age-label"></p>
     </div>
     <button class="btn-p" onclick="saveAge()">저장</button>
@@ -971,7 +971,7 @@ function updateQuotaBadge(){
   const bar=document.getElementById('quota-bar');
   const lim=getLimit();
   bar.innerHTML=`<div style="width:${Math.round((lim-left)/lim*100)}%;height:3px;background:var(--primary);border-radius:2px;transition:width 0.3s;"></div><span style="font-size:10px;color:var(--text-sub);">${S.member?'멤버':'비회원'} · 하루 ${lim}회</span>`;
-  bar.style.cssText='display:flex;align-items:center;gap:10px;padding:6px 14px 4px;background:var(--card);border-bottom:1px solid rgba(74,65,61,0.06);flex-shrink:0;';
+  bar.style.cssText='display:flex;align-items:center;gap:10px;padding:6px 14px 4px;background:var(--card);border-bottom:1px solid rgba(98,83,77,0.06);flex-shrink:0;';
 }
 
 // ===== AI RESPONSES =====
@@ -1273,11 +1273,11 @@ function selectGender(g) {
   const btnBoy = document.getElementById('btn-boy');
   if (!btnGirl || !btnBoy) return;
   if (g === 'girl') {
-    btnGirl.style.cssText = 'padding:14px;border:2.5px solid #FFB3A7;border-radius:14px;background:#FFF0EE;font-size:14px;font-weight:800;color:#FF8C7A;cursor:pointer;transition:all 0.15s;';
-    btnBoy.style.cssText = 'padding:14px;border:2px solid #FFB3A7;border-radius:14px;background:white;font-size:14px;font-weight:700;color:#9A8F8B;cursor:pointer;transition:all 0.15s;';
+    btnGirl.style.cssText = 'padding:14px;border:2.5px solid #F3A59B;border-radius:14px;background:#FEF2F1;font-size:14px;font-weight:800;color:#E8847A;cursor:pointer;transition:all 0.15s;';
+    btnBoy.style.cssText = 'padding:14px;border:2px solid #F3A59B;border-radius:14px;background:white;font-size:14px;font-weight:700;color:#9A8F8B;cursor:pointer;transition:all 0.15s;';
   } else {
-    btnBoy.style.cssText = 'padding:14px;border:2.5px solid #88D8C0;border-radius:14px;background:#E8F8F3;font-size:14px;font-weight:800;color:#2E9E84;cursor:pointer;transition:all 0.15s;';
-    btnGirl.style.cssText = 'padding:14px;border:2px solid #FFB3A7;border-radius:14px;background:white;font-size:14px;font-weight:700;color:#9A8F8B;cursor:pointer;transition:all 0.15s;';
+    btnBoy.style.cssText = 'padding:14px;border:2.5px solid #C8E1D4;border-radius:14px;background:#EBF6F2;font-size:14px;font-weight:800;color:#2E9E84;cursor:pointer;transition:all 0.15s;';
+    btnGirl.style.cssText = 'padding:14px;border:2px solid #F3A59B;border-radius:14px;background:white;font-size:14px;font-weight:700;color:#9A8F8B;cursor:pointer;transition:all 0.15s;';
   }
   updateOBAge();
 }
@@ -1369,7 +1369,7 @@ function renderHome(){
   }else{
     list.innerHTML=S.supplements.map(x=>{
       const d=S.dailyLog[t][x.id];
-      return `<div class="supp-item"><div class="savatar" style="background:${d?'#E8F8F3':'#FFF0EE'};">${x.emoji}</div>
+      return `<div class="supp-item"><div class="savatar" style="background:${d?'#EBF6F2':'#FEF2F1'};">${x.emoji}</div>
       <div style="flex:1;min-width:0;"><div style="font-size:13px;font-weight:700;color:var(--text);${d?'text-decoration:line-through;opacity:0.5;':''}">${x.name}</div>
       <div style="font-size:11px;color:var(--text-sub);">${x.timing}${x.memo?' · '+x.memo:''}</div></div>
       <button class="chkbtn ${d?'done':''}" onclick="toggleChk('${x.id}')"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></button></div>`;
@@ -1378,7 +1378,7 @@ function renderHome(){
   const keys=ref.baby?['vitD','iron','omega3','zinc','calcium','vitC']:['vitD','vitC','zinc','iron','calcium','omega3'];
   document.getElementById('home-ref-table').innerHTML=keys.map(k=>{
     const n=NUT[k];const crit=ref.baby&&['vitD','iron','omega3'].includes(k);
-    return `<div style="display:flex;align-items:center;gap:7px;padding:8px 0;border-bottom:1px solid rgba(74,65,61,0.06);">
+    return `<div style="display:flex;align-items:center;gap:7px;padding:8px 0;border-bottom:1px solid rgba(98,83,77,0.06);">
       <span style="font-size:16px;width:20px;">${n.e}</span>
       <span style="flex:1;font-size:12px;font-weight:${crit?800:600};color:${crit?'var(--primary-dark)':'var(--text)'};">${n.l}${crit?' ⭐':''}</span>
       <span style="font-size:12px;font-weight:800;color:var(--primary-dark);">${ref[k]}${n.u}</span></div>`;
@@ -1469,7 +1469,7 @@ function parseNutritionText(raw){
   let filled=0;
   Object.entries(R).forEach(([key,pats])=>{
     const val=find(pats);
-    if(val!==null){const el=document.getElementById('inp-'+key);if(el){el.value=val;el.style.background='#E8F8F3';filled++;}}
+    if(val!==null){const el=document.getElementById('inp-'+key);if(el){el.value=val;el.style.background='#EBF6F2';filled++;}}
   });
   showToast(filled>0?'✅ '+filled+'가지 성분 자동 인식됨!':'📋 인식 어려워요. 직접 입력해주세요');
 }
@@ -1508,7 +1508,7 @@ function renderResult(name,inputs,ref){
   Object.keys(inputs).forEach(k=>{if(!ref[k])return;const p=inputs[k]/ref[k];scores.push(p>=0.5&&p<=1.5?100:p<0.5?Math.round(p*200):Math.max(0,Math.round(200-p*100)));});
   const avg=scores.length?Math.round(scores.reduce((a,b)=>a+b)/scores.length):80;
   const grade=avg>=90?'A+':avg>=80?'A':avg>=70?'B+':avg>=60?'B':'C';
-  const gc=avg>=80?'#88D8C0':avg>=60?'#FFEAA7':'#FFB3A7';
+  const gc=avg>=80?'#C8E1D4':avg>=60?'#F3D68A':'#F3A59B';
   const tc=avg>=80?'#2E9E84':avg>=60?'#C8920A':'#D45A4A';
   document.getElementById('grade-circle').textContent=grade;
   document.getElementById('grade-circle').style.cssText=`width:56px;height:56px;border-radius:50%;background:${gc};display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;flex-shrink:0;box-shadow:var(--shadow);color:${tc};`;
@@ -1520,7 +1520,7 @@ function renderResult(name,inputs,ref){
   Object.keys(inputs).forEach(k=>{
     const n=NUT[k];if(!n)return;const val=inputs[k],rec=ref[k];if(!rec)return;
     const pct=val/rec;const bp=Math.min(pct*100,200);
-    const bc=pct<0.5?'#FFEAA7':pct<=1.5?'#88D8C0':'#FFB3A7';
+    const bc=pct<0.5?'#F3D68A':pct<=1.5?'#C8E1D4':'#F3A59B';
     const st=pct<0.5?'<span class="tag twarn">부족</span>':pct<=1.5?'<span class="tag tok">적정 👍</span>':val>(UL[k]||9999)?'<span class="tag tbad">주의 ⚠️</span>':'<span class="tag twarn">초과</span>';
     const isc=crit.includes(k);
     nh+=`<div style="display:flex;align-items:center;gap:9px;margin-bottom:13px;${isc?'background:var(--yellow-light);border-radius:9px;padding:7px;margin-left:-4px;margin-right:-4px;':''}">
@@ -1769,7 +1769,7 @@ function renderInsights(){
     html+=`<p style="font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:8px;">⚠️ 자주 부족한 영양소</p><div class="card" style="padding:13px;">`;
     defTop.forEach(([k,cnt])=>{
       const n=NUT[k];if(!n)return;const p=Math.round(cnt/total*100);
-      html+=`<div style="margin-bottom:10px;"><div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:12px;font-weight:700;">${n.e} ${n.l}</span><span style="font-size:11px;color:#C8920A;font-weight:700;">${cnt}회 (${p}%)</span></div><div class="pbar"><div class="pbar-f" style="width:${p}%;background:#FFEAA7;"></div></div></div>`;
+      html+=`<div style="margin-bottom:10px;"><div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:12px;font-weight:700;">${n.e} ${n.l}</span><span style="font-size:11px;color:#C8920A;font-weight:700;">${cnt}회 (${p}%)</span></div><div class="pbar"><div class="pbar-f" style="width:${p}%;background:#F3D68A;"></div></div></div>`;
     });
     html+='</div>';
   }
@@ -1837,7 +1837,7 @@ function renderProfile(){
           <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/></svg>
           네이버로 로그인
         </button>
-        <button id="btn-login-google" onclick="signInWithGoogle()" style="width:100%;border-radius:18px;padding:11px;background:white;color:#4A413D;border:1.5px solid #ddd;box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:600;cursor:pointer;">
+        <button id="btn-login-google" onclick="signInWithGoogle()" style="width:100%;border-radius:18px;padding:11px;background:white;color:#62534D;border:1.5px solid #ddd;box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:600;cursor:pointer;">
           <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:18px;height:18px;">구글로 로그인
         </button>
       </div>
