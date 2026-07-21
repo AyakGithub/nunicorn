@@ -409,7 +409,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 <div class="screen" id="screen-home">
   <div class="hbar" style="display:flex;justify-content:space-between;align-items:center;">
-    <div><p style="font-size:11px;color:var(--text-sub);">반가워요 🌸</p><p class="htitle" id="home-title">뉴니콘 <span class="beta-badge">BETA</span></p></div>
+    <div>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <img src="/images/logo.svg" alt="nunicorn" height="30" style="display:block;">
+        <span class="beta-badge">BETA</span>
+      </div>
+      <p style="font-size:11px;color:var(--text-sub);margin-top:3px;" id="home-title">반가워요 🌸</p>
+    </div>
     <button onclick="showScreen('profile')" style="background:var(--primary-light);border:none;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);" id="home-avatar">👶</button>
   </div>
   <div class="scroll-body">
@@ -1340,7 +1346,7 @@ function renderHome(){
   const ref=getRef();
   const exactMonths = S.profile.birthdate ? calcMonthsFromBirthdate(S.profile.birthdate) : S.profile.months;
   if (S.profile.birthdate) { S.profile.months = exactMonths; S.profile.emoji = getAutoEmoji(exactMonths, S.profile.gender||''); }
-  document.getElementById('home-title').innerHTML=S.profile.name+'의 뉴니콘 <span class="beta-badge">BETA</span>';
+  document.getElementById('home-title').textContent=S.profile.name ? S.profile.name+'의 뉴니콘이에요 🌸' : '반가워요 🌸';
   
   const ha = document.getElementById('home-avatar');
   if(S.profile.emoji==='🦄') {
