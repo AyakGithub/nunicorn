@@ -12,9 +12,11 @@
     }
   ],
   "rewrites": [
-    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
-    { "source": "/robots.txt",  "destination": "/robots.txt" },
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    { "source": "/sitemap.xml",        "destination": "/sitemap.xml" },
+    { "source": "/robots.txt",         "destination": "/robots.txt" },
+    { "source": "/favicon.ico",        "destination": "/favicon.ico" },
+    { "source": "/favicon.svg",        "destination": "/favicon.svg" },
+    { "source": "/favicon-:size.png",  "destination": "/favicon-:size.png" },
+    { "source": "/((?!api/).*)",       "destination": "/index.html" }
   ]
 }
-
