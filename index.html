@@ -1640,6 +1640,8 @@ async function sendChat(){
   document.getElementById('chat-suggestions').innerHTML='';
 
   const ref=getRef();
+  // GA 이벤트: AI 상담 전송
+  if(typeof gtag==='function') gtag('event','ai_chat_sent',{child_age:ref.label});
   try {
     const res = await fetch('/api/chat', {
       method: 'POST',
@@ -1661,6 +1663,8 @@ async function sendChat(){
     removeTyping();
     const answer = data.reply || data.error || '죄송해요, 잠시 후 다시 시도해주세요.';
     addChatMsg('ai', answer);
+    // GA 이벤트: AI 상담 완료
+    if(typeof gtag==='function') gtag('event','ai_chat_completed',{child_age:ref.label});
     if(quotaLeft()<=0) setTimeout(checkPaywall, 800);
     else if(!S.member && quotaLeft()===1){
       setTimeout(()=>addChatMsg('ai','💜 무료 상담이 1회 남았어요. 가입하면 하루 10회까지 이용 가능해요!'),1200);
