@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -38,7 +38,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png?v=3">
 <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png?v=3">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>뉴니콘(Nunicorn) — 영유아부터 키즈까지, 우리 아이 맞춤형 영양 분석 &amp; AI 상담</title>
 <meta name="description" content="영유아부터 초등까지! 영양제 라벨을 찍으면 한국인 영양소 섭취기준(KDRIs)에 맞게 분석해드려요. 복용 시간, 병용 금기, 월령별 권장량을 AI 코니가 24시간 1:1 맞춤 상담합니다.">
 <meta name="keywords" content="영유아 영양제, 아기 영양제, 비타민D 영아, 철분 아기, 오메가3 영아, 영양제 분석, 영양제 추천, 뉴니콘, 아이 영양제 AI">
@@ -251,6 +251,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .fb-tag{padding:6px 12px;border-radius:20px;border:1.5px solid var(--primary);background:white;font-size:11px;font-weight:600;color:var(--primary-dark);cursor:pointer;transition:all 0.15s;}
 .fb-tag.sel{background:var(--primary);color:white;}
+
+/* 네비게이션 접근성: nav/button 요소로 변경 */
+nav.bnav { display:flex; }
+button.ni { background:none; border:none; font-family:inherit; }
 </style>
 <script type="application/ld+json">
 {
@@ -280,8 +284,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
 <div class="pc-side">
   <img src="/images/cony-face.png" class="cony-img" style="width:48px;height:48px;margin-bottom:14px;">
   <h1 style="font-size:34px;font-weight:800;color:#62534D;line-height:1.2;margin-bottom:12px;">우리 아이<br><span style="color:var(--primary-dark);">영양제</span>를<br>똑똑하게</h1>
-  <p>영양정보 라벨을 찍으면 나이에 딱 맞는 분석을 해드려요. 영양제 라벨을 찍으면 나이에 딱 맞는 분석을 해드려요. AI 코니에게 무엇이든 물어보세요 🦄</p>
-  <div class="pc-feat"><div class="pc-feat-icon">📸</div><div><h2 style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">라벨 사진 스캔</h2><p>영양성분표를 찍으면 성분을 자동 분석해요</p></div></div>
+  <p>영양정보 라벨을 촬영하고 성분을 확인하면, 아이 월령에 맞춰 이해하기 쉽게 분석해드려요. AI 코니에게 복용 시간, 중복 성분, 권장량을 물어보세요 🦄</p>
+  <div class="pc-feat"><div class="pc-feat-icon">📸</div><div><h2 style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">라벨 촬영 → 성분 확인</h2><p>OCR 자동 인식 시도 후 수동 확인·수정 가능해요</p></div></div>
   <div class="pc-feat"><div class="pc-feat-icon">💬</div><div><h2 style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">AI 코니 상담</h2><p>병용 금기, 복용 시간, 권장량 뭐든 물어봐요</p></div></div>
   <div class="pc-feat"><div class="pc-feat-icon">📊</div><div><h2 style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">우리아이 영양 리포트</h2><p>스캔할수록 우리 아이 패턴이 쌓여요</p></div></div>
   <div style="background:var(--card);border-radius:20px;padding:8px 16px;font-size:12px;font-weight:600;color:var(--text-sub);box-shadow:var(--shadow-sm);display:inline-flex;gap:6px;align-items:center;margin-top:8px;">🦄 영유아부터 키즈까지 · 맞춤 영양 가이드</div>
@@ -311,13 +315,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
     <h1 style="font-size:28px;font-weight:900;color:#62534D;line-height:1.25;margin:0 0 10px;letter-spacing:-0.5px;">
       우리 아이 영양제<br><span style="background:linear-gradient(90deg,#E8847A,#C8B7EE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">코니가 딱 맞게</span><br>분석해줄게요
     </h1>
-    <p style="font-size:13px;color:#9A8F8B;margin:0 0 24px;line-height:1.6;">생년월일만 알려주면<br>나머지는 코니가 다 해줄게요 ✨</p>
+    <p style="font-size:13px;color:#9A8F8B;margin:0 0 24px;line-height:1.6;">영양성분 라벨을 사진으로 찍으면<br>월령에 맞게 이해하기 쉽게 분석해드려요 ✨</p>
 
     <!-- 가치 3가지 -->
     <div style="width:100%;max-width:310px;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
       <div style="display:flex;align-items:center;gap:12px;background:white;border-radius:16px;padding:12px 16px;box-shadow:0 2px 12px rgba(98,83,77,0.07);">
         <div style="width:38px;height:38px;background:#FEF2F1;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">📸</div>
-        <div style="text-align:left;"><p style="font-size:13px;font-weight:800;color:#62534D;margin:0;">라벨 사진 한 장이면 끝</p><p style="font-size:11px;color:#9A8F8B;margin:2px 0 0;">성분 자동 분석 + 안전 체크</p></div>
+        <div style="text-align:left;"><p style="font-size:13px;font-weight:800;color:#62534D;margin:0;">영양성분 라벨 촬영</p><p style="font-size:11px;color:#9A8F8B;margin:2px 0 0;">OCR 인식 시도 후 직접 확인·수정 가능</p></div>
       </div>
       <div style="display:flex;align-items:center;gap:12px;background:white;border-radius:16px;padding:12px 16px;box-shadow:0 2px 12px rgba(98,83,77,0.07);">
         <div style="width:38px;height:38px;background:#EDE7FC;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">💬</div>
@@ -333,9 +337,12 @@ input[type=date]::-webkit-calendar-picker-indicator {
   <!-- 하단 CTA -->
   <div style="padding:0 24px calc(env(safe-area-inset-bottom)+20px);flex-shrink:0;">
     <button onclick="showObStep2()" style="width:100%;background:linear-gradient(135deg,#E8847A,#C8B7EE);color:white;border:none;border-radius:22px;padding:17px;font-size:17px;font-weight:800;cursor:pointer;box-shadow:0 6px 24px rgba(243,165,155,0.4);letter-spacing:-0.3px;">
-      우리 아이 분석 시작하기 →
+      제품 성분 확인하기 →
     </button>
-    <p style="text-align:center;font-size:11px;color:#C9C0BC;margin:10px 0 0;">무료 · 30초면 완료</p>
+    <button onclick="showScreen('chat')" style="width:100%;background:transparent;color:var(--primary-dark);border:1.5px solid var(--primary);border-radius:22px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;margin-top:8px;">
+      💬 궁금한 점 먼저 물어보기
+    </button>
+    <p style="text-align:center;font-size:11px;color:#C9C0BC;margin:10px 0 0;">무료 · 회원가입 없이 이용 가능</p>
   </div>
 </div>
 
@@ -364,15 +371,23 @@ input[type=date]::-webkit-calendar-picker-indicator {
       </div>
     </div>
 
+    <!-- 개인정보 안내 -->
+    <div style="background:#FBF7E8;border-radius:12px;padding:10px 14px;margin-bottom:14px;border:1px solid #F3D68A;">
+      <p style="font-size:11px;color:#8B6200;line-height:1.7;margin:0;">
+        📋 <b>월령별 기준 적용을 위해 생년월일이 필요합니다.</b><br>
+        이름과 성별은 선택사항이에요. 저장된 정보는 기기 내에만 보관되며 설정에서 언제든 삭제할 수 있어요.
+      </p>
+    </div>
+
     <!-- 입력 폼 -->
     <div style="display:flex;flex-direction:column;gap:14px;">
       <div>
-        <label class="flabel" style="margin-bottom:5px;">💛 아이 이름</label>
-        <input type="text" id="ob-name" placeholder="예: 로아, 서준" maxlength="10" style="padding:14px 16px;font-size:16px;border-radius:14px;width:100%;box-sizing:border-box;">
+        <label class="flabel" for="ob-name" style="margin-bottom:5px;">💛 아이 이름 <span style="font-weight:400;color:#C9C0BC;">(선택)</span></label>
+        <input type="text" id="ob-name" placeholder="예: 로아, 서준" maxlength="10" autocomplete="off" style="padding:14px 16px;font-size:16px;border-radius:14px;width:100%;box-sizing:border-box;">
       </div>
 
       <div>
-        <label class="flabel" style="margin-bottom:5px;">🎂 생년월일</label>
+        <label class="flabel" for="ob-year" style="margin-bottom:5px;">🎂 생년월일 <span style="font-weight:400;color:#E8847A;">*필수</span></label>
         <div style="display:grid;grid-template-columns:2.2fr 1fr 1fr;gap:8px;">
           <div style="position:relative;">
             <select id="ob-year" onchange="updateOBAge()" style="width:100%;padding:14px 12px;border:none;border-radius:14px;font-size:14px;font-weight:700;color:#62534D;background:#FEF2F1;outline:none;cursor:pointer;font-family:inherit;appearance:none;-webkit-appearance:none;">
@@ -400,7 +415,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
       </div>
 
       <div>
-        <label class="flabel" style="margin-bottom:5px;">👶 성별</label>
+        <label class="flabel" style="margin-bottom:5px;">👶 성별 <span style="font-weight:400;color:#C9C0BC;">(선택)</span></label>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
           <button type="button" id="btn-girl" onclick="selectGender('girl')" style="padding:14px;border:2px solid #F3A59B;border-radius:14px;background:white;font-size:15px;font-weight:700;color:#9A8F8B;cursor:pointer;">👧 여아</button>
           <button type="button" id="btn-boy" onclick="selectGender('boy')" style="padding:14px;border:2px solid #F3A59B;border-radius:14px;background:white;font-size:15px;font-weight:700;color:#9A8F8B;cursor:pointer;">👦 남아</button>
@@ -504,13 +519,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
     </div>
     <div style="height:10px;"></div>
   </div>
-  <div class="bnav">
-    <div class="ni active" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
-    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
-    <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
-    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></div>
-    <div class="ni" onclick="showScreen('profile')"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></div>
-  </div>
+  <nav class="bnav" aria-label="주요 메뉴">
+    <button class="ni active" onclick="showScreen('home')" aria-label="홈"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></button>
+    <button class="ni" onclick="showScreen('scan')" aria-label="라벨 스캔하기"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></button>
+    <button class="ni" onclick="showScreen('chat')" aria-label="AI 상담"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></button>
+    <button class="ni" onclick="showScreen('insights')" aria-label="영양 리포트"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></button>
+    <button class="ni" onclick="showScreen('profile')" aria-label="내 아이"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></button>
+  </nav>
 </div>
 
 <div class="screen" id="screen-scan">
@@ -539,16 +554,16 @@ input[type=date]::-webkit-calendar-picker-indicator {
       <p style="font-size:11px;color:#C8920A;margin-top:3px;line-height:1.5;">제품 뒷면 또는 측면의 <b>영양·기능 정보</b> 표를<br>밝은 곳에서 흔들림 없이 찍어주세요</p>
     </div>
     <div class="card">
-      <div class="field"><label class="flabel">제품 이름</label><input type="text" id="scan-name" placeholder="예: 베비언스 비타민D"></div>
+      <div class="field"><label class="flabel" for="scan-name">제품 이름</label><input type="text" id="scan-name" placeholder="예: 베비언스 비타민D"></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;">
-        <div class="field"><label class="flabel">☀️ 비타민D (IU)</label><input type="number" id="inp-vitD" placeholder="400" min="0"></div>
-        <div class="field"><label class="flabel">🍊 비타민C (mg)</label><input type="number" id="inp-vitC" placeholder="40" min="0"></div>
-        <div class="field"><label class="flabel">🛡️ 아연 (mg)</label><input type="number" id="inp-zinc" placeholder="3" min="0"></div>
-        <div class="field"><label class="flabel">💪 철분 (mg)</label><input type="number" id="inp-iron" placeholder="7" min="0"></div>
-        <div class="field"><label class="flabel">🦴 칼슘 (mg)</label><input type="number" id="inp-calcium" placeholder="300" min="0"></div>
-        <div class="field"><label class="flabel">🐟 오메가3 (mg)</label><input type="number" id="inp-omega3" placeholder="250" min="0"></div>
-        <div class="field"><label class="flabel">🥕 비타민A (mcg)</label><input type="number" id="inp-vitA" placeholder="200" min="0"></div>
-        <div class="field"><label class="flabel">🌿 마그네슘 (mg)</label><input type="number" id="inp-mg" placeholder="50" min="0"></div>
+        <div class="field"><label class="flabel" for="inp-vitD">☀️ 비타민D (IU)</label><input type="number" id="inp-vitD" placeholder="400" min="0" aria-label="비타민D 함량(IU)"></div>
+        <div class="field"><label class="flabel" for="inp-vitC">🍊 비타민C (mg)</label><input type="number" id="inp-vitC" placeholder="40" min="0" aria-label="비타민C 함량(mg)"></div>
+        <div class="field"><label class="flabel" for="inp-zinc">🛡️ 아연 (mg)</label><input type="number" id="inp-zinc" placeholder="3" min="0" aria-label="아연 함량(mg)"></div>
+        <div class="field"><label class="flabel" for="inp-iron">💪 철분 (mg)</label><input type="number" id="inp-iron" placeholder="7" min="0" aria-label="철분 함량(mg)"></div>
+        <div class="field"><label class="flabel" for="inp-calcium">🦴 칼슘 (mg)</label><input type="number" id="inp-calcium" placeholder="300" min="0" aria-label="칼슘 함량(mg)"></div>
+        <div class="field"><label class="flabel" for="inp-omega3">🐟 오메가3 (mg)</label><input type="number" id="inp-omega3" placeholder="250" min="0" aria-label="오메가3 함량(mg)"></div>
+        <div class="field"><label class="flabel" for="inp-vitA">🥕 비타민A (mcg)</label><input type="number" id="inp-vitA" placeholder="200" min="0" aria-label="비타민A 함량(mcg)"></div>
+        <div class="field"><label class="flabel" for="inp-mg">🌿 마그네슘 (mg)</label><input type="number" id="inp-mg" placeholder="50" min="0" aria-label="마그네슘 함량(mg)"></div>
       </div>
       <div class="field" style="margin-bottom:0;"><label class="flabel">⏰ 언제 먹일까요?</label>
         <select id="scan-timing">
@@ -563,7 +578,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     <button class="btn-p" onclick="analyzeNutrients()">코니한테 분석 맡기기!</button>
     <div style="height:14px;"></div>
   </div>
-  <div class="bnav">
+  <nav class="bnav" aria-label="주요 메뉴">
     <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
     <div class="ni active" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
     <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
@@ -593,7 +608,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
       <button class="btn-p" style="flex:2;" onclick="saveToSchedule()">📅 일정에 추가</button>
     </div>
   </div>
-  <div class="bnav">
+  <nav class="bnav" aria-label="주요 메뉴">
     <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
     <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
     <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
@@ -634,10 +649,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
     <div style="padding:8px 14px 6px;display:flex;flex-wrap:wrap;gap:6px;" id="chat-suggestions"></div>
     <div class="chat-input-row">
       <input class="chat-input" type="text" id="chat-input" placeholder="예: 비타민D랑 오메가3 같이 먹어도 되나요?" onkeydown="if(event.key==='Enter')sendChat()">
-      <button class="chat-send" onclick="sendChat()"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+      <button class="chat-send" onclick="sendChat()" aria-label="전송"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
     </div>
   </div>
-  <div class="bnav">
+  <nav class="bnav" aria-label="주요 메뉴">
     <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
     <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
     <div class="ni active" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
@@ -652,7 +667,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     <button onclick="showModal('add-modal')" style="background:var(--primary);color:white;border:none;border-radius:18px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;">+ 추가</button>
   </div>
   <div class="scroll-body" id="schedule-body"></div>
-  <div class="bnav">
+  <nav class="bnav" aria-label="주요 메뉴">
     <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
     <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
     <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
@@ -664,7 +679,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 <div class="screen" id="screen-insights">
   <div class="hbar"><p class="htitle">📊 우리아이 영양 리포트</p><p style="font-size:11px;color:var(--text-sub);">우리 아이 영양 패턴</p></div>
   <div class="scroll-body" id="insights-body"></div>
-  <div class="bnav">
+  <nav class="bnav" aria-label="주요 메뉴">
     <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
     <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
     <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
@@ -700,7 +715,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
     <button onclick="resetAll()" style="background:var(--bad-bg);color:var(--bad);border:none;border-radius:var(--radius-sm);padding:13px;font-size:14px;font-weight:700;width:100%;cursor:pointer;">데이터 초기화</button>
     <div style="height:18px;"></div>
   </div>
-  <div class="bnav">
+  <nav class="bnav" aria-label="주요 메뉴">
     <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
     <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
     <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
@@ -921,18 +936,35 @@ const NUT={vitD:{l:'비타민D',u:'IU',e:'☀️'},vitC:{l:'비타민C',u:'mg',e
 // 상한 섭취량(UL) - 가장 낮은 연령 기준 (보수적 적용)
 // 출처: KDRIs 2020
 const UL={
-  vitD:1000,  // 영아 1000IU (25μg) / 유아 1600IU
-  vitC:400,   // 1~2세 400mg
+  vitD:1000,  // 영아 1000IU (25μg) · 유아 이상은 getAgeUL 사용
+  vitC:400,   // 1~2세 400mg (보수적 기준)
   zinc:7,     // 1~2세 7mg
-  iron:40,    // 공통 40mg
-  calcium:2500,// 공통
-  omega3:2000, // 성인 기준 준용
-  vitA:600,   // 영아 600μg RAE
-  mg:65       // 1~2세 보충제 UL 65mg
+  iron:40,    // mg (전 연령 공통)
+  calcium:2500,// mg (공통)
+  omega3:null, // 소아 공식 상한 기준 없음
+  vitA:600,   // μg RAE (영아 600, 유아 이상은 getAgeUL 사용)
+  mg:65       // mg (1~2세 보충제 UL, 보수적 기준)
 };
+
+// 연령별 상한섭취량(UL) 조회 — 단일 제품 섭취량 기준
+// 출처: 보건복지부·한국영양학회 「2020 한국인 영양소 섭취기준(KDRIs)」
+// ※ 공식 2025년 개정본 확인 후 업데이트 예정 (검토 중)
+function getAgeUL(key,months){
+  const t={
+    vitD: months<=12?1000:months<=36?2000:3000,  // IU (영아 25μg / 유아 50μg / 3세↑ 75μg)
+    vitA: months<=36?600:months<=72?700:900,      // μg RAE
+    vitC: months<=24?400:months<=72?500:700,      // mg
+    zinc: months<=24?7:months<=72?9:13,            // mg
+    iron: 40,                                      // mg (전 연령 공통)
+    calcium: 2500,                                 // mg (공통)
+    mg:    months<=24?65:months<=72?110:200,       // mg (보충제 기준)
+    omega3: null                                   // 소아 공식 상한 없음
+  };
+  return t[key]??null;
+}
 const INTS=[
-  {keys:['calcium','iron'],type:'warn',icon:'⏰',t:'앗! 칼슘+철분은 따로 먹이는 게 좋아요',b:'같이 먹으면 서로 흡수를 방해해요. 아침에 칼슘, 저녁에 철분으로 나눠주세요!'},
-  {keys:['zinc','iron'],type:'warn',icon:'⏰',t:'앗! 아연+철분도 시간 간격이 필요해요',b:'2시간 이상 간격을 두어 먹여주세요.'},
+  {keys:['calcium','iron'],type:'warn',icon:'⏰',t:'칼슘과 철분은 흡수에 서로 영향을 줄 수 있어요',b:'두 성분이 별도 제품이라면 2시간 이상 간격을 두면 좋아요. 같은 제품에 함께 들어 있는 경우 나누기 어려우니 소아과에서 적절한 방법을 확인해보세요.'},
+  {keys:['zinc','iron'],type:'warn',icon:'⏰',t:'아연과 철분은 별도 제품이라면 간격이 필요해요',b:'별도 제품으로 드린다면 2시간 이상 간격을 두어 주세요. 같은 제품이라면 소아과에서 확인해보세요.'},
   {keys:['vitD','omega3'],type:'good',icon:'✨',t:'완벽한 조합! 비타민D + 오메가3',b:'오메가3 지방이 비타민D 흡수를 쑥쑥 높여줘요. 같이 드세요!'},
   {keys:['vitD','calcium'],type:'good',icon:'✨',t:'찰떡 궁합! 비타민D + 칼슘',b:'비타민D가 칼슘이 뼈에 잘 붙도록 도와줘요.'},
   {keys:['vitC','iron'],type:'caution',icon:'💡',t:'비타민C가 철분 흡수를 도와줘요',b:'비타민C는 철분 흡수를 2~3배 높여줘요.'}
@@ -1026,7 +1058,7 @@ function getAIResponse(q, isMember){
     if(ql.includes('철분')) return `💪 철분은 **공복 또는 비타민C와 함께** 드릴 때 흡수가 가장 잘 돼요!\n\n단, 공복에 속이 불편하다면 식후에 드려도 괜찮아요.${!isMember?'\n\n💜 맞춤 복용 스케줄은 가입 후 관리하세요!':''}`;
     if(ql.includes('비타민d')||ql.includes('비타민a')) return `☀️ 지용성 비타민(D·A)은 **지방이 포함된 식사 후**에 드세요!\n\n공복에는 흡수가 잘 안 돼요. 아침이나 점심 식사 후가 좋아요.`;
     if(ql.includes('유산균')||ql.includes('프로바이오틱')) return `🌿 유산균은 **식전 30분 또는 공복**이 가장 좋아요!\n\n위산이 적을 때 먹여야 유산균이 살아서 장까지 도달해요.${!isMember?'\n\n더 자세한 정보는 가입 후 이용하세요!':''}`;
-    if(ql.includes('오메가3')) return `🐟 오메가3는 **식사 중이나 직후**에 드세요!\n\n식사 중 지방과 함께 흡수가 잘 돼요. 냉장 보관도 필수예요.`;
+    if(ql.includes('오메가3')) return `🐟 오메가3는 **식사 중이나 직후**에 드리면 지방과 함께 흡수가 잘 돼요.\n\n보관 방법은 제품 라벨을 확인해주세요. 액상 제품은 냉장 보관이 필요한 경우가 많지만 제품마다 달라요.`;
   }
 
   if(ref.baby&&(ql.includes('이유식')||ql.includes('신생아')||ql.includes('영아'))){
@@ -1396,7 +1428,7 @@ function renderHome(){
       <span style="font-size:16px;width:20px;">${n.e}</span>
       <span style="flex:1;font-size:12px;font-weight:${crit?800:600};color:${crit?'var(--primary-dark)':'var(--text)'};">${n.l}${crit?' ⭐':''}</span>
       <span style="font-size:12px;font-weight:800;color:var(--primary-dark);">${ref[k]}${n.u}</span></div>`;
-  }).join('')+`<p style="font-size:10px;color:var(--text-hint);margin-top:6px;text-align:center;">${ref.label} 기준 일일 권장량 · KDRIs 2020</p>`;
+  }).join('')+`<p style="font-size:10px;color:var(--text-hint);margin-top:6px;text-align:center;">${ref.label} 기준 일일 권장량 · KDRIs 2020 기준 (2025 개정본 검토 중)</p>`;
 }
 function toggleChk(id){
   const t=today();if(!S.dailyLog[t])S.dailyLog[t]={};
@@ -1530,13 +1562,29 @@ function renderResult(name,inputs,ref){
   document.getElementById('grade-sub').textContent='종합 적합도 '+avg+'점 · '+Object.keys(inputs).length+'가지 분석';
   document.getElementById('result-msg').textContent=avg>=80?'코니가 꼼꼼하게 분석했어요! ✨':'대체로 좋은데 아래를 확인해줘요 🔍';
   const crit=ref.baby?['vitD','iron','omega3']:[];
+  const ageMo=S.profile.birthdate?calcMonthsFromBirthdate(S.profile.birthdate):S.profile.months;
   let nh='';
   Object.keys(inputs).forEach(k=>{
     const n=NUT[k];if(!n)return;const val=inputs[k],rec=ref[k];if(!rec)return;
     const pct=val/rec;const bp=Math.min(pct*100,200);
-    const bc=pct<0.5?'#F3D68A':pct<=1.5?'#C8E1D4':'#F3A59B';
-    const st=pct<0.5?'<span class="tag twarn">부족</span>':pct<=1.5?'<span class="tag tok">적정 👍</span>':val>(UL[k]||9999)?'<span class="tag tbad">주의 ⚠️</span>':'<span class="tag twarn">초과</span>';
+    const ageULVal=getAgeUL(k,ageMo);
+    let st,bc;
+    if(pct<0.5){
+      st='<span class="tag twarn">기준보다 낮음</span>';bc='#F3D68A';
+    } else if(pct<=1.1){
+      st='<span class="tag tok">권장 기준 충족 ✓</span>';bc='#C8E1D4';
+    } else if(ageULVal!==null&&val>ageULVal){
+      st='<span class="tag tbad">상한 초과 주의 ⚠️</span>';bc='#F3A59B';
+    } else if(k==='omega3'){
+      // 오메가3: 소아 공식 상한 기준 없음 → 단정 판정 금지
+      st='<span class="tag" style="background:#EDE7FC;color:#7B6DBB;">기준 확인 필요</span>';bc='#C8E1D4';
+    } else if(pct<=2.0){
+      st='<span class="tag" style="background:#FBF7E8;color:#B8820A;">권장보다 높음</span>';bc='#F3D68A';
+    } else {
+      st='<span class="tag twarn">권장보다 높음·상한 확인 필요</span>';bc='#F3A59B';
+    }
     const isc=crit.includes(k);
+    const ulTxt=ageULVal!==null?'상한 '+ageULVal+n.u:'공식 상한 없음';
     nh+=`<div style="display:flex;align-items:center;gap:9px;margin-bottom:13px;${isc?'background:var(--yellow-light);border-radius:9px;padding:7px;margin-left:-4px;margin-right:-4px;':''}">
       <span style="font-size:18px;width:24px;">${n.e}${isc?' ⭐':''}</span>
       <div style="flex:1;">
@@ -1544,7 +1592,7 @@ function renderResult(name,inputs,ref){
           <span style="font-size:12px;font-weight:${isc?800:700};color:${isc?'#8B6200':'var(--text)'};">${n.l}</span>${st}</div>
         <div class="pbar"><div class="pbar-f" style="width:${bp}%;background:${bc};"></div></div>
         <div style="display:flex;justify-content:space-between;margin-top:2px;">
-          <span style="font-size:10px;color:var(--text-hint);">권장 ${rec}${n.u}</span>
+          <span style="font-size:10px;color:var(--text-hint);">권장 ${rec}${n.u} · ${ulTxt}</span>
           <span style="font-size:10px;font-weight:700;color:var(--text-sub);">${val}${n.u} (${Math.round(pct*100)}%)</span>
         </div>
       </div></div>`;
@@ -1564,9 +1612,17 @@ function renderResult(name,inputs,ref){
   if(ref.baby)tips.push('👶 0~24개월은 비타민D·철분·오메가3가 뇌 발달에 특히 중요해요!');
   if(['vitD','vitA'].some(k=>inputs[k]))tips.push('🍳 지용성 비타민(D·A)은 지방이 든 식사 후에 드세요!');
   if(inputs.iron)tips.push('⏰ 철분은 공복 또는 비타민C와 함께 먹이면 흡수가 잘 돼요!');
-  if(inputs.omega3)tips.push('🐟 오메가3는 식사 중이나 직후에 드세요. 냉장 보관 필수예요!');
+  if(inputs.omega3)tips.push('🐟 오메가3는 식사 중이나 직후가 흡수에 유리해요. 보관 방법은 제품 라벨이나 설명서를 확인해주세요.');
   tips.push('🦄 '+S.profile.name+'('+ref.label+') 기준으로 분석했어요!');
-  document.getElementById('result-tips').innerHTML='<p style="font-size:12px;font-weight:800;color:#2E9E84;margin-bottom:8px;">💡 코니의 꿀팁</p>'+tips.map(t=>`<p style="font-size:11px;color:#4A7A6A;margin-bottom:5px;line-height:1.5;">${t}</p>`).join('');
+  document.getElementById('result-tips').innerHTML=
+    '<p style="font-size:12px;font-weight:800;color:#2E9E84;margin-bottom:8px;">💡 코니의 안내</p>'+
+    tips.map(t=>`<p style="font-size:11px;color:#4A7A6A;margin-bottom:5px;line-height:1.5;">${t}</p>`).join('')+
+    `<div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(46,158,132,0.15);">
+      <p style="font-size:10px;color:#9A8F8B;line-height:1.7;">
+        📋 판정 기준: 보건복지부·한국영양학회 「2020 한국인 영양소 섭취기준(KDRIs)」 기반<br>
+        ⚠️ 본 분석은 참고용이며, 의학적 진단이나 처방을 대체하지 않아요. 건강 이상이 있거나 다른 약을 복용 중이라면 소아과 또는 소아청소년과에서 확인해주세요.
+      </p>
+    </div>`;
 }
 function saveToSchedule(){
   if(!lastResult)return;
@@ -1657,11 +1713,12 @@ async function sendChat(){
     try { data = await res.json(); }
     catch(jsonErr) {
       removeTyping();
-      addChatMsg('ai',`🦄 응답 파싱 오류: ${res.status} ${res.statusText}`);
+      addChatMsg('ai','지금은 상담 연결이 원활하지 않아요. 잠시 후 다시 시도해 주세요. 🦄');
       return;
     }
     removeTyping();
-    const answer = data.reply || data.error || '죄송해요, 잠시 후 다시 시도해주세요.';
+    // data.error는 서버에서 이미 사용자 친화적 메시지로 변환됨
+    const answer = data.reply || data.error || '잠시 후 다시 시도해 주세요. 🦄';
     addChatMsg('ai', answer);
     // GA 이벤트: AI 상담 완료
     if(typeof gtag==='function') gtag('event','ai_chat_completed',{child_age:ref.label});
@@ -1671,8 +1728,7 @@ async function sendChat(){
     }
   } catch(e) {
     removeTyping();
-    // 실제 오류 내용 표시 (디버깅용)
-    addChatMsg('ai',`🦄 연결 오류: ${e.message || e}`);
+    addChatMsg('ai','연결이 일시적으로 끊겼어요. 잠시 후 다시 시도해 주세요. 🦄');
   }
 }
 
