@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+
+# SPA 앱 내부 화면 (JS 렌더 후 표시, 검색엔진에 노출 불필요)
+# 온보딩/대시보드/상담/분석 화면은 #hash 또는 JS state로 전환되므로
+# URL 기반 크롤링 차단은 해당 없음. 공개 URL은 / 하나.
 
 Sitemap: https://www.nunicorn.co.kr/sitemap.xml
