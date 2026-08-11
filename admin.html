@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>뉴니콘 관리자</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F5F4F7;color:#222;font-size:14px;}
+a{text-decoration:none;color:inherit;}
+button{cursor:pointer;border:none;outline:none;}
+input,select,textarea{font-family:inherit;font-size:14px;outline:none;}
+/* Layout */
+#app{display:flex;min-height:100vh;}
+#sidebar{width:220px;background:#1A1A2E;color:#CCC;flex-shrink:0;display:flex;flex-direction:column;}
+#sidebar .logo{padding:20px 16px;color:#fff;font-weight:700;font-size:16px;border-bottom:1px solid #333;}
+#sidebar .logo span{color:#B09FE8;}
+#sidebar nav{flex:1;padding:12px 0;}
+#sidebar nav a{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13px;color:#AAA;border-radius:0;transition:background .15s;}
+#sidebar nav a:hover,#sidebar nav a.active{background:#2A2A44;color:#fff;}
+#sidebar nav a .ico{width:16px;text-align:center;}
+#sidebar .sbfooter{padding:14px 18px;font-size:12px;color:#666;}
+#main{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+#topbar{height:52px;background:#fff;border-bottom:1px solid #E8E8EC;display:flex;align-items:center;padding:0 24px;gap:16px;}
+#topbar .tb-title{font-weight:600;font-size:15px;flex:1;}
+#topbar .tb-user{font-size:13px;color:#888;}
+#topbar .tb-logout{font-size:12px;color:#B09FE8;cursor:pointer;padding:5px 10px;border-radius:6px;}
+#topbar .tb-logout:hover{background:#F0ECFF;}
+#content{flex:1;overflow-y:auto;padding:24px;}
+
+/* Cards & panels */
+.card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 4px rgba(0,0,0,.06);margin-bottom:16px;}
+.card-title{font-weight:600;font-size:14px;color:#555;margin-bottom:14px;}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:16px;}
+.stat-box{background:#fff;border-radius:10px;padding:16px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+.stat-box .sv{font-size:28px;font-weight:700;color:#5B4FCF;}
+.stat-box .sl{font-size:12px;color:#888;margin-top:4px;}
+.stat-box.danger .sv{color:#D94F40;}
+.stat-box.warn .sv{color:#D98F00;}
+
+/* Table */
+.tbl-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;}
+thead th{background:#F5F4F7;padding:9px 12px;text-align:left;font-size:12px;font-weight:600;color:#666;white-space:nowrap;}
+tbody td{padding:9px 12px;border-bottom:1px solid #F0EFF3;font-size:13px;vertical-align:middle;}
+tbody tr:hover{background:#FAFAFE;}
+.tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;}
+.tag-high{background:#FDEEEC;color:#C0392B;}
+.tag-caution{background:#FEF3E2;color:#B7770D;}
+.tag-normal{background:#EDF8F1;color:#27AE60;}
+.tag-pending{background:#EEF2FF;color:#4F5DBF;}
+.tag-completed{background:#F0F0F0;color:#888;}
+.tag-active{background:#EDF8F1;color:#27AE60;}
+.tag-inactive{background:#F9F0F0;color:#C0392B;}
+
+/* Forms */
+.form-row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-bottom:14px;}
+.form-group{display:flex;flex-direction:column;gap:4px;}
+.form-group label{font-size:12px;color:#666;font-weight:500;}
+input[type=text],input[type=email],input[type=number],input[type=date],select,textarea{
+  padding:7px 10px;border:1px solid #DDD;border-radius:7px;background:#fff;color:#222;
+  transition:border-color .15s;
+}
+input:focus,select:focus,textarea:focus{border-color:#7C6FCF;}
+textarea{resize:vertical;min-height:80px;}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:7px;font-size:13px;font-weight:500;transition:background .15s;}
+.btn-p{background:#5B4FCF;color:#fff;} .btn-p:hover{background:#4A3EBE;}
+.btn-s{background:#F0ECFF;color:#5B4FCF;} .btn-s:hover{background:#E4DFFF;}
+.btn-d{background:#FDEEEC;color:#C0392B;} .btn-d:hover{background:#FBDCD9;}
+.btn-sm{padding:4px 10px;font-size:12px;}
+.btn:disabled{opacity:.5;cursor:not-allowed;}
+
+/* Modal */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;display:flex;align-items:center;justify-content:center;}
+.modal{background:#fff;border-radius:14px;padding:24px;width:560px;max-width:95vw;max-height:90vh;overflow-y:auto;}
+.modal h3{font-size:16px;font-weight:700;margin-bottom:16px;color:#222;}
+.modal-footer{display:flex;justify-content:flex-end;gap:8px;margin-top:16px;}
+.close-btn{position:absolute;top:14px;right:16px;font-size:20px;color:#888;cursor:pointer;}
+
+/* Login */
+#screen-login{position:fixed;inset:0;background:#F5F4F7;display:flex;align-items:center;justify-content:center;z-index:200;}
+.login-box{background:#fff;border-radius:16px;padding:40px;width:360px;box-shadow:0 4px 20px rgba(0,0,0,.1);}
+.login-box h1{font-size:22px;font-weight:700;margin-bottom:6px;}
+.login-box p{color:#888;font-size:13px;margin-bottom:24px;}
+.login-box input{width:100%;padding:10px 12px;border:1px solid #DDD;border-radius:8px;margin-bottom:10px;font-size:14px;}
+.login-box button{width:100%;padding:11px;background:#5B4FCF;color:#fff;border-radius:8px;font-size:15px;font-weight:600;margin-top:4px;}
+.login-err{color:#C0392B;font-size:13px;text-align:center;margin-top:8px;}
+
+/* Toast */
+#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;z-index:999;display:none;white-space:nowrap;}
+
+/* Pagination */
+.pager{display:flex;align-items:center;gap:6px;margin-top:12px;}
+.pager button{padding:5px 10px;border-radius:6px;background:#F0ECFF;color:#5B4FCF;font-size:12px;}
+.pager button:disabled{opacity:.4;cursor:default;}
+.pager span{font-size:12px;color:#888;}
+
+/* Detail panel */
+.detail-pre{background:#F5F4F7;border-radius:8px;padding:12px;font-size:12px;white-space:pre-wrap;word-break:break-all;max-height:300px;overflow-y:auto;}
+
+/* Risk queue badge */
+.risk-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:10px;font-size:12px;font-weight:600;}
+
+/* Section tabs */
+.tabs{display:flex;gap:2px;margin-bottom:16px;}
+.tab{padding:8px 16px;border-radius:8px 8px 0 0;font-size:13px;font-weight:500;color:#888;cursor:pointer;border-bottom:2px solid transparent;}
+.tab.active{color:#5B4FCF;border-bottom-color:#5B4FCF;background:#F0ECFF;}
+
+/* misc */
+.sep{height:1px;background:#F0EFF3;margin:12px 0;}
+.empty{text-align:center;color:#AAA;padding:32px;font-size:13px;}
+.inl{display:inline;}
+</style>
+</head>
+<body>
+
+<!-- Login Screen -->
+<div id="screen-login">
+  <div class="login-box">
+    <h1>🛡️ 관리자 로그인</h1>
+    <p>뉴니콘 운영자 전용 페이지입니다.</p>
+    <input type="email" id="li-email" placeholder="이메일" autocomplete="email">
+    <input type="password" id="li-pw" placeholder="비밀번호" autocomplete="current-password">
+    <button id="li-btn" onclick="doLogin()">로그인</button>
+    <div id="li-err" class="login-err"></div>
+  </div>
+</div>
+
+<!-- Main App -->
+<div id="app" style="display:none">
+  <div id="sidebar">
+    <div class="logo">🦄 <span>뉴니콘</span> 관리</div>
+    <nav>
+      <a href="#" class="nav-link active" data-page="dashboard"><span class="ico">📊</span> 대시보드</a>
+      <a href="#" class="nav-link" data-page="consultations"><span class="ico">💬</span> AI 상담 관리</a>
+      <a href="#" class="nav-link" data-page="risk"><span class="ico">⚠️</span> 위험 검토함 <span id="risk-badge" style="background:#C0392B;color:#fff;border-radius:10px;padding:1px 7px;font-size:11px;margin-left:auto;display:none">0</span></a>
+      <a href="#" class="nav-link" data-page="reviewed"><span class="ico">✅</span> 검수 답변</a>
+      <a href="#" class="nav-link" data-page="products"><span class="ico">🧪</span> 제품 DB</a>
+      <a href="#" class="nav-link" data-page="nutrition"><span class="ico">📋</span> 영양 기준값</a>
+      <a href="#" class="nav-link" data-page="users"><span class="ico">👤</span> 회원 관리</a>
+      <a href="#" class="nav-link" data-page="settings"><span class="ico">⚙️</span> 운영 설정</a>
+    </nav>
+    <div class="sbfooter" id="sb-role">역할: 확인 중...</div>
+  </div>
+
+  <div id="main">
+    <div id="topbar">
+      <div class="tb-title" id="tb-title">대시보드</div>
+      <div class="tb-user" id="tb-user"></div>
+      <div class="tb-logout" onclick="doLogout()">로그아웃</div>
+    </div>
+    <div id="content"><!-- 동적 렌더링 --></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<!-- Overlay for modals -->
+<div id="overlay" class="overlay" style="display:none" onclick="closeOverlay(event)"></div>
+<div id="modal-wrap" style="position:fixed;inset:0;z-index:101;pointer-events:none;display:flex;align-items:center;justify-content:center;"></div>
+
+<script>
+// ── Supabase 클라이언트 (anon key — 인증만 사용) ─────────────────
+const SUPA_URL = 'https://oxrdienywxsooygxvqgf.supabase.co';
+const SUPA_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im94cmRpZW55d3hzb295Z3h2cWdmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzODgzNDMsImV4cCI6MjA5NTk2NDM0M30.rSpYrPX1H1BQetQdojMwO3SVBvFs9gfHhOPaUOo-eo8';
+
+let supabase;
+let adminToken = null;
+let adminEmail = '';
+let adminRole  = '';
+
+async function initSupabase() {
+  // CDN에서 Supabase 로드
+  if (!window.supabase) {
+    await new Promise((res, rej) => {
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js';
+      s.onload = res; s.onerror = rej;
+      document.head.appendChild(s);
+    });
+  }
+  supabase = window.supabase.createClient(SUPA_URL, SUPA_ANON);
+
+  // 세션 복원 시도
+  const { data: { session } } = await supabase.auth.getSession();
+  if (session) {
+    adminToken = session.access_token;
+    adminEmail = session.user.email || '';
+    await verifyAndShow(session);
+  }
+}
+
+async function verifyAndShow(session) {
+  // 관리자 권한 확인 (대시보드 API 호출로 검증)
+  const res = await apiGet('/api/admin/dashboard');
+  if (res.error) {
+    adminToken = null;
+    showToast('관리자 권한이 없는 계정입니다.', 3000);
+    return;
+  }
+  adminToken = session.access_token;
+  adminEmail = session.user.email || '';
+
+  // 역할 가져오기 (users API)
+  document.getElementById('screen-login').style.display = 'none';
+  document.getElementById('app').style.display = 'flex';
+  document.getElementById('tb-user').textContent = adminEmail;
+
+  // 대시보드로 시작
+  navigate('dashboard');
+  updateRiskBadge();
+}
+
+async function doLogin() {
+  const email = document.getElementById('li-email').value.trim();
+  const pw    = document.getElementById('li-pw').value;
+  const btn   = document.getElementById('li-btn');
+  const errEl = document.getElementById('li-err');
+  errEl.textContent = '';
+  if (!email || !pw) { errEl.textContent = '이메일과 비밀번호를 입력하세요.'; return; }
+
+  btn.disabled = true; btn.textContent = '로그인 중...';
+  try {
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password: pw });
+    if (error) { errEl.textContent = '이메일 또는 비밀번호가 틀렸습니다.'; return; }
+    adminToken = data.session.access_token;
+    await verifyAndShow(data.session);
+    if (!adminToken) { errEl.textContent = '관리자 권한이 없는 계정입니다.'; }
+  } finally {
+    btn.disabled = false; btn.textContent = '로그인';
+  }
+}
+
+async function doLogout() {
+  await supabase.auth.signOut();
+  adminToken = null;
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('screen-login').style.display = 'flex';
+}
+
+// ── API 헬퍼 ─────────────────────────────────────────────────────
+async function apiGet(path, params = {}) {
+  const url = new URL(path, location.origin);
+  Object.entries(params).forEach(([k,v]) => v !== '' && v != null && url.searchParams.set(k, v));
+  const res = await fetch(url.toString(), {
+    headers: { Authorization: `Bearer ${adminToken}` }
+  });
+  return res.json();
+}
+
+async function apiPost(path, body) {
+  const res = await fetch(path, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${adminToken}` },
+    body: JSON.stringify(body),
+  });
+  return res.json();
+}
+
+async function apiPut(path, body) {
+  const res = await fetch(path, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${adminToken}` },
+    body: JSON.stringify(body),
+  });
+  return res.json();
+}
+
+async function apiPatch(path, body) {
+  const res = await fetch(path, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${adminToken}` },
+    body: JSON.stringify(body),
+  });
+  return res.json();
+}
+
+async function apiDelete(path, body) {
+  const res = await fetch(path, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${adminToken}` },
+    body: JSON.stringify(body),
+  });
+  return res.json();
+}
+
+// ── 라우팅 ───────────────────────────────────────────────────────
+const PAGE_TITLES = {
+  dashboard:'대시보드', consultations:'AI 상담 관리', risk:'위험 검토함',
+  reviewed:'검수 답변 관리', products:'제품 DB 관리', nutrition:'영양 기준값 관리',
+  users:'회원 관리', settings:'운영 설정',
+};
+
+function navigate(page) {
+  document.querySelectorAll('.nav-link').forEach(a => {
+    a.classList.toggle('active', a.dataset.page === page);
+  });
+  document.getElementById('tb-title').textContent = PAGE_TITLES[page] || page;
+  const content = document.getElementById('content');
+  content.innerHTML = '<div class="empty">로딩 중...</div>';
+
+  switch(page) {
+    case 'dashboard':     renderDashboard(); break;
+    case 'consultations': renderConsultations(); break;
+    case 'risk':          renderRisk(); break;
+    case 'reviewed':      renderReviewed(); break;
+    case 'products':      renderProducts(); break;
+    case 'nutrition':     renderNutrition(); break;
+    case 'users':         renderUsers(); break;
+    case 'settings':      renderSettings(); break;
+  }
+}
+
+document.querySelectorAll('.nav-link').forEach(a => {
+  a.addEventListener('click', e => { e.preventDefault(); navigate(a.dataset.page); });
+});
+
+// ── 위험 배지 업데이트 ───────────────────────────────────────────
+async function updateRiskBadge() {
+  const data = await apiGet('/api/admin/dashboard');
+  const count = data.risk?.totalPendingReview || 0;
+  const badge = document.getElementById('risk-badge');
+  badge.style.display = count > 0 ? 'inline' : 'none';
+  badge.textContent = count;
+}
+
+// ── DASHBOARD ────────────────────────────────────────────────────
+async function renderDashboard() {
+  const data = await apiGet('/api/admin/dashboard');
+  if (data.error) { setContent('<div class="empty">데이터 로드 오류</div>'); return; }
+
+  const c = data.consultations;
+  const r = data.risk;
+  const u = data.users;
+
+  setContent(`
+    <div class="stat-grid">
+      <div class="stat-box"><div class="sv">${c.today}</div><div class="sl">오늘 상담</div></div>
+      <div class="stat-box"><div class="sv">${c.last7d}</div><div class="sl">7일 상담</div></div>
+      <div class="stat-box"><div class="sv">${c.last30d}</div><div class="sl">30일 상담</div></div>
+      <div class="stat-box"><div class="sv">${c.successRate != null ? c.successRate+'%' : 'N/A'}</div><div class="sl">오늘 성공률</div></div>
+      <div class="stat-box danger"><div class="sv">${r.highPending}</div><div class="sl">위험 검토 대기</div></div>
+      <div class="stat-box warn"><div class="sv">${r.cautionPending}</div><div class="sl">주의 검토 대기</div></div>
+      <div class="stat-box"><div class="sv">${u.newLast7d}</div><div class="sl">신규 회원(7일)</div></div>
+      <div class="stat-box"><div class="sv">${u.scansLast7d}</div><div class="sl">스캔 이력(7일)</div></div>
+    </div>
+
+    ${r.totalPendingReview > 0 ? `
+    <div class="card" style="border-left:4px solid #C0392B;">
+      <div class="card-title">⚠️ 위험 검토 대기 — ${r.totalPendingReview}건</div>
+      ${riskQueueTable(data.riskQueue)}
+    </div>` : ''}
+
+    <div class="card">
+      <div class="card-title">최근 상담 10건</div>
+      ${recentChatsTable(data.recentChats)}
+    </div>
+
+    ${data.recentFailed.length > 0 ? `
+    <div class="card">
+      <div class="card-title">최근 실패 상담</div>
+      ${failedTable(data.recentFailed)}
+    </div>` : ''}
+
+    <div style="font-size:12px;color:#AAA;text-align:right;margin-top:8px;">
+      ${data.generatedAt ? '생성 시각: ' + new Date(data.generatedAt).toLocaleString('ko-KR') : ''}
+    </div>
+  `);
+}
+
+function recentChatsTable(rows) {
+  if (!rows?.length) return '<div class="empty">상담 기록 없음</div>';
+  return `<div class="tbl-wrap"><table>
+    <thead><tr><th>질문</th><th>상태</th><th>위험도</th><th>검토</th><th>연령</th><th>시각</th></tr></thead>
+    <tbody>${rows.map(r => `<tr>
+      <td style="max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(r.question)}</td>
+      <td>${statusTag(r.status)}</td>
+      <td>${riskTag(r.risk_level)}</td>
+      <td>${reviewTag(r.review_status)}</td>
+      <td>${esc(r.child_age_label||'-')}</td>
+      <td style="white-space:nowrap">${fmtDate(r.created_at)}</td>
+    </tr>`).join('')}</tbody>
+  </table></div>`;
+}
+
+function riskQueueTable(rows) {
+  if (!rows?.length) return '<div class="empty">없음</div>';
+  return `<div class="tbl-wrap"><table>
+    <thead><tr><th>질문</th><th>위험도</th><th>플래그</th><th>연령</th><th>시각</th><th></th></tr></thead>
+    <tbody>${rows.map(r => `<tr>
+      <td style="max-width:220px">${esc(r.question)}</td>
+      <td>${riskTag(r.risk_level)}</td>
+      <td style="font-size:11px;color:#888">${(r.risk_flags||[]).join(', ')}</td>
+      <td>${esc(r.child_age_label||'-')}</td>
+      <td style="white-space:nowrap">${fmtDate(r.created_at)}</td>
+      <td><button class="btn btn-s btn-sm" onclick="navigate('risk')">검토</button></td>
+    </tr>`).join('')}</tbody>
+  </table></div>`;
+}
+
+function failedTable(rows) {
+  return `<div class="tbl-wrap"><table>
+    <thead><tr><th>질문</th><th>상태</th><th>오류코드</th><th>시각</th></tr></thead>
+    <tbody>${rows.map(r => `<tr>
+      <td>${esc(r.question)}</td>
+      <td>${statusTag(r.status)}</td>
+      <td><code>${esc(r.error_code||'-')}</code></td>
+      <td>${fmtDate(r.created_at)}</td>
+    </tr>`).join('')}</tbody>
+  </table></div>`;
+}
+
+// ── CONSULTATIONS ────────────────────────────────────────────────
+let chatPage = 1;
+const chatFilters = {};
+
+async function renderConsultations() {
+  setContent(`
+    <div class="card">
+      <div class="form-row">
+        <div class="form-group"><label>상태</label>
+          <select id="cf-status"><option value="">전체</option>
+            <option>success</option><option>failed</option><option>timeout</option><option>empty_reply</option>
+          </select>
+        </div>
+        <div class="form-group"><label>위험도</label>
+          <select id="cf-risk"><option value="">전체</option>
+            <option value="high">high</option><option value="caution">caution</option><option value="normal">normal</option>
+          </select>
+        </div>
+        <div class="form-group"><label>검토상태</label>
+          <select id="cf-review"><option value="">전체</option>
+            <option value="pending">pending</option><option value="reviewing">reviewing</option>
+            <option value="completed">completed</option><option value="dangerous">dangerous</option>
+          </select>
+        </div>
+        <div class="form-group"><label>키워드</label>
+          <input type="text" id="cf-keyword" placeholder="질문 내 키워드" style="width:160px">
+        </div>
+        <div class="form-group"><label>날짜(시작)</label><input type="date" id="cf-from"></div>
+        <div class="form-group"><label>날짜(종료)</label><input type="date" id="cf-to"></div>
+        <div class="form-group"><label>&nbsp;</label>
+          <button class="btn btn-p" onclick="loadChats(1)">검색</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div id="chat-table-wrap"><div class="empty">검색 버튼을 눌러 조회하세요.</div></div>
+      <div class="pager" id="chat-pager"></div>
+    </div>
+  `);
+  loadChats(1);
+}
+
+async function loadChats(page) {
+  chatPage = page;
+  const status   = document.getElementById('cf-status')?.value  || '';
+  const risk     = document.getElementById('cf-risk')?.value    || '';
+  const review   = document.getElementById('cf-review')?.value  || '';
+  const keyword  = document.getElementById('cf-keyword')?.value || '';
+  const from     = document.getElementById('cf-from')?.value    || '';
+  const to       = document.getElementById('cf-to')?.value      || '';
+
+  const data = await apiGet('/api/admin/consultations', {
+    page, status, risk_level: risk, review_status: review, keyword, date_from: from, date_to: to
+  });
+
+  const wrap = document.getElementById('chat-table-wrap');
+  if (!wrap) return;
+
+  if (!data.items?.length) { wrap.innerHTML = '<div class="empty">결과 없음</div>'; return; }
+
+  wrap.innerHTML = `<div class="tbl-wrap"><table>
+    <thead><tr>
+      <th>질문(앞 60자)</th><th>상태</th><th>위험도</th><th>검토</th><th>쿼터차감</th><th>연령</th><th>시각</th><th></th>
+    </tr></thead>
+    <tbody>${data.items.map(r => `<tr>
+      <td style="max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(r.question)}">${esc(r.question)}</td>
+      <td>${statusTag(r.status)}</td>
+      <td>${riskTag(r.risk_level)}</td>
+      <td>${reviewTag(r.review_status)}</td>
+      <td>${r.quota_deducted ? '✅' : '—'}</td>
+      <td>${esc(r.child_age_label||'-')}</td>
+      <td style="white-space:nowrap">${fmtDate(r.created_at)}</td>
+      <td><button class="btn btn-s btn-sm" onclick="openChatDetail('${r.id}')">상세</button></td>
+    </tr>`).join('')}</tbody>
+  </table></div>`;
+
+  renderPager('chat-pager', page, data.total, 20, loadChats);
+}
+
+async function openChatDetail(id) {
+  const data = await apiGet('/api/admin/consultations', { id });
+  if (data.error) { showToast('조회 오류: ' + data.error); return; }
+
+  showModal(`
+    <h3>상담 상세</h3>
+    <div class="sep"></div>
+    <div class="form-group" style="margin-bottom:10px">
+      <label>질문</label>
+      <div class="detail-pre">${esc(data.question||'')}</div>
+    </div>
+    <div class="form-group" style="margin-bottom:10px">
+      <label>답변</label>
+      <div class="detail-pre">${esc(data.answer||'(없음)')}</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+      <div><label style="font-size:12px;color:#888">상태</label><br>${statusTag(data.status)}</div>
+      <div><label style="font-size:12px;color:#888">위험도</label><br>${riskTag(data.risk_level)}</div>
+      <div><label style="font-size:12px;color:#888">검토상태</label><br>${reviewTag(data.review_status)}</div>
+      <div><label style="font-size:12px;color:#888">쿼터차감</label><br>${data.quota_deducted ? '✅ 예' : '—'}</div>
+      <div><label style="font-size:12px;color:#888">연령</label><br>${esc(data.child_age_label||'-')}</div>
+      <div><label style="font-size:12px;color:#888">시각</label><br>${fmtDate(data.created_at)}</div>
+    </div>
+    ${data.risk_flags?.length ? `<div style="margin-bottom:10px"><label style="font-size:12px;color:#888">위험 플래그</label><br><code>${data.risk_flags.join(', ')}</code></div>` : ''}
+    <div class="sep"></div>
+    <div class="form-group" style="margin-bottom:8px">
+      <label>검토 상태 변경</label>
+      <select id="det-review-status">
+        <option value="">-- 선택 --</option>
+        <option value="reviewing">검토 중</option>
+        <option value="normal">정상</option>
+        <option value="needs_revision">수정 필요</option>
+        <option value="dangerous">위험 확정</option>
+        <option value="completed">완료</option>
+      </select>
+    </div>
+    <div class="form-group" style="margin-bottom:8px">
+      <label>검토 메모</label>
+      <textarea id="det-review-note" rows="3">${esc(data.reviewer_note||'')}</textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-s" onclick="closeModal()">닫기</button>
+      <button class="btn btn-p" onclick="saveChatReview('${id}')">저장</button>
+    </div>
+  `);
+}
+
+async function saveChatReview(id) {
+  const status = document.getElementById('det-review-status')?.value || '';
+  const note   = document.getElementById('det-review-note')?.value || '';
+  const res    = await apiPatch('/api/admin/consultations', { id, review_status: status||undefined, reviewer_note: note });
+  if (res.error) { showToast('오류: ' + res.error); return; }
+  showToast('저장되었습니다');
+  closeModal();
+  loadChats(chatPage);
+}
+
+// ── RISK QUEUE ───────────────────────────────────────────────────
+let riskPage = 1;
+
+async function renderRisk() {
+  setContent(`
+    <div class="card">
+      <div class="form-row">
+        <div class="form-group"><label>위험도</label>
+          <select id="rq-risk"><option value="">high+caution</option><option value="high">high만</option><option value="caution">caution만</option></select>
+        </div>
+        <div class="form-group"><label>검토상태</label>
+          <select id="rq-rev"><option value="pending">대기중</option><option value="reviewing">검토중</option><option value="all">전체</option></select>
+        </div>
+        <div class="form-group"><label>&nbsp;</label><button class="btn btn-p" onclick="loadRisk(1)">조회</button></div>
+      </div>
+    </div>
+    <div class="card">
+      <div id="risk-table-wrap"><div class="empty">로딩 중...</div></div>
+      <div class="pager" id="risk-pager"></div>
+    </div>
+  `);
+  loadRisk(1);
+}
+
+async function loadRisk(page) {
+  riskPage = page;
+  const risk   = document.getElementById('rq-risk')?.value || '';
+  const review = document.getElementById('rq-rev')?.value || 'pending';
+  const data   = await apiGet('/api/admin/risk', { page, risk_level: risk, review_status: review === 'all' ? 'all' : review });
+  const wrap   = document.getElementById('risk-table-wrap');
+  if (!wrap) return;
+
+  if (!data.items?.length) { wrap.innerHTML = '<div class="empty">검토 대기 항목 없음</div>'; return; }
+
+  wrap.innerHTML = `<div class="tbl-wrap"><table>
+    <thead><tr><th>질문</th><th>위험도</th><th>플래그</th><th>답변 미리보기</th><th>연령</th><th>시각</th><th></th></tr></thead>
+    <tbody>${data.items.map(r => `<tr>
+      <td style="max-width:180px">${esc(r.question)}</td>
+      <td>${riskTag(r.risk_level)}</td>
+      <td style="font-size:11px;color:#888;max-width:120px">${(r.risk_flags||[]).join(', ')}</td>
+      <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#666">${esc(r.answer||'')}</td>
+      <td>${esc(r.child_age_label||'-')}</td>
+      <td style="white-space:nowrap">${fmtDate(r.created_at)}</td>
+      <td><button class="btn btn-p btn-sm" onclick="openRiskResolve('${r.id}','${esc(r.question)}')">검토</button></td>
+    </tr>`).join('')}</tbody>
+  </table></div>`;
+
+  renderPager('risk-pager', page, data.total, 20, loadRisk);
+}
+
+function openRiskResolve(id, question) {
+  showModal(`
+    <h3>위험 상담 검토</h3>
+    <div class="form-group" style="margin-bottom:10px">
+      <label>질문</label>
+      <div class="detail-pre">${esc(question)}</div>
+    </div>
+    <div class="form-group" style="margin-bottom:10px">
+      <label>검토 결과</label>
+      <select id="rr-resolution">
+        <option value="">-- 선택 --</option>
+        <option value="false_positive">오탐 (정상 내용)</option>
+        <option value="normal">일반 상담</option>
+        <option value="needs_revision">답변 수정 필요</option>
+        <option value="dangerous">위험 확정</option>
+      </select>
+    </div>
+    <div class="form-group" style="margin-bottom:10px">
+      <label>최종 위험도 조정</label>
+      <select id="rr-risk"><option value="">변경 없음</option>
+        <option value="normal">normal</option><option value="caution">caution</option><option value="high">high</option>
+      </select>
+    </div>
+    <div class="form-group" style="margin-bottom:10px">
+      <label>메모</label>
+      <textarea id="rr-note" rows="3" placeholder="검토 내용 기록..."></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-s" onclick="closeModal()">취소</button>
+      <button class="btn btn-p" onclick="submitRiskResolve('${id}')">완료 처리</button>
+    </div>
+  `);
+}
+
+async function submitRiskResolve(chatId) {
+  const resolution = document.getElementById('rr-resolution')?.value;
+  const finalRisk  = document.getElementById('rr-risk')?.value;
+  const note       = document.getElementById('rr-note')?.value;
+  if (!resolution) { showToast('검토 결과를 선택하세요.'); return; }
+
+  const res = await fetch('/api/admin/risk/resolve', {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${adminToken}` },
+    body: JSON.stringify({ chat_id: chatId, resolution, reviewer_note: note, final_risk_level: finalRisk||undefined }),
+  });
+  const data = await res.json();
+  if (data.error) { showToast('오류: ' + data.error); return; }
+  showToast('검토 완료 처리되었습니다');
+  closeModal();
+  loadRisk(riskPage);
+  updateRiskBadge();
+}
+
+// ── REVIEWED ANSWERS ─────────────────────────────────────────────
+let revPage = 1;
+
+async function renderReviewed() {
+  setContent(`
+    <div class="card">
+      <div class="form-row">
+        <div class="form-group"><label>주제</label>
+          <input type="text" id="rv-topic" placeholder="예: 아연, 비타민D" style="width:120px">
+        </div>
+        <div class="form-group"><label>키워드</label>
+          <input type="text" id="rv-kw" placeholder="트리거 키워드 검색" style="width:140px">
+        </div>
+        <div class="form-group"><label>활성여부</label>
+          <select id="rv-active"><option value="">전체</option><option value="true">활성</option><option value="false">비활성</option></select>
+        </div>
+        <div class="form-group"><label>&nbsp;</label><button class="btn btn-p" onclick="loadReviewed(1)">검색</button></div>
+        <div class="form-group"><label>&nbsp;</label><button class="btn btn-s" onclick="openReviewedCreate()">+ 새 답변 등록</button></div>
+      </div>
+    </div>
+    <div class="card">
+      <div id="rv-table-wrap"><div class="empty">로딩 중...</div></div>
+      <div class="pager" id="rv-pager"></div>
+    </div>
+  `);
+  loadReviewed(1);
+}
+
+async function loadReviewed(page) {
+  revPage = page;
+  const topic  = document.getElementById('rv-topic')?.value || '';
+  const kw     = document.getElementById('rv-kw')?.value    || '';
+  const active = document.getElementById('rv-active')?.value || '';
+  const data   = await apiGet('/api/admin/reviewed-answers', { page, topic, keyword: kw, is_active: active });
+  const wrap   = document.getElementById('rv-table-wrap');
+  if (!wrap) return;
+
+  if (!data.items?.length) { wrap.innerHTML = '<div class="empty">결과 없음</div>'; return; }
+
+  wrap.innerHTML = `<div class="tbl-wrap"><table>
+    <thead><tr><th>주제</th><th>트리거 키워드</th><th>버전</th><th>활성</th><th>검수자</th><th>등록일</th><th></th></tr></thead>
+    <tbody>${data.items.map(r => `<tr>
+      <td><b>${esc(r.topic||'-')}</b>${r.sub_topic ? `<br><span style="font-size:11px;color:#888">${esc(r.sub_topic)}</span>` : ''}</td>
+      <td style="font-size:12px;color:#666;max-width:200px">${esc(r.trigger_keywords||'')}</td>
+      <td>v${r.version||1}</td>
+      <td>${r.is_active ? '<span class="tag tag-active">활성</span>' : '<span class="tag tag-inactive">비활성</span>'}</td>
+      <td style="font-size:12px">${esc(r.reviewed_by?.slice(0,8)||'-')}</td>
+      <td>${fmtDate(r.created_at)}</td>
+      <td style="display:flex;gap:4px">
+        <button class="btn btn-s btn-sm" onclick="openReviewedDetail('${r.id}')">상세</button>
+        ${r.is_active ? `<button class="btn btn-d btn-sm" onclick="deactivateReviewed('${r.id}')">비활성</button>` : ''}
+      </td>
+    </tr>`).join('')}</tbody>
+  </table></div>`;
+
+  renderPager('rv-pager', page, data.total, 20, loadReviewed);
+}
+
+async function openReviewedDetail(id) {
+  const data = await apiGet('/api/admin/reviewed-answers', { id });
+  if (data.error) { showToast('오류: ' + data.error); return; }
+  const a = data.answer;
+
+  showModal(`
+    <h3>검수 답변 상세 / 수정 <span style="font-size:12px;color:#AAA">v${a.version}</span></h3>
+    <div class="form-group" style="margin-bottom:8px"><label>주제</label>
+      <input type="text" id="upd-topic" value="${esc(a.topic||'')}">
+    </div>
+    <div class="form-group" style="margin-bottom:8px"><label>하위 주제</label>
+      <input type="text" id="upd-subtopic" value="${esc(a.sub_topic||'')}">
+    </div>
+    <div class="form-group" style="margin-bottom:8px"><label>트리거 키워드 (콤마 구분)</label>
+      <input type="text" id="upd-kw" value="${esc(a.trigger_keywords||'')}">
+    </div>
+    <div class="form-group" style="margin-bottom:8px"><label>검수 답변 내용</label>
+      <textarea id="upd-answer" rows="5">${esc(a.answer_text||'')}</textarea>
+    </div>
+    <div class="form-group" style="margin-bottom:8px"><label>비고</label>
+      <input type="text" id="upd-notes" value="${esc(a.notes||'')}">
+    </div>
+    <div class="form-group" style="margin-bottom:8px"><label>변경 사유 <span style="color:#C0392B">*</span></label>
+      <input type="text" id="upd-change-note" placeholder="변경 이유를 입력하세요 (필수)">
+    </div>
+    <div class="sep"></div>
+    <div class="card-title">버전 이력</div>
+    <div style="max-height:140px;overflow-y:auto">
+    ${(data.versions||[]).map(v => `
+      <div style="font-size:12px;padding:6px 0;border-bottom:1px solid #F0EFF3">
+        <b>v${v.version}</b> · ${fmtDate(v.created_at)} · ${esc(v.change_note||'')}
+      </div>`).join('')}
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-s" onclick="closeModal()">닫기</button>
+      <button class="btn btn-p" onclick="saveReviewedUpdate('${id}')">저장</button>
+    </div>
+  `);
+}
+
+async function saveReviewedUpdate(id) {
+  const changeNote = document.getElementById('upd-change-note')?.value.trim();
+  if (!changeNote) { showToast('변경 사유를 입력하세요.'); return; }
+  const body = {
+    id,
+    topic: document.getElementById('upd-topic')?.value,
+    sub_topic: document.getElementById('upd-subtopic')?.value,
+    trigger_keywords: document.getElementById('upd-kw')?.value,
+    answer_text: document.getElementById('upd-answer')?.value,
+    notes: document.getElementById('upd-notes')?.value,
+    change_note: changeNote,
+  };
+  const res = await apiPut('/api/admin/reviewed-answers', body);
+  if (res.error) { showToast('오류: ' + res.error); return; }
+  showToast(`저장되었습니다 (v${res.new_version})`);
+  closeModal();
+  loadReviewed(revPage);
+}
+
+function openReviewedCreate() {
+  showModal(`
+    <h3>검수 답변 등록</h3>
+    <div class="form-group" style="margin-bottom:8px"><label>주제 <span style="color:#C0392B">*</span></label>
+      <input type="text" id="cr-topic" placeholder="예: 아연, 비타민D, 유산균">
+    </div>
+    <div class="form-group" style="margin-bottom:8px"><label>하위 주제</label>
+      <input type="text" id="cr-subtopic" placeholder="예: 과용량, 병용">
+    </div>
+    <div class="form-group" style="margin-bottom:8px"><label>트리거 키워드 <span style="color:#C0392B">*</span></label>
+      <input type="text" id="cr-kw" placeholder="쉼표로 구분: 아연 과다,아연 너무많이">
+    </div>
+    <div class="form-group" style="margin-bottom:8px"><label>검수 답변 내용 <span style="color:#C0392B">*</span></label>
+      <textarea id="cr-answer" rows="5" placeholder="AI 상담 시 참조할 검수된 답변 내용..."></textarea>
+    </div>
+    <div class="form-group" style="margin-bottom:8px"><label>비고</label>
+      <input type="text" id="cr-notes" placeholder="출처, 참고사항 등">
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-s" onclick="closeModal()">취소</button>
+      <button class="btn btn-p" onclick="submitReviewedCreate()">등록</button>
+    </div>
+  `);
+}
+
+async function submitReviewedCreate() {
+  const topic   = document.getElementById('cr-topic')?.value.trim();
+  const kw      = document.getElementById('cr-kw')?.value.trim();
+  const answer  = document.getElementById('cr-answer')?.value.trim();
+  if (!topic || !kw || !answer) { showToast('필수 항목을 모두 입력하세요.'); return; }
+
+  const res = await apiPost('/api/admin/reviewed-answers', {
+    topic,
+    sub_topic: document.getElementById('cr-subtopic')?.value,
+    trigger_keywords: kw,
+    answer_text: answer,
+    notes: document.getElementById('cr-notes')?.value,
+  });
+  if (res.error) { showToast('오류: ' + res.error); return; }
+  showToast('등록되었습니다');
+  closeModal();
+  loadReviewed(1);
+}
+
+async function deactivateReviewed(id) {
+  if (!confirm('이 검수 답변을 비활성화하시겠습니까?')) return;
+  const res = await apiDelete('/api/admin/reviewed-answers', { id, reason: '관리자 비활성화' });
+  if (res.error) { showToast('오류: ' + res.error); return; }
+  showToast('비활성화되었습니다');
+  loadReviewed(revPage);
+}
+
+// ── PRODUCTS ─────────────────────────────────────────────────────
+let prodPage = 1;
+
+async function renderProducts() {
+  setContent(`
+    <div class="card">
+      <div class="form-row">
+        <div class="form-group"><label>브랜드</label>
+          <input type="text" id="pd-brand" placeholder="예: 베투키" style="width:120px">
+        </div>
+        <div class="form-group"><label>제품명</label>
+          <input type="text" id="pd-kw" placeholder="제품명 검색" style="width:160px">
+        </div>
+        <div class="form-group"><label>상태</label>
+          <select id="pd-active"><option value="">전체</option><option value="true">활성</option><option value="false">비활성</option></select>
+        </div>
+        <div class="form-group"><label>&nbsp;</label><button class="btn btn-p" onclick="loadProducts(1)">검색</button></div>
+        <div class="form-group"><label>&nbsp;</label><button class="btn btn-s" onclick="openProductCreate()">+ 제품 등록</button></div>
+      </div>
+    </div>
+    <div class="card">
+      <div id="pd-table-wrap"><div class="empty">로딩 중...</div></div>
+      <div class="pager" id="pd-pager"></div>
+    </div>
+  `);
+  loadProducts(1);
+}
+
+async function loadProducts(page) {
+  prodPage = page;
+  const data = await apiGet('/api/admin/products', {
+    page,
+    brand:     document.getElementById('pd-brand')?.value || '',
+    keyword:   document.getElementById('pd-kw')?.value    || '',
+    is_active: document.getElementById('pd-active')?.value || '',
+  });
+  const wrap = document.getElementById('pd-table-wrap');
+  if (!wrap) return;
+  if (!data.items?.length) { wrap.innerHTML = '<div class="empty">결과 없음</div>'; return; }
+
+  wrap.innerHTML = `<div class="tbl-wrap"><table>
+    <thead><tr><th>브랜드</th><th>제품명</th><th>유형</th><th>어린이용</th><th>버전</th><th>활성</th><th>등록일</th><th></th></tr></thead>
+    <tbody>${data.items.map(p => `<tr>
+      <td>${esc(p.brand||'-')}</td>
+      <td><b>${esc(p.product_name||'-')}</b></td>
+      <td style="font-size:12px">${esc(p.product_type||'-')}</td>
+      <td>${p.is_children ? '✅' : '—'}</td>
+      <td>v${p.version||1}</td>
+      <td>${p.is_active ? '<span class="tag tag-active">활성</span>' : '<span class="tag tag-inactive">비활성</span>'}</td>
+      <td>${fmtDate(p.created_at)}</td>
+      <td><button class="btn btn-s btn-sm" onclick="openProductDetail('${p.id}')">상세/수정</button></td>
+    </tr>`).join('')}</tbody>
+  </table></div>`;
+
+  renderPager('pd-pager', page, data.total, 20, loadProducts);
+}
+
+async function openProductDetail(id) {
+  const data = await apiGet('/api/admin/products', { id });
+  if (data.error) { showToast('오류: ' + data.error); return; }
+  const p = data.product;
+  const n = data.nutrients;
+
+  showModal(`
+    <h3>제품 상세 / 수정 <span style="font-size:12px;color:#AAA">v${p.version||1}</span></h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+      <div class="form-group"><label>브랜드</label><input type="text" id="pd-d-brand" value="${esc(p.brand||'')}"></div>
+      <div class="form-group"><label>제품명</label><input type="text" id="pd-d-name" value="${esc(p.product_name||'')}"></div>
+      <div class="form-group"><label>제품 유형</label><input type="text" id="pd-d-type" value="${esc(p.product_type||'')}"></div>
+      <div class="form-group"><label>어린이용</label>
+        <select id="pd-d-children"><option value="true" ${p.is_children?'selected':''}>예</option><option value="false" ${!p.is_children?'selected':''}>아니오</option></select>
+      </div>
+    </div>
+    <div class="card-title">영양성분 (${n.length}개)</div>
+    <div id="pd-d-nutrients" style="max-height:200px;overflow-y:auto;margin-bottom:10px">
+      ${n.map((nu, i) => `
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:6px;margin-bottom:6px;align-items:center">
+          <input type="text" data-ni="${i}" data-field="nutrient_name" value="${esc(nu.nutrient_name||'')}" placeholder="영양소">
+          <input type="number" data-ni="${i}" data-field="amount_per_serving" value="${nu.amount_per_serving||0}" step="any" placeholder="함량">
+          <input type="text" data-ni="${i}" data-field="unit" value="${esc(nu.unit||'')}" placeholder="단위">
+        </div>`).join('')}
+    </div>
+    <div class="form-group" style="margin-bottom:10px"><label>변경 사유</label>
+      <input type="text" id="pd-d-note" placeholder="변경 이유 (버전 이력에 기록됨)">
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-d btn-sm" onclick="deactivateProduct('${id}')">비활성화</button>
+      <button class="btn btn-s" onclick="closeModal()">닫기</button>
+      <button class="btn btn-p" onclick="saveProductUpdate('${id}')">저장</button>
+    </div>
+  `);
+}
+
+async function saveProductUpdate(id) {
+  const nutrientInputs = document.querySelectorAll('#pd-d-nutrients input[data-ni]');
+  const nutrientMap = {};
+  nutrientInputs.forEach(inp => {
+    const ni = inp.dataset.ni;
+    if (!nutrientMap[ni]) nutrientMap[ni] = {};
+    nutrientMap[ni][inp.dataset.field] = inp.value;
+  });
+  const nutrients = Object.values(nutrientMap);
+
+  const res = await apiPut('/api/admin/products', {
+    id,
+    product: {
+      brand: document.getElementById('pd-d-brand')?.value,
+      product_name: document.getElementById('pd-d-name')?.value,
+      product_type: document.getElementById('pd-d-type')?.value,
+      is_children: document.getElementById('pd-d-children')?.value === 'true',
+    },
+    nutrients,
+    change_note: document.getElementById('pd-d-note')?.value,
+  });
+  if (res.error) { showToast('오류: ' + res.error); return; }
+  showToast(`저장되었습니다 (v${res.new_version})`);
+  closeModal();
+  loadProducts(prodPage);
+}
+
+function openProductCreate() {
+  showModal(`
+    <h3>제품 등록</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+      <div class="form-group"><label>브랜드 <span style="color:#C0392B">*</span></label><input type="text" id="nc-brand" placeholder="예: 베투키"></div>
+      <div class="form-group"><label>제품명 <span style="color:#C0392B">*</span></label><input type="text" id="nc-name"></div>
+      <div class="form-group"><label>제품 유형</label><input type="text" id="nc-type" placeholder="예: 영양제, 유산균"></div>
+      <div class="form-group"><label>어린이용</label>
+        <select id="nc-children"><option value="true">예</option><option value="false">아니오</option></select>
+      </div>
+    </div>
+    <div class="card-title">영양성분 (최대 20개)</div>
+    <div id="nc-nutrients">
+      ${[...Array(3)].map((_, i) => `
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:6px;margin-bottom:6px">
+          <input type="text" id="nn-name-${i}" placeholder="영양소명 (예: 비타민D)">
+          <input type="number" id="nn-amt-${i}" placeholder="함량" step="any" value="0">
+          <input type="text" id="nn-unit-${i}" placeholder="단위 (예: IU)">
+        </div>`).join('')}
+    </div>
+    <button class="btn btn-s btn-sm" onclick="addNutrientRow()" style="margin-bottom:10px">+ 영양소 추가</button>
+    <div class="modal-footer">
+      <button class="btn btn-s" onclick="closeModal()">취소</button>
+      <button class="btn btn-p" onclick="submitProductCreate()">등록</button>
+    </div>
+  `);
+}
+
+let ncRowCount = 3;
+function addNutrientRow() {
+  if (ncRowCount >= 20) { showToast('최대 20개까지 입력 가능합니다'); return; }
+  const wrap = document.getElementById('nc-nutrients');
+  const i = ncRowCount++;
+  const div = document.createElement('div');
+  div.style.cssText = 'display:grid;grid-template-columns:2fr 1fr 1fr;gap:6px;margin-bottom:6px';
+  div.innerHTML = `
+    <input type="text" id="nn-name-${i}" placeholder="영양소명">
+    <input type="number" id="nn-amt-${i}" placeholder="함량" step="any" value="0">
+    <input type="text" id="nn-unit-${i}" placeholder="단위">
+  `;
+  wrap.appendChild(div);
+}
+
+async function submitProductCreate() {
+  const brand = document.getElementById('nc-brand')?.value.trim();
+  const name  = document.getElementById('nc-name')?.value.trim();
+  if (!brand || !name) { showToast('브랜드와 제품명은 필수입니다'); return; }
+
+  const nutrients = [];
+  for (let i = 0; i < ncRowCount; i++) {
+    const nName = document.getElementById(`nn-name-${i}`)?.value.trim();
+    const amt   = parseFloat(document.getElementById(`nn-amt-${i}`)?.value || '0');
+    const unit  = document.getElementById(`nn-unit-${i}`)?.value.trim();
+    if (nName) nutrients.push({ nutrient_name: nName, amount_per_serving: amt, unit });
+  }
+
+  const res = await apiPost('/api/admin/products', {
+    product: {
+      brand, product_name: name,
+      product_type: document.getElementById('nc-type')?.value,
+      is_children: document.getElementById('nc-children')?.value === 'true',
+    },
+    nutrients,
+    idempotency_key: `create-${Date.now()}`,
+  });
+  if (res.error) { showToast('오류: ' + res.error); return; }
+  showToast('제품이 등록되었습니다');
+  closeModal();
+  loadProducts(1);
+}
+
+async function deactivateProduct(id) {
+  if (!confirm('이 제품을 비활성화하시겠습니까?')) return;
+  const res = await apiDelete('/api/admin/products', { id, reason: '관리자 비활성화' });
+  if (res.error) { showToast('오류: ' + res.error); return; }
+  showToast('비활성화되었습니다');
+  closeModal();
+  loadProducts(prodPage);
+}
+
+// ── NUTRITION REFS ───────────────────────────────────────────────
+async function renderNutrition() {
+  const data = await apiGet('/api/admin/nutrition-refs');
+  if (data.error) { setContent('<div class="empty">오류: ' + data.error + '</div>'); return; }
+
+  const nutrients = data.nutrients || [];
+  const html = nutrients.map(n => `
+    <div class="card">
+      <div class="card-title" style="display:flex;justify-content:space-between">
+        <span>${esc(n.nutrient_key)} <span style="color:#AAA;font-weight:400">(${esc(n.unit)})</span></span>
+        <button class="btn btn-s btn-sm" onclick="openAddNutritionRef('${n.nutrient_key}','${n.unit}')">+ 연령대 추가</button>
+      </div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>연령대</th><th>권장량</th><th>상한량</th><th>KDRI년도</th><th></th></tr></thead>
+        <tbody>${n.rows.map(r => `<tr>
+          <td>${esc(r.age_group_label)}</td>
+          <td>${r.recommended_intake != null ? r.recommended_intake + ' ' + esc(r.unit) : '—'}</td>
+          <td>${r.upper_limit != null ? r.upper_limit + ' ' + esc(r.unit) : '없음'}</td>
+          <td>${r.kdri_year || 2025}</td>
+          <td><button class="btn btn-s btn-sm" onclick="openEditNutritionRef('${r.id}',${r.recommended_intake},${r.upper_limit},'${r.kdri_year}')">수정</button></td>
+        </tr>`).join('')}</tbody>
+      </table></div>
+    </div>
+  `).join('');
+
+  setContent(`
+    <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
+      <button class="btn btn-s" onclick="openAddNutritionRef('','')">+ 새 영양소 추가</button>
+    </div>
+    ${html || '<div class="empty">등록된 기준값 없음</div>'}
+  `);
+}
+
+function openAddNutritionRef(nutrientKey, unit) {
+  showModal(`
+    <h3>영양 기준값 추가</h3>
+    <div class="form-group" style="margin-bottom:8px"><label>영양소 키 <span style="color:#C0392B">*</span></label>
+      <input type="text" id="nr-key" value="${esc(nutrientKey)}" placeholder="예: vitamin_d, zinc">
+    </div>
+    <div class="form-group" style="margin-bottom:8px"><label>연령대 라벨 <span style="color:#C0392B">*</span></label>
+      <input type="text" id="nr-label" placeholder="예: 12개월 미만, 1-3세">
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
+      <div class="form-group"><label>최소 개월수</label><input type="number" id="nr-min" placeholder="예: 0" min="0"></div>
+      <div class="form-group"><label>최대 개월수</label><input type="number" id="nr-max" placeholder="예: 11" min="0"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px">
+      <div class="form-group"><label>권장량</label><input type="number" id="nr-rec" step="any" placeholder="0">
+      </div>
+      <div class="form-group"><label>상한량</label><input type="number" id="nr-ul" step="any" placeholder="없으면 비워두기"></div>
+      <div class="form-group"><label>단위 <span style="color:#C0392B">*</span></label>
+        <input type="text" id="nr-unit" value="${esc(unit)}" placeholder="예: IU, mg, μg"></div>
+    </div>
+    <div class="form-group" style="margin-bottom:8px"><label>KDRI 년도</label>
+      <input type="number" id="nr-year" value="2025">
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-s" onclick="closeModal()">취소</button>
+      <button class="btn btn-p" onclick="submitNutritionRefCreate()">추가</button>
+    </div>
+  `);
+}
+
+async function submitNutritionRefCreate() {
+  const body = {
+    nutrient_key: document.getElementById('nr-key')?.value.trim(),
+    age_group_label: document.getElementById('nr-label')?.value.trim(),
+    age_min_months: parseInt(document.getElementById('nr-min')?.value)||0,
+    age_max_months: parseInt(document.getElementById('nr-max')?.value)||999,
+    recommended_intake: parseFloat(document.getElementById('nr-rec')?.value)||null,
+    upper_limit: document.getElementById('nr-ul')?.value ? parseFloat(document.getElementById('nr-ul').value) : null,
+    unit: document.getElementById('nr-unit')?.value.trim(),
+    kdri_year: parseInt(document.getElementById('nr-year')?.value)||2025,
+  };
+  if (!body.nutrient_key || !body.age_group_label || !body.unit) {
+    showToast('필수 항목을 입력하세요'); return;
+  }
+  const res = await apiPost('/api/admin/nutrition-refs', body);
+  if (res.error) { showToast('오류: ' + res.error); return; }
+  showToast('추가되었습니다');
+  closeModal();
+  renderNutrition();
+}
+
+function openEditNutritionRef(id, rec, ul, year) {
+  showModal(`
+    <h3>영양 기준값 수정</h3>
+    <div class="form-group" style="margin-bottom:8px"><label>권장량</label>
+      <input type="number" id="edit-rec" value="${rec!=null?rec:''}" step="any">
+    </div>
+    <div class="form-group" style="margin-bottom:8px"><label>상한량 (없으면 비워두기)</label>
+      <input type="number" id="edit-ul" value="${ul!=null?ul:''}" step="any">
+    </div>
+    <div class="form-group" style="margin-bottom:8px"><label>KDRI 년도</label>
+      <input type="number" id="edit-year" value="${year||2025}">
+    </div>
+    <div class="form-group" style="margin-bottom:8px"><label>변경 사유</label>
+      <input type="text" id="edit-note" placeholder="변경 이유 (감사 로그에 기록됩니다)">
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-s" onclick="closeModal()">취소</button>
+      <button class="btn btn-p" onclick="submitNutritionRefUpdate('${id}')">저장</button>
+    </div>
+  `);
+}
+
+async function submitNutritionRefUpdate(id) {
+  const recVal  = document.getElementById('edit-rec')?.value;
+  const ulVal   = document.getElementById('edit-ul')?.value;
+  const body = {
+    id,
+    recommended_intake: recVal !== '' ? parseFloat(recVal) : null,
+    upper_limit: ulVal !== '' ? parseFloat(ulVal) : null,
+    kdri_year: parseInt(document.getElementById('edit-year')?.value)||2025,
+    change_note: document.getElementById('edit-note')?.value,
+  };
+  const res = await apiPut('/api/admin/nutrition-refs', body);
+  if (res.error) { showToast('오류: ' + res.error); return; }
+  showToast('저장되었습니다');
+  closeModal();
+  renderNutrition();
+}
+
+// ── USERS ─────────────────────────────────────────────────────────
+let userPage = 1;
+
+async function renderUsers() {
+  setContent(`
+    <div class="card">
+      <div class="form-row">
+        <div class="form-group"><label>키워드 (이메일/ID)</label>
+          <input type="text" id="us-kw" placeholder="이메일 또는 ID" style="width:180px">
+        </div>
+        <div class="form-group"><label>&nbsp;</label><button class="btn btn-p" onclick="loadUsers(1)">검색</button></div>
+      </div>
+    </div>
+    <div class="card">
+      <div id="us-table-wrap"><div class="empty">로딩 중...</div></div>
+      <div class="pager" id="us-pager"></div>
+    </div>
+  `);
+  loadUsers(1);
+}
+
+async function loadUsers(page) {
+  userPage = page;
+  const kw   = document.getElementById('us-kw')?.value || '';
+  const data = await apiGet('/api/admin/users', { page, keyword: kw });
+  const wrap = document.getElementById('us-table-wrap');
+  if (!wrap) return;
+  if (!data.items?.length) { wrap.innerHTML = '<div class="empty">결과 없음</div>'; return; }
+
+  wrap.innerHTML = `<div class="tbl-wrap"><table>
+    <thead><tr><th>이메일</th><th>가입방법</th><th>역할</th><th>아이</th><th>마지막 로그인</th><th>상태</th><th></th></tr></thead>
+    <tbody>${data.items.map(u => `<tr>
+      <td>${esc(u.email||'-')}</td>
+      <td>${esc(u.provider||'-')}</td>
+      <td>${u.role !== 'user' ? `<span class="tag tag-pending">${esc(u.role)}</span>` : '일반'}</td>
+      <td>${u.child_count}명</td>
+      <td>${fmtDate(u.last_sign_in_at)}</td>
+      <td>${u.banned ? '<span class="tag tag-inactive">정지</span>' : '<span class="tag tag-active">정상</span>'}</td>
+      <td><button class="btn btn-s btn-sm" onclick="openUserDetail('${u.full_id}')">상세</button></td>
+    </tr>`).join('')}</tbody>
+  </table></div>`;
+
+  renderPager('us-pager', page, data.total, 20, loadUsers);
+}
+
+async function openUserDetail(userId) {
+  const data = await apiGet('/api/admin/users', { id: userId });
+  if (data.error) { showToast('오류: ' + data.error); return; }
+
+  showModal(`
+    <h3>회원 상세</h3>
+    <div style="margin-bottom:10px">
+      <b>${esc(data.email)}</b><br>
+      <span style="font-size:12px;color:#888">가입: ${fmtDate(data.created_at)} · 마지막 로그인: ${fmtDate(data.last_sign_in_at)}</span>
+    </div>
+    <div class="sep"></div>
+    <div class="card-title">아이 프로필 (${data.children?.length||0}명)</div>
+    ${data.children?.map(c => `<div style="font-size:13px;padding:4px 0">${esc(c.nickname||'이름없음')} · ${c.months}개월 · ${c.weight_kg||'-'}kg</div>`).join('') || '<div style="color:#AAA;font-size:13px">없음</div>'}
+    <div class="sep"></div>
+    <div class="card-title">쿼터 조정</div>
+    <div class="form-row">
+      <div class="form-group"><label>날짜</label>
+        <input type="date" id="qa-date" value="${new Date().toISOString().slice(0,10)}">
+      </div>
+      <div class="form-group"><label>조정량 (양수/음수)</label>
+        <input type="number" id="qa-adj" value="0" style="width:80px">
+      </div>
+      <div class="form-group"><label>사유</label>
+        <input type="text" id="qa-reason" placeholder="사유 입력">
+      </div>
+      <div class="form-group"><label>&nbsp;</label>
+        <button class="btn btn-p btn-sm" onclick="submitQuotaAdjust('${userId}')">조정</button>
+      </div>
+    </div>
+    <div class="sep"></div>
+    <div class="card-title">최근 상담</div>
+    ${data.recentChats?.map(c => `<div style="font-size:12px;padding:4px 0;border-bottom:1px solid #F0EFF3">${esc(c.question)} — ${statusTag(c.status)} · ${fmtDate(c.created_at)}</div>`).join('') || '<div style="color:#AAA;font-size:13px">없음</div>'}
+    <div class="modal-footer">
+      <button class="btn btn-s" onclick="closeModal()">닫기</button>
+    </div>
+  `);
+}
+
+async function submitQuotaAdjust(userId) {
+  const date = document.getElementById('qa-date')?.value;
+  const adj  = parseInt(document.getElementById('qa-adj')?.value||'0');
+  const reason = document.getElementById('qa-reason')?.value;
+  if (!date || adj === 0) { showToast('날짜와 조정량(0 제외)을 입력하세요'); return; }
+
+  const res = await apiPatch('/api/admin/users', { user_id: userId, date, adjustment: adj, reason });
+  if (res.error) { showToast('오류: ' + res.error); return; }
+  showToast('쿼터 조정 완료');
+}
+
+// ── SETTINGS ─────────────────────────────────────────────────────
+async function renderSettings() {
+  const data = await apiGet('/api/admin/settings');
+  if (data.error) { setContent('<div class="empty">오류: ' + data.error + '</div>'); return; }
+
+  const s = data.settings || {};
+  const rows = data.allowed_keys?.map(k => {
+    const val = s[k]?.value;
+    const valStr = typeof val === 'object' ? JSON.stringify(val) : String(val ?? '');
+    return `<tr>
+      <td><b>${esc(k)}</b><br><span style="font-size:11px;color:#888">${esc(s[k]?.description||'')}</span></td>
+      <td><input type="text" id="st-${k}" value="${esc(valStr)}" style="width:100%;min-width:160px"></td>
+      <td><button class="btn btn-s btn-sm" onclick="saveOneSetting('${k}')">저장</button></td>
+    </tr>`;
+  }).join('') || '';
+
+  setContent(`
+    <div class="card">
+      <div class="card-title">운영 설정 관리 <span style="font-size:11px;font-weight:400;color:#AAA">— 변경 즉시 반영됩니다. 신중히 수정하세요.</span></div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>설정 키</th><th>값</th><th></th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table></div>
+    </div>
+  `);
+}
+
+async function saveOneSetting(key) {
+  const rawVal = document.getElementById(`st-${key}`)?.value;
+  let value = rawVal;
+  // JSON 배열 자동 파싱
+  if (rawVal.trim().startsWith('[')) {
+    try { value = JSON.parse(rawVal); } catch { showToast('JSON 형식 오류'); return; }
+  }
+  // 불리언
+  if (rawVal === 'true') value = true;
+  if (rawVal === 'false') value = false;
+
+  const res = await apiPatch('/api/admin/settings', { key, value, change_note: '관리자 수정' });
+  if (res.error) { showToast('오류: ' + res.error); return; }
+  showToast(`'${key}' 저장 완료`);
+}
+
+// ── 공통 유틸 ─────────────────────────────────────────────────────
+function setContent(html) {
+  document.getElementById('content').innerHTML = html;
+}
+
+function esc(str) {
+  if (str == null) return '';
+  return String(str)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
+
+function fmtDate(iso) {
+  if (!iso) return '—';
+  const d = new Date(iso);
+  return d.toLocaleDateString('ko-KR') + ' ' + d.toLocaleTimeString('ko-KR', {hour:'2-digit',minute:'2-digit'});
+}
+
+function statusTag(s) {
+  const map = {success:'tag-normal', failed:'tag-high', timeout:'tag-caution', empty_reply:'tag-caution'};
+  return `<span class="tag ${map[s]||'tag-completed'}">${esc(s||'—')}</span>`;
+}
+
+function riskTag(r) {
+  const map = {high:'tag-high', caution:'tag-caution', normal:'tag-normal'};
+  return `<span class="tag ${map[r]||'tag-completed'}">${esc(r||'—')}</span>`;
+}
+
+function reviewTag(r) {
+  const map = {pending:'tag-pending', reviewing:'tag-caution', completed:'tag-completed', dangerous:'tag-high', normal:'tag-normal'};
+  return `<span class="tag ${map[r]||'tag-completed'}">${esc(r||'—')}</span>`;
+}
+
+function renderPager(wrapperId, page, total, limit, callback) {
+  const totalPages = Math.ceil(total / limit);
+  const wrap = document.getElementById(wrapperId);
+  if (!wrap || totalPages <= 1) { if (wrap) wrap.innerHTML = ''; return; }
+  wrap.innerHTML = `
+    <button onclick="${callback.name}(${page-1})" ${page<=1?'disabled':''}>◀</button>
+    <span>${page} / ${totalPages} (총 ${total}건)</span>
+    <button onclick="${callback.name}(${page+1})" ${page>=totalPages?'disabled':''}>▶</button>
+  `;
+}
+
+let currentModal = null;
+
+function showModal(html) {
+  document.getElementById('overlay').style.display = 'flex';
+  const wrap = document.getElementById('modal-wrap');
+  wrap.style.pointerEvents = 'all';
+  wrap.innerHTML = `<div class="modal" style="position:relative">${html}</div>`;
+}
+
+function closeModal() {
+  document.getElementById('overlay').style.display = 'none';
+  const wrap = document.getElementById('modal-wrap');
+  wrap.style.pointerEvents = 'none';
+  wrap.innerHTML = '';
+}
+
+function closeOverlay(e) {
+  if (e.target === document.getElementById('overlay')) closeModal();
+}
+
+let toastTimer;
+function showToast(msg, duration = 2500) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.style.display = 'block';
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.style.display = 'none'; }, duration);
+}
+
+// ── 초기화 ────────────────────────────────────────────────────────
+initSupabase();
+</script>
+</body>
+</html>
