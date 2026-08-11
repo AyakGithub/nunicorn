@@ -17,14 +17,31 @@
         { "key": "Permissions-Policy",     "value": "camera=(), microphone=(), geolocation=()" },
         { "key": "X-DNS-Prefetch-Control", "value": "on" }
       ]
+    },
+    {
+      "source": "/admin(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag",           "value": "noindex, nofollow" },
+        { "key": "Cache-Control",           "value": "no-store, no-cache, must-revalidate" },
+        { "key": "X-Frame-Options",        "value": "DENY" }
+      ]
+    },
+    {
+      "source": "/api/admin/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag",           "value": "noindex, nofollow" },
+        { "key": "Cache-Control",           "value": "no-store, no-cache, must-revalidate" }
+      ]
     }
   ],
   "rewrites": [
-    { "source": "/sitemap.xml",        "destination": "/sitemap.xml" },
-    { "source": "/robots.txt",         "destination": "/robots.txt" },
-    { "source": "/favicon.ico",        "destination": "/favicon.ico" },
-    { "source": "/favicon.svg",        "destination": "/favicon.svg" },
-    { "source": "/favicon-:size.png",  "destination": "/favicon-:size.png" },
-    { "source": "/((?!api/).*)",       "destination": "/index.html" }
+    { "source": "/sitemap.xml",          "destination": "/sitemap.xml" },
+    { "source": "/robots.txt",           "destination": "/robots.txt" },
+    { "source": "/favicon.ico",          "destination": "/favicon.ico" },
+    { "source": "/favicon.svg",          "destination": "/favicon.svg" },
+    { "source": "/favicon-:size.png",    "destination": "/favicon-:size.png" },
+    { "source": "/admin",                "destination": "/admin.html" },
+    { "source": "/admin/(.*)",           "destination": "/admin.html" },
+    { "source": "/((?!api/)(?!admin).*)", "destination": "/index.html" }
   ]
 }
