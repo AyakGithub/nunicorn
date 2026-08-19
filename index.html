@@ -411,7 +411,7 @@ button.ni { background:none; border:none; font-family:inherit; }
       </div>
       <p style="font-size:11px;color:var(--text-sub);margin-top:3px;" id="home-title">반가워요 🌸</p>
     </div>
-    <button onclick="showScreen('profile')" style="background:var(--primary-light);border:none;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);" id="home-avatar">👶</button>
+    <button onclick="showScreen('profile')" style="background:var(--primary-light);border:none;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);" id="home-avatar" aria-label="내 아이 프로필">👶</button>
   </div>
   <div class="scroll-body">
     <div class="cony-row"><div class="cavatar"><img src="/images/cony-face.png" class="cony-img" style="width:100%;height:100%;object-fit:contain;"></div><div class="bubble" id="home-msg">오늘도 우리 아이 영양 챙겨봐요! 💪</div></div>
@@ -450,7 +450,7 @@ button.ni { background:none; border:none; font-family:inherit; }
                   padding:8px 13px;display:flex;align-items:center;gap:6px;
                   border:1px solid #D5CFFF;box-shadow:0 2px 8px rgba(197,184,255,0.2);">
         <span style="font-size:15px;">💊</span>
-        <span style="font-size:10px;font-weight:700;color:#7B6DBB;line-height:1.4;">약사 검토 기준 적용</span>
+        <span style="font-size:10px;font-weight:700;color:#7B6DBB;line-height:1.4;">2025 KDRIs 기준 적용</span>
       </div>
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
@@ -521,6 +521,10 @@ button.ni { background:none; border:none; font-family:inherit; }
       <div id="ocr-status" style="display:none;align-items:center;gap:8px;background:var(--primary);border-radius:12px;padding:8px 14px;margin-top:6px;"><div class="typing-dots"><span></span><span></span><span></span></div><span style="font-size:12px;font-weight:700;color:white;">라벨 자동 인식 중...</span></div>
     </div>
     <input type="file" id="file-input" accept="image/*" capture="environment" onchange="handleImg(event)">
+    <div style="background:#F0F4FF;border-radius:var(--radius-sm);padding:10px 13px;margin-bottom:10px;border:1px solid #D0D8F0;">
+      <p style="font-size:11px;font-weight:700;color:#3B4A8C;">📤 이미지 외부 전송 안내</p>
+      <p style="font-size:11px;color:#5560A0;margin-top:3px;line-height:1.6;">사진을 찍으면 글자 인식(OCR)을 위해 <b>OCR.Space 서버</b>로 이미지가 전송됩니다. 이미지는 분석 후 저장되지 않으며, 뉴니콘 서버로는 전송되지 않습니다. 개인정보가 포함된 사진은 사용하지 마세요.</p>
+    </div>
     <div style="background:var(--yellow-light);border-radius:var(--radius-sm);padding:11px 13px;margin-bottom:14px;">
       <p style="font-size:12px;font-weight:700;color:#8B6200;">💡 어떻게 찍어요?</p>
       <p style="font-size:11px;color:#C8920A;margin-top:3px;line-height:1.5;">제품 뒷면 또는 측면의 <b>영양·기능 정보</b> 표를<br>밝은 곳에서 흔들림 없이 찍어주세요</p>
@@ -551,11 +555,11 @@ button.ni { background:none; border:none; font-family:inherit; }
     <div style="height:14px;"></div>
   </div>
   <nav class="bnav" aria-label="주요 메뉴">
-    <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
-    <div class="ni active" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
-    <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
-    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></div>
-    <div class="ni" onclick="showScreen('profile')"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></div>
+    <button class="ni" onclick="showScreen('home')"  aria-label="홈"><div class="ni-icon">🏠</button><span class="ni-label">홈</span></div>
+    <button class="ni active" onclick="showScreen('scan')"  aria-label="라벨 확인" aria-current="page"><div class="ni-icon">📸</button><span class="ni-label">라벨 스캔하기</span></div>
+    <button class="ni" onclick="showScreen('chat')"  aria-label="AI상담"><div class="ni-icon">💬</button><span class="ni-label">AI상담</span></div>
+    <button class="ni" onclick="showScreen('insights')"  aria-label="영양 리포트"><div class="ni-icon">📊</button><span class="ni-label">영양 리포트</span></div>
+    <button class="ni" onclick="showScreen('profile')"  aria-label="내 아이"><div class="ni-icon">👶</button><span class="ni-label">내 아이</span></div>
   </nav>
 </div>
 
@@ -581,11 +585,11 @@ button.ni { background:none; border:none; font-family:inherit; }
     </div>
   </div>
   <nav class="bnav" aria-label="주요 메뉴">
-    <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
-    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
-    <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
-    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></div>
-    <div class="ni" onclick="showScreen('profile')"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></div>
+    <button class="ni" onclick="showScreen('home')"  aria-label="홈"><div class="ni-icon">🏠</button><span class="ni-label">홈</span></div>
+    <button class="ni" onclick="showScreen('scan')"  aria-label="라벨 확인"><div class="ni-icon">📸</button><span class="ni-label">라벨 스캔하기</span></div>
+    <button class="ni" onclick="showScreen('chat')"  aria-label="AI상담"><div class="ni-icon">💬</button><span class="ni-label">AI상담</span></div>
+    <button class="ni" onclick="showScreen('insights')"  aria-label="영양 리포트"><div class="ni-icon">📊</button><span class="ni-label">영양 리포트</span></div>
+    <button class="ni" onclick="showScreen('profile')"  aria-label="내 아이"><div class="ni-icon">👶</button><span class="ni-label">내 아이</span></div>
   </nav>
 </div>
 
@@ -631,11 +635,11 @@ button.ni { background:none; border:none; font-family:inherit; }
     </div>
   </div>
   <nav class="bnav" aria-label="주요 메뉴">
-    <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
-    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
-    <div class="ni active" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
-    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></div>
-    <div class="ni" onclick="showScreen('profile')"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></div>
+    <button class="ni" onclick="showScreen('home')"  aria-label="홈"><div class="ni-icon">🏠</button><span class="ni-label">홈</span></div>
+    <button class="ni" onclick="showScreen('scan')"  aria-label="라벨 확인"><div class="ni-icon">📸</button><span class="ni-label">라벨 스캔하기</span></div>
+    <button class="ni active" onclick="showScreen('chat')"  aria-label="AI상담" aria-current="page"><div class="ni-icon">💬</button><span class="ni-label">AI상담</span></div>
+    <button class="ni" onclick="showScreen('insights')"  aria-label="영양 리포트"><div class="ni-icon">📊</button><span class="ni-label">영양 리포트</span></div>
+    <button class="ni" onclick="showScreen('profile')"  aria-label="내 아이"><div class="ni-icon">👶</button><span class="ni-label">내 아이</span></div>
   </nav>
 </div>
 
@@ -646,11 +650,11 @@ button.ni { background:none; border:none; font-family:inherit; }
   </div>
   <div class="scroll-body" id="schedule-body"></div>
   <nav class="bnav" aria-label="주요 메뉴">
-    <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
-    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
-    <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
-    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></div>
-    <div class="ni" onclick="showScreen('profile')"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></div>
+    <button class="ni" onclick="showScreen('home')"  aria-label="홈"><div class="ni-icon">🏠</button><span class="ni-label">홈</span></div>
+    <button class="ni" onclick="showScreen('scan')"  aria-label="라벨 확인"><div class="ni-icon">📸</button><span class="ni-label">라벨 스캔하기</span></div>
+    <button class="ni" onclick="showScreen('chat')"  aria-label="AI상담"><div class="ni-icon">💬</button><span class="ni-label">AI상담</span></div>
+    <button class="ni" onclick="showScreen('insights')"  aria-label="영양 리포트"><div class="ni-icon">📊</button><span class="ni-label">영양 리포트</span></div>
+    <button class="ni" onclick="showScreen('profile')"  aria-label="내 아이"><div class="ni-icon">👶</button><span class="ni-label">내 아이</span></div>
   </nav>
 </div>
 
@@ -658,17 +662,17 @@ button.ni { background:none; border:none; font-family:inherit; }
   <div class="hbar"><p class="htitle">📊 우리아이 영양 리포트</p><p style="font-size:11px;color:var(--text-sub);">우리 아이 영양 패턴</p></div>
   <div class="scroll-body" id="insights-body"></div>
   <nav class="bnav" aria-label="주요 메뉴">
-    <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
-    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
-    <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
-    <div class="ni active" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></div>
-    <div class="ni" onclick="showScreen('profile')"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></div>
+    <button class="ni" onclick="showScreen('home')"  aria-label="홈"><div class="ni-icon">🏠</button><span class="ni-label">홈</span></div>
+    <button class="ni" onclick="showScreen('scan')"  aria-label="라벨 확인"><div class="ni-icon">📸</button><span class="ni-label">라벨 스캔하기</span></div>
+    <button class="ni" onclick="showScreen('chat')"  aria-label="AI상담"><div class="ni-icon">💬</button><span class="ni-label">AI상담</span></div>
+    <button class="ni active" onclick="showScreen('insights')"  aria-label="영양 리포트" aria-current="page"><div class="ni-icon">📊</button><span class="ni-label">영양 리포트</span></div>
+    <button class="ni" onclick="showScreen('profile')"  aria-label="내 아이"><div class="ni-icon">👶</button><span class="ni-label">내 아이</span></div>
   </nav>
 </div>
 
 <div class="screen" id="screen-profile">
   <div class="profile-hdr">
-    <img src="/images/cony-smile.png" class="cony-img" style="width:68px;height:68px;margin:0 auto 10px;" id="profile-avatar">
+    <div id="profile-avatar" style="width:68px;height:68px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;"><img src="/images/cony-smile.png" class="cony-img" style="width:100%;height:100%;object-fit:contain;" alt="프로필 아이콘"></div>
     <p style="font-size:20px;font-weight:900;color:#62534D;" id="profile-name">-</p>
     <p style="font-size:12px;color:#9A8F8B;margin-top:3px;" id="profile-age">-</p>
   </div>
@@ -704,11 +708,11 @@ button.ni { background:none; border:none; font-family:inherit; }
     <div style="height:18px;"></div>
   </div>
   <nav class="bnav" aria-label="주요 메뉴">
-    <div class="ni" onclick="showScreen('home')"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></div>
-    <div class="ni" onclick="showScreen('scan')"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></div>
-    <div class="ni" onclick="showScreen('chat')"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></div>
-    <div class="ni" onclick="showScreen('insights')"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></div>
-    <div class="ni active" onclick="showScreen('profile')"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></div>
+    <button class="ni" onclick="showScreen('home')"  aria-label="홈"><div class="ni-icon">🏠</button><span class="ni-label">홈</span></div>
+    <button class="ni" onclick="showScreen('scan')"  aria-label="라벨 확인"><div class="ni-icon">📸</button><span class="ni-label">라벨 스캔하기</span></div>
+    <button class="ni" onclick="showScreen('chat')"  aria-label="AI상담"><div class="ni-icon">💬</button><span class="ni-label">AI상담</span></div>
+    <button class="ni" onclick="showScreen('insights')"  aria-label="영양 리포트"><div class="ni-icon">📊</button><span class="ni-label">영양 리포트</span></div>
+    <button class="ni active" onclick="showScreen('profile')"  aria-label="내 아이" aria-current="page"><div class="ni-icon">👶</button><span class="ni-label">내 아이</span></div>
   </nav>
 </div>
 
@@ -885,11 +889,23 @@ button.ni { background:none; border:none; font-family:inherit; }
   </div>
 </div>
 
-<div class="modal-overlay" id="en-modal" onclick="cmbg(event,'en-modal')"><div class="modal-sheet"><div class="mhandle"></div><p style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:16px;">✏️ 이름 변경</p><div class="field"><input type="text" id="en-inp" placeholder="아이 이름"></div><button class="btn-p" onclick="saveName()">저장</button></div></div>
-<!-- 나이 변경 모달 — 생년월일 직접 입력 방식 -->
-<div class="modal-overlay" id="ea-modal" onclick="cmbg(event,'ea-modal')">
-  <div class="modal-sheet">
+<div class="modal-overlay" id="en-modal" onclick="cmbg(event,'en-modal')" role="dialog" aria-modal="true" aria-label="이름 변경">
+  <div class="modal-sheet" onclick="event.stopPropagation()">
     <div class="mhandle"></div>
+    <button onclick="closeModal('en-modal')" aria-label="닫기" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:20px;color:var(--text-sub);cursor:pointer;line-height:1;">✕</button>
+    <p style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:16px;">✏️ 이름 변경</p>
+    <div class="field"><input type="text" id="en-inp" placeholder="아이 이름 (비워두면 '우리 아이')"></div>
+    <div style="display:flex;gap:8px;margin-top:4px;">
+      <button class="btn-s" style="flex:1;" onclick="closeModal('en-modal')">취소</button>
+      <button class="btn-p" style="flex:2;" onclick="saveName()">저장</button>
+    </div>
+  </div>
+</div>
+<!-- 나이 변경 모달 — 생년월일 직접 입력 방식 -->
+<div class="modal-overlay" id="ea-modal" onclick="cmbg(event,'ea-modal')" role="dialog" aria-modal="true" aria-label="생년월일 변경">
+  <div class="modal-sheet" onclick="event.stopPropagation()">
+    <div class="mhandle"></div>
+    <button onclick="closeModal('ea-modal')" aria-label="닫기" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:20px;color:var(--text-sub);cursor:pointer;line-height:1;">✕</button>
     <p style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:6px;">🎂 생년월일 변경</p>
     <p style="font-size:12px;color:var(--text-sub);margin-bottom:16px;">입력하면 현재 개월 수를 자동으로 계산해요</p>
     <!-- 생년월일 date 입력 -->
@@ -914,7 +930,7 @@ button.ni { background:none; border:none; font-family:inherit; }
 
 <script>
 // ===== DATA =====
-let S={profile:{name:'',months:18,birthdate:'',gender:'',emoji:'👶'},supplements:[],dailyLog:{},member:null,lastResult:null};
+let S={profile:{name:'',months:null,birthdate:'',gender:'',emoji:'👶',ageSet:false},supplements:[],dailyLog:{},member:null,lastResult:null};
 const save=()=>{localStorage.setItem('nn2',JSON.stringify(S));syncToSupa();};
 const load=()=>{const d=localStorage.getItem('nn2');if(d)try{S=JSON.parse(d);}catch(e){}};
 
@@ -1040,11 +1056,16 @@ const INTS=[
   {keys:['vitC','iron'],type:'caution',icon:'💡',t:'비타민C가 철분 흡수를 도와줘요',b:'비타민C는 철분 흡수를 2~3배 높여줘요.'}
 ];
 
-const getRef=()=>REF.find(r=>S.profile.months<=r.max)||REF[REF.length-1];
+function hasAge(){return !!(S.profile.birthdate||(S.profile.ageSet&&S.profile.months!==null));}
+function getEffectiveMonths(){
+  if(S.profile.birthdate) return calcMonthsFromBirthdate(S.profile.birthdate);
+  return S.profile.months??18;
+}
+const getRef=()=>{const m=getEffectiveMonths();return REF.find(r=>m<=r.max)||REF[REF.length-1];};
 
 // 생년월일로 정확한 개월 수 계산
 function calcMonthsFromBirthdate(birthdate) {
-  if (!birthdate) return S.profile.months || 18;
+  if (!birthdate) return S.profile.months??18;
   const birth = new Date(birthdate);
   const now = new Date();
   let months = (now.getFullYear() - birth.getFullYear()) * 12;
@@ -1107,7 +1128,7 @@ function getAIResponse(q, isMember){
   const ql=q.toLowerCase().replace(/\s/g,'');
   const ref=getRef();
   const name=S.profile.name||'아이';
-  const ageLabel=ref.label;
+  const ageLabel=hasAge()?ref.label:'연령 미설정';
 
   if((ql.includes('같이')||ql.includes('함께')||ql.includes('동시'))&&(ql.includes('먹'))){
     if(ql.includes('비타민d')&&ql.includes('오메가3')) return `✨ 비타민D와 오메가3는 **최고의 조합**이에요!\n\n오메가3의 지방이 지용성 비타민D 흡수를 크게 높여줘요. 식사 후 함께 드리면 효과가 2배랍니다!${isMember?`\n\n💜 ${name}(${ageLabel}) 권장량: 비타민D ${ref.vitD}IU + 오메가3 ${ref.omega3}mg`:''}`;
@@ -1143,13 +1164,28 @@ function getAIResponse(q, isMember){
   return isMember?generalFull:generalShort;
 }
 
-const SUGGESTIONS = [
-  '성장기 어린이 비타민D 권장량이 얼마예요?',
-  '오메가3랑 밀크씨슬 같이 먹여도 되나요?',
-  '밥 안 먹고 편식하는 아이에게 필요한 영양소는?',
+// 연령 미설정용 기본 추천 질문
+const SUGGESTIONS_DEFAULT = [
+  '아이 영양제 시작은 어떻게 해야 하나요?',
+  '비타민D는 언제 먹이는 게 좋나요?',
+  '칼슘이랑 철분 영양제는 따로 먹여야 하나요?',
   '유산균은 식전 식후 언제 먹이는 게 좋나요?',
-  '칼슘이랑 철분 영양제는 따로 먹여야 하나요?'
+  '편식하는 아이에게 필요한 영양소는?'
 ];
+// 연령별 추천 질문 (연령 설정 후 사용)
+const SUGGESTIONS_BY_AGE = {
+  infant:  ['비타민D 권장량이 얼마예요?','모유 수유 중 철분은 따로 줘야 하나요?','오메가3는 언제부터 시작하나요?','유산균은 언제 먹이는 게 좋나요?','칼슘이랑 철분 영양제는 따로 먹여야 하나요?'],
+  toddler: ['비타민D는 언제 먹이는 게 좋나요?','유산균과 오메가3를 같이 먹여도 되나요?','칼슘이랑 철분 영양제는 따로 먹여야 하나요?','편식하는 아이에게 필요한 영양소는?','지금 먹이는 영양제 성분이 겹치지 않나요?'],
+  child:   ['비타민D 하루 얼마나 먹여야 하나요?','유산균과 오메가3를 같이 먹여도 되나요?','칼슘이랑 철분 영양제는 따로 먹여야 하나요?','아이 나이에 하루 몇 포를 먹이면 되나요?','지금 먹이는 영양제 성분이 겹치지 않나요?']
+};
+function getSuggestions(){
+  if(!hasAge()) return SUGGESTIONS_DEFAULT;
+  const m=getEffectiveMonths();
+  if(m<=23) return SUGGESTIONS_BY_AGE.infant;
+  if(m<=71) return SUGGESTIONS_BY_AGE.toddler;
+  return SUGGESTIONS_BY_AGE.child;
+}
+const SUGGESTIONS=SUGGESTIONS_DEFAULT;
 
 // ===== INIT =====
 
@@ -1217,7 +1253,8 @@ async function runPendingMigration(userId) {
         name:      pending.profile.name,
         birthdate: pending.profile.birthdate || null,
         gender:    pending.profile.gender    || '',
-        months:    pending.profile.months    || 18,
+        months:    pending.profile.months    ??null,
+        ageSet:    pending.profile.ageSet    ||false,
         emoji:     pending.profile.emoji     || '👶'
       }, { onConflict: 'user_id' });
     }
@@ -1288,7 +1325,8 @@ async function syncToSupa() {
         name:      S.profile.name,
         birthdate: S.profile.birthdate || null,
         gender:    S.profile.gender    || '',
-        months:    S.profile.months    || 18,
+        months:    S.profile.months    ??null,
+        ageSet:    S.profile.ageSet    ||false,
         emoji:     S.profile.emoji     || '👶'
       }, { onConflict: 'user_id' });
     }
@@ -1329,7 +1367,8 @@ async function loadFromSupa() {
       S.profile.name      = child.name;
       S.profile.birthdate = child.birthdate || S.profile.birthdate;
       S.profile.gender    = child.gender    || S.profile.gender;
-      S.profile.months    = child.months    || S.profile.months;
+      S.profile.months    = child.months    ??S.profile.months;
+      S.profile.ageSet    = child.ageSet    ||S.profile.ageSet;
       S.profile.emoji     = child.emoji     || S.profile.emoji;
     } else {
       // fallback: 기존 profiles 테이블
@@ -1371,6 +1410,7 @@ window.addEventListener('DOMContentLoaded',()=>{
 
 // ===== SCREENS =====
 function showScreen(n){
+  clearToast();
   document.querySelectorAll('.screen').forEach(s=>{s.classList.remove('active');s.style.display='';});
   const _scr=document.getElementById('screen-'+n);
   _scr.classList.add('active');
@@ -1461,6 +1501,7 @@ function completeOB(){
   S.profile.gender=selGender||'';
   S.profile.months=months;
   S.profile.emoji=getAutoEmoji(months,selGender||'');
+  S.profile.ageSet=true;
   save();showScreen('home');renderHome();
 }
 
@@ -1490,7 +1531,8 @@ function renderHome(){
   document.getElementById('home-pct').textContent=pct+'%';
   document.getElementById('home-pbar').style.width=pct+'%';
   document.getElementById('home-pct-d').innerHTML=tot?done+'/'+tot+'개 완료':'영양제를 추가해보세요';
-  const exactM=S.profile.birthdate?calcMonthsFromBirthdate(S.profile.birthdate):S.profile.months;const msgs=['현재 '+exactM+'개월 '+S.profile.name+', 오늘도 영양 챙겨봐요! 💪','꾸준함이 최고의 영양제예요! 🌱','코니가 응원해요! 건강하게 🌈'];
+  const exactM=S.profile.birthdate?calcMonthsFromBirthdate(S.profile.birthdate):(S.profile.months??18);
+  const msgs=hasAge()?['현재 '+exactM+'개월 '+S.profile.name+', 오늘도 영양 챙겨봐요! 💪','꾸준함이 최고의 영양제예요! 🌱','코니가 응원해요! 건강하게 🌈']:['아이 정보를 등록하면 월령별 분석을 받을 수 있어요 💜','코니가 도와드릴게요! 아이 정보 등록해보세요 🦄','아이 생년월일을 등록하면 더 정확한 안내가 가능해요 📋'];
   document.getElementById('home-msg').textContent=pct===100?'오늘 모두 완료! 최고예요 🎉':pct>=50?'절반 넘었어요! 조금만 더 💪':msgs[new Date().getHours()%3];
   const list=document.getElementById('home-supp-list');
   if(!S.supplements.length){
@@ -1505,7 +1547,7 @@ function renderHome(){
           <div style="font-size:13px;font-weight:700;color:var(--text);${d?'text-decoration:line-through;opacity:0.5;':''}">${x.name}${isPaused?' <span style="font-size:10px;font-weight:600;color:var(--text-hint);background:#F0F0F0;border-radius:8px;padding:1px 6px;">중단</span>':''}</div>
           <div style="font-size:11px;color:var(--text-sub);">${x.timing}${x.memo?' · '+x.memo:''}${x.frequency&&x.frequency!=='daily'?' · '+{alternate:'격일',weekly_5:'주5회',weekly_3:'주3회',weekly_2:'주2회'}[x.frequency]:''}</div>
         </div>
-        ${!isPaused?`<button class="chkbtn ${d?'done':''}" onclick="toggleChk('${x.id}')"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></button>`:'<div style="width:28px;"></div>'}
+        ${!isPaused?`<button class="chkbtn ${d?'done':''}" onclick="toggleChk('${x.id}')" aria-label="${x.name} ${d?'섭취 완료 취소':'섭취 완료로 표시'}" aria-pressed="${d?'true':'false'}"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></button>`:'<div style="width:28px;"></div>'}
       </div>`;
     }).join('');
   }
@@ -1750,10 +1792,14 @@ function initChat(){
   if(!msgs.innerHTML){
     chatHistory=[];
     const ref=getRef();
-    // 생년월일 있으면 정확한 개월수, 없으면 범위 라벨 표시
-    const exactM = S.profile.birthdate ? calcMonthsFromBirthdate(S.profile.birthdate) : S.profile.months;
-    const ageStr = S.profile.birthdate ? `생후 ${exactM}개월` : ref.label;
-    const wMsg=`안녕하세요! 저는 **코니**예요 🦄\n\n${S.profile.name}(${ageStr}) 영양제에 대해 뭐든 물어보세요! ${ref.baby?'👶 이 시기는 특히 비타민D, 철분, 오메가3가 중요해요!':''}`;
+    const exactM = S.profile.birthdate ? calcMonthsFromBirthdate(S.profile.birthdate) : (S.profile.months??18);
+    let wMsg;
+    if(!hasAge()){
+      wMsg=`안녕하세요! 저는 **코니**예요 🦄\n\n아이 연령이 아직 설정되지 않았어요.\n일반적인 영양정보로 안내하며, 월령별 분석을 위해 아이 정보를 등록해 주세요. 👶\n\n궁금한 것을 먼저 물어봐도 괜찮아요!`;
+    } else {
+      const ageStr = S.profile.birthdate ? `생후 ${exactM}개월` : ref.label;
+      wMsg=`안녕하세요! 저는 **코니**예요 🦄\n\n${S.profile.name}(${ageStr}) 영양제에 대해 뭐든 물어보세요! ${ref.baby?'👶 이 시기는 특히 비타민D, 철분, 오메가3가 중요해요!':''}`;
+    }
     addChatMsg('ai',wMsg);
   }
   renderSuggestions();
@@ -1770,7 +1816,7 @@ function checkPaywall(){
 function renderSuggestions(){
   const sug=document.getElementById('chat-suggestions');
   sug.innerHTML='';
-  SUGGESTIONS.slice(0,3).forEach(function(s){
+  getSuggestions().slice(0,3).forEach(function(s){
     const btn=document.createElement('button');
     btn.textContent=s;
     btn.style.cssText='background:var(--primary-light);color:var(--primary-dark);border:none;border-radius:18px;padding:6px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;';
@@ -2091,24 +2137,30 @@ function renderInsights(){
 // ===== PROFILE =====
 function renderProfile(){
   const ref=getRef();
+  // 컨테이너(#profile-avatar)를 절대 교체하지 않고 내부만 갱신 — 멱등성 보장
   const pa = document.getElementById('profile-avatar');
+  if(!pa) return; // 방어 처리
+  pa.innerHTML='';
   if(S.profile.emoji==='🦄') {
-      pa.src='/images/cony-smile.png';
-      pa.className='cony-img';
-      pa.style.cssText='width:68px;height:68px;margin:0 auto 10px;display:block;';
-      pa.textContent='';
+      const img=document.createElement('img');
+      img.src='/images/cony-smile.png';
+      img.className='cony-img';
+      img.alt='코니';
+      img.style.cssText='width:100%;height:100%;object-fit:contain;';
+      pa.appendChild(img);
   } else {
-      // emoji일 때는 img 대신 span으로 교체
       const span = document.createElement('span');
-      span.style.cssText='width:68px;height:68px;background:var(--card);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 10px;box-shadow:var(--shadow);';
+      span.style.cssText='width:68px;height:68px;background:var(--card);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;box-shadow:var(--shadow);';
+      span.setAttribute('aria-hidden','true');
       span.textContent=S.profile.emoji;
-      pa.parentNode.replaceChild(span, pa);
+      pa.appendChild(span);
   }
-  // 생년월일이 있으면 정확한 개월수, 없으면 범위 라벨 표시
-  const exactMonths = S.profile.birthdate ? calcMonthsFromBirthdate(S.profile.birthdate) : S.profile.months;
-  const ageDisplay = S.profile.birthdate
-    ? '생후 ' + exactMonths + '개월 (만 ' + Math.floor(exactMonths/12) + '세 ' + (exactMonths%12) + '개월)'
-    : ref.label;
+  // 연령 미설정 → '연령 미설정' 표시 / 생년월일 있으면 정확한 개월수
+  const exactMonths = S.profile.birthdate ? calcMonthsFromBirthdate(S.profile.birthdate) : (S.profile.months??18);
+  const ageDisplay = !hasAge() ? '연령 미설정'
+    : S.profile.birthdate
+      ? '생후 ' + exactMonths + '개월 (만 ' + Math.floor(exactMonths/12) + '세 ' + (exactMonths%12) + '개월)'
+      : ref.label;
   document.getElementById('profile-name').textContent=S.profile.name;
   document.getElementById('profile-age').textContent=ageDisplay+(ref.baby?' 👶':'')+' · '+S.supplements.length+'가지 영양제';
   document.getElementById('ps-name').textContent=S.profile.name;
@@ -2138,7 +2190,16 @@ function renderProfile(){
     </div>`;
   }
 }
-function saveName(){const v=document.getElementById('en-inp').value.trim();if(!v)return;S.profile.name=v;save();closeModal('en-modal');renderProfile();renderHome();showToast('이름 변경됨 💛');}
+function saveName(){
+  const v=document.getElementById('en-inp').value.trim();
+  const finalName=v||'우리 아이';
+  S.profile.name=finalName;
+  save();
+  closeModal('en-modal');
+  renderProfile();
+  renderHome();
+  showToast('이름 변경됨 💛');
+}
 
 // 생년월일 → 개월 수 미리보기 (ea-modal)
 function previewEAAge(){
@@ -2162,6 +2223,7 @@ function saveAge(){
   if(months<0||months>200){showToast('올바른 날짜를 입력해주세요');return;}
   S.profile.birthdate=bd;
   S.profile.months=months;
+  S.profile.ageSet=true;
   save();closeModal('ea-modal');renderProfile();renderHome();showToast('나이 변경됨 🎂');
 }
 function selChild(e){S.profile.emoji=e;save();closeModal('ee-modal');renderProfile();renderHome();}
@@ -2257,6 +2319,14 @@ function showModal(id){
     previewEAAge();
   }
 }
+
+// ESC 키로 열린 모달 닫기
+document.addEventListener('keydown', function(e){
+  if(e.key!=='Escape') return;
+  const open=document.querySelector('.modal-overlay.open');
+  if(open) closeModal(open.id);
+});
+
 function closeModal(id){
   const el = document.getElementById(id);
   el.classList.remove('open');
@@ -2282,7 +2352,9 @@ document.addEventListener('keydown',e=>{
 });
 
 // ===== TOAST =====
-function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400);}
+function clearToast(){const t=document.getElementById('toast');if(t)t.classList.remove('show');}
+let _toastTimer=null;
+function showToast(msg,dur=2400){const t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.add('show');if(_toastTimer)clearTimeout(_toastTimer);_toastTimer=setTimeout(()=>t.classList.remove('show'),dur);}
 
 // 예시 질문 버튼 → AI상담 화면 열고 자동 전송
 function askCony(question){
