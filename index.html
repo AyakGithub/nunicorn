@@ -1,0 +1,2435 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-46PD13K6G0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-46PD13K6G0');
+</script>
+<meta charset="UTF-8">
+
+  <link rel="preconnect" href="https://api2.ocr.space">
+  <link rel="preconnect" href="https://oxrdienywxsooygxvqgf.supabase.co">
+  <link rel="dns-prefetch" href="https://api2.ocr.space">
+  <link rel="canonical" href="https://www.nunicorn.co.kr/">
+<link rel="alternate" hreflang="ko" href="https://www.nunicorn.co.kr/">
+<link rel="alternate" hreflang="x-default" href="https://www.nunicorn.co.kr/">
+<!-- 파비콘 — 캐시 무효화(v=3) 적용 / 멀티 사이즈 대응 -->
+<link rel="icon" href="/favicon.ico?v=3" sizes="any">
+<link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=3">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png?v=3">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png?v=3">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png?v=3">
+<!-- PWA / 애플 홈 화면 아이콘 -->
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png?v=3">
+<link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png?v=3">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>뉴니콘(Nunicorn) — 영유아부터 키즈까지, 우리 아이 맞춤형 영양 분석 &amp; AI 상담</title>
+<meta name="description" content="영유아부터 초등까지! 영양제 라벨을 찍으면 2025 한국인 영양소 섭취기준(KDRIs)에 맞게 분석해드려요. 성분 중복, 섭취 시간, 월령별 권장량을 AI 코니가 맞춤 안내합니다.">
+<meta name="keywords" content="영유아 영양제, 아기 영양제, 비타민D 영아, 철분 아기, 오메가3 영아, 영양제 분석, 영양제 추천, 뉴니콘, 아이 영양제 AI">
+<meta name="author" content="뉴니콘 Nunicorn">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+<meta name="google-site-verification" content="ovMCFp0jPEF9TKRovMwqafZLM2rRDCgQMvNnp3Dc3sY" />
+<meta name="naver-site-verification" content="07126cdee98cfe2360694bfb96ac01806f678738" />
+
+<!-- Open Graph (카카오톡·SNS 공유) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.nunicorn.co.kr/">
+<meta property="og:title" content="뉴니콘 — 영유아부터 키즈까지, 우리 아이 영양제 AI 도우미">
+<meta property="og:description" content="라벨 스캔 한 번으로 영양제 성분 분석, 나이별 권장량 비교, AI 코니 맞춤 상담. 0~12세 영유아 영양 관리의 시작.">
+<meta property="og:image" content="https://www.nunicorn.co.kr/og-image.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="뉴니콘">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="뉴니콘 — 영유아부터 키즈까지, 우리 아이 영양제 AI 도우미">
+<meta name="twitter:description" content="영양제 라벨 스캔으로 성분 분석 + AI 코니 영양정보 안내. 0~12세 맞춤 영양 관리.">
+<meta name="twitter:image" content="https://www.nunicorn.co.kr/og-image.png">
+
+<!-- 구조화 데이터 (구글 리치 결과) -->
+
+<style>
+:root{--primary:#F3A59B;--primary-dark:#E8847A;--primary-light:#FEF2F1;--mint:#C8E1D4;--mint-light:#EBF6F2;--yellow:#F3D68A;--yellow-light:#FBF7E8;--bg:#FFF9F4;--card:#FFFFFF;--text:#62534D;--text-sub:#9A8F8B;--text-hint:#C9C0BC;--ok-bg:#EBF6F2;--warn-bg:#FBF7E8;--bad:#E8847A;--bad-bg:#FEF2F1;--radius:22px;--radius-sm:14px;--shadow:0 4px 20px rgba(98,83,77,0.08);--shadow-sm:0 2px 12px rgba(98,83,77,0.06);--shadow-p:0 6px 24px rgba(243,165,155,0.35);}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;background:#FFF9F4;font-family:-apple-system,'Pretendard','Apple SD Gothic Neo',sans-serif;}
+
+/* 뉴니콘 코니 캐릭터 이미지 공통 스타일 */
+.cony-img {
+  object-fit: contain;
+  display: block;
+}
+
+.pc-wrapper{display:flex;align-items:center;justify-content:center;gap:64px;min-height:100vh;padding:24px;}
+.pc-side{display:none;flex-direction:column;max-width:300px;}
+@media(min-width:900px){.pc-side{display:flex;}}
+.pc-side h1{font-size:34px;font-weight:800;color:#62534D;line-height:1.2;margin-bottom:12px;}
+.pc-side h1 span{color:var(--primary-dark);}
+.pc-side p{font-size:14px;color:var(--text-sub);line-height:1.7;margin-bottom:28px;}
+.pc-feat{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;}
+.pc-feat-icon{width:40px;height:40px;flex-shrink:0;border-radius:12px;background:var(--card);box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;font-size:18px;}
+.pc-feat h3{font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;}
+.pc-feat p{font-size:12px;color:var(--text-sub);line-height:1.4;margin-bottom:0;}
+
+.app-shell{width:390px;height:844px;flex-shrink:0;position:relative;overflow:hidden;background:var(--bg);box-shadow:0 24px 64px rgba(98,83,77,0.2);border-radius:44px;}
+
+/* 모바일 화면 완벽 대응 (화면 붕 뜨는 현상 제거) */
+@media(max-width:768px){
+  .pc-wrapper{padding:0;display:block;height:100%;min-height:100%;}
+  .pc-side{display:none;}
+  .app-shell{
+    width:100%;
+    height:100vh; /* 기본 높이 */
+    height:100dvh; /* 브라우저 주소창 변화에 실시간 대응 */
+    border-radius:0;
+    box-shadow:none;
+    position:absolute;
+    top:0; left:0;
+  }
+  body{background:var(--bg);}
+}
+
+.screen{display:none;flex-direction:column;position:absolute;inset:0;overflow:hidden;background:var(--bg);}
+.screen.active{display:flex;}
+.scroll-body{flex:1;overflow-y:auto;padding:16px;scrollbar-width:none;}
+.scroll-body::-webkit-scrollbar{display:none;}
+
+/* 모바일 상단 노치 영역 대응 */
+.hbar{background:var(--card);padding:calc(16px + env(safe-area-inset-top)) 18px 12px;border-radius:0 0 22px 22px;box-shadow:var(--shadow-sm);flex-shrink:0;z-index:2;}
+.profile-hdr{background:linear-gradient(160deg,#F9D0CA 0%,#F3D68A 100%);padding:calc(28px + env(safe-area-inset-top)) 18px 22px;text-align:center;flex-shrink:0;}
+
+.htitle{font-size:17px;font-weight:800;color:var(--text);}
+.hback{display:flex;align-items:center;gap:10px;}
+.bbtn{width:32px;height:32px;border-radius:50%;background:var(--bg);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);}
+.bbtn svg{width:16px;height:16px;stroke:var(--text);fill:none;stroke-width:2.5;stroke-linecap:round;}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin-bottom:12px;}
+.btn-p{background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);padding:14px;font-size:14px;font-weight:700;width:100%;cursor:pointer;box-shadow:var(--shadow-p);display:flex;align-items:center;justify-content:center;gap:8px;transition:transform 0.1s;}
+.btn-p:active{transform:scale(0.97);}
+.btn-s{background:var(--primary-light);color:var(--primary-dark);border:none;border-radius:var(--radius-sm);padding:12px;font-size:13px;font-weight:700;width:100%;cursor:pointer;}
+.tag{display:inline-flex;align-items:center;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;}
+.tok{background:var(--ok-bg);color:#2E9E84;}
+.twarn{background:var(--warn-bg);color:#C8920A;}
+.tbad{background:var(--bad-bg);color:#D45A4A;}
+input[type=text],input[type=number],input[type=email],select{width:100%;padding:11px 14px;border:none;border-radius:var(--radius-sm);font-size:14px;color:var(--text);background:var(--bg);outline:none;box-shadow:inset 0 2px 6px rgba(98,83,77,0.06);appearance:none;}
+input:focus,select:focus{box-shadow:inset 0 2px 6px rgba(98,83,77,0.06),0 0 0 2.5px var(--primary);}
+.flabel{display:block;font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:5px;}
+.field{margin-bottom:13px;}
+.pbar{height:7px;background:var(--bg);border-radius:4px;overflow:hidden;}
+.pbar-f{height:100%;border-radius:4px;transition:width 0.6s cubic-bezier(.4,0,.2,1);}
+#toast{position:absolute;bottom:96px;left:50%;transform:translateX(-50%) translateY(16px);background:rgba(98,83,77,0.9);color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:all 0.3s;white-space:nowrap;z-index:999;}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.bnav{background:var(--card);border-radius:22px 22px 0 0;box-shadow:0 -4px 20px rgba(98,83,77,0.08);display:flex;padding:8px 0 calc(18px + env(safe-area-inset-bottom));flex-shrink:0;z-index:2;}
+.ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:4px 0;}
+.ni-icon{font-size:20px;}
+.ni-label{font-size:9px;color:var(--text-hint);font-weight:600;}
+.ni.active .ni-label{color:var(--primary-dark);font-weight:800;}
+.bubble{background:var(--card);border-radius:16px 16px 16px 3px;padding:11px 14px;box-shadow:var(--shadow-sm);font-size:13px;color:var(--text);line-height:1.6;}
+.cony-row{display:flex;align-items:flex-end;gap:8px;margin-bottom:12px;}
+.cavatar{width:36px;height:36px;background:var(--primary-light);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:var(--shadow-sm);overflow:hidden;}
+.age-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:16px;}
+.age-btn{padding:12px 4px;border-radius:var(--radius-sm);border:none;background:var(--bg);box-shadow:var(--shadow-sm);font-size:12px;font-weight:600;color:var(--text-sub);cursor:pointer;text-align:center;transition:all 0.15s;}
+.age-btn.selected{background:var(--primary);color:#fff;box-shadow:var(--shadow-p);}
+.age-btn.hl{background:var(--yellow);color:#8B6200;}
+.age-btn.hl.selected{background:var(--primary);color:#fff;}
+.supp-item{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid rgba(98,83,77,0.06);}
+.supp-item:last-child{border-bottom:none;}
+.savatar{width:42px;height:42px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:var(--shadow-sm);}
+.chkbtn{width:28px;height:28px;border-radius:50%;border:2px solid var(--text-hint);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
+.chkbtn.done{background:var(--mint);border-color:var(--mint);}
+.chkbtn svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+.scan-zone{border:2.5px dashed var(--primary);border-radius:var(--radius);padding:24px 16px;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;background:var(--primary-light);}
+#scan-preview{width:100%;border-radius:12px;display:none;object-fit:cover;max-height:220px;}
+#file-input{display:none;}
+.icard{border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:8px;display:flex;gap:10px;box-shadow:var(--shadow-sm);}
+/* Chat */
+.chat-msg{display:flex;gap:8px;margin-bottom:12px;}
+.chat-msg.user{flex-direction:row-reverse;}
+.chat-bubble{max-width:75%;padding:11px 14px;border-radius:18px;font-size:13px;line-height:1.6;}
+.chat-msg.ai .chat-bubble{background:var(--card);color:var(--text);border-radius:3px 18px 18px 18px;box-shadow:var(--shadow-sm);}
+.chat-msg.user .chat-bubble{background:var(--primary);color:#fff;border-radius:18px 3px 18px 18px;}
+.chat-input-row{display:flex;gap:8px;padding:10px 14px 20px;background:var(--card);border-top:1px solid rgba(98,83,77,0.06);flex-shrink:0;}
+.chat-input{flex:1;padding:10px 14px;border:none;border-radius:20px;font-size:14px;background:var(--bg);outline:none;box-shadow:inset 0 2px 6px rgba(98,83,77,0.06);}
+.chat-send{width:38px;height:38px;border-radius:50%;background:var(--primary);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.chat-send svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;}
+.quota-bar{background:var(--primary-light);padding:8px 14px;display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:700;color:var(--primary-dark);flex-shrink:0;}
+.typing-dots span{display:inline-block;width:6px;height:6px;background:var(--text-hint);border-radius:50%;margin:0 2px;animation:dot 1.2s infinite;}
+.typing-dots span:nth-child(2){animation-delay:0.2s;}
+.typing-dots span:nth-child(3){animation-delay:0.4s;}
+@keyframes dot{0%,80%,100%{transform:translateY(0);}40%{transform:translateY(-6px);}}
+.paywall{background:linear-gradient(135deg,#FEF2F1,#FBF7E8);border-radius:var(--radius);padding:20px;text-align:center;margin:12px;}
+/* Modals */
+.modal-overlay{position:absolute;inset:0;background:rgba(98,83,77,0.4);display:none;align-items:flex-end;z-index:100;opacity:0;pointer-events:none;transition:opacity 0.25s;}
+.modal-overlay.open{display:flex;opacity:1;pointer-events:all;}
+.modal-sheet{background:var(--card);border-radius:26px 26px 0 0;padding:18px 20px calc(36px + env(safe-area-inset-bottom));width:100%;transform:translateY(100%);transition:transform 0.3s cubic-bezier(.4,0,.2,1);}
+.modal-overlay.open .modal-sheet{transform:translateY(0);}
+.mhandle{width:36px;height:4px;background:rgba(98,83,77,0.15);border-radius:2px;margin:0 auto 18px;}
+.ob-deco{position:absolute;border-radius:50%;opacity:0.2;pointer-events:none;}
+
+/* 생년월일 날짜 입력 */
+input[type=date] {
+  width:100%;
+  padding:14px 16px;
+  border:2px solid #F3A59B;
+  border-radius:16px;
+  font-size:16px;
+  color:#62534D;
+  background:white;
+  outline:none;
+  cursor:pointer;
+  font-family:inherit;
+  -webkit-appearance:none;
+  appearance:none;
+}
+input[type=date]:focus {
+  border-color:#E8847A;
+  box-shadow:0 0 0 3px rgba(255,179,167,0.25);
+}
+input[type=date]::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23E8847A' stroke-width='2'%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E");
+  cursor:pointer;
+  opacity:1;
+  padding:2px;
+}
+.sr{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(98,83,77,0.06);cursor:pointer;}
+.sr:last-child{border-bottom:none;}
+
+@keyframes floatCony {
+  0%,100% { transform: translateY(0px); }
+  50%      { transform: translateY(-8px); }
+}
+
+.beta-badge{display:inline-flex;align-items:center;padding:2px 8px;background:linear-gradient(135deg,#E8847A,#C8B7EE);border-radius:20px;font-size:10px;font-weight:800;color:white;letter-spacing:0.04em;vertical-align:middle;margin-left:5px;}
+.star-row{display:flex;gap:8px;justify-content:center;margin:12px 0;}
+.star-btn{font-size:28px;background:none;border:none;cursor:pointer;opacity:0.3;transition:all 0.15s;padding:2px;}
+.star-btn.on{opacity:1;transform:scale(1.15);}
+
+.fb-tag{padding:6px 12px;border-radius:20px;border:1.5px solid var(--primary);background:white;font-size:11px;font-weight:600;color:var(--primary-dark);cursor:pointer;transition:all 0.15s;}
+.fb-tag.sel{background:var(--primary);color:white;}
+
+/* 네비게이션 접근성: nav/button 요소로 변경 */
+nav.bnav { display:flex; }
+button.ni { background:none; border:none; font-family:inherit; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "뉴니콘(Nunicorn)",
+  "url": "https://www.nunicorn.co.kr",
+  "description": "영유아부터 초등까지 나이별 맞춤 영양제 분석 및 AI 상담 서비스",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "뉴니콘",
+    "url": "https://www.nunicorn.co.kr"
+  },
+  "inLanguage": "ko-KR"
+}
+</script>
+</head>
+<body>
+<div class="pc-wrapper">
+<div class="pc-side">
+  <img src="/images/cony-face.png" class="cony-img" style="width:48px;height:48px;margin-bottom:14px;">
+  <h1 style="font-size:34px;font-weight:800;color:#62534D;line-height:1.2;margin-bottom:12px;">우리 아이<br><span style="color:var(--primary-dark);">영양제</span>를<br>똑똑하게</h1>
+  <p>영양정보 라벨을 촬영하고 성분을 확인하면, 아이 월령에 맞춰 이해하기 쉽게 분석해드려요. AI 코니에게 복용 시간, 중복 성분, 권장량을 물어보세요 🦄</p>
+  <div class="pc-feat"><div class="pc-feat-icon">📸</div><div><h2 style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">라벨 촬영 → 성분 확인</h2><p>OCR 자동 인식 시도 후 수동 확인·수정 가능해요</p></div></div>
+  <div class="pc-feat"><div class="pc-feat-icon">💬</div><div><h2 style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">AI 코니 상담</h2><p>영양제 성분 중복과 섭취 시간을 확인해보세요</p></div></div>
+  <div class="pc-feat"><div class="pc-feat-icon">📊</div><div><h2 style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">우리아이 영양 리포트</h2><p>스캔할수록 우리 아이 패턴이 쌓여요</p></div></div>
+  <div style="background:var(--card);border-radius:20px;padding:8px 16px;font-size:12px;font-weight:600;color:var(--text-sub);box-shadow:var(--shadow-sm);display:inline-flex;gap:6px;align-items:center;margin-top:8px;">🦄 영유아부터 키즈까지 · 맞춤 영양 가이드</div>
+</div>
+
+<div class="app-shell" id="app">
+
+<!-- ══ STEP 1: 웰컴 화면 ══ -->
+<div class="screen active" id="screen-ob" style="background:linear-gradient(175deg,#FEF2F1 0%,#FBF7E8 60%,#EDE7FC 100%);flex-direction:column;overflow:hidden;">
+  <!-- 배경 데코 -->
+  <div class="ob-deco" style="width:200px;height:200px;background:#F3A59B;top:-80px;right:-60px;"></div>
+  <!-- Nunicorn 워드마크 -->
+  <div style="position:absolute;top:18px;left:24px;display:flex;align-items:center;gap:8px;z-index:10;">
+    <img src="/images/logo.png" alt="Nunicorn" height="22" style="display:block;">
+    <span style="font-size:11px;font-weight:700;color:#E8847A;letter-spacing:0.5px;">BETA</span>
+  </div>
+  <div class="ob-deco" style="width:120px;height:120px;background:#C8E1D4;bottom:120px;left:-30px;"></div>
+  <div class="ob-deco" style="width:80px;height:80px;background:#C8B7EE;top:30%;right:-20px;"></div>
+
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top)+24px) 28px 0;position:relative;text-align:center;">
+
+    <!-- 코니 캐릭터 -->
+    <div style="position:relative;margin-bottom:14px;">
+      <img src="/images/cony-face.png" class="cony-img" style="width:100px;height:100px;filter:drop-shadow(0 8px 20px rgba(243,165,155,0.35));animation:floatCony 3s ease-in-out infinite;">
+      <!-- 말풍선 -->
+      <div style="position:absolute;top:-10px;right:-70px;background:white;border-radius:14px 14px 14px 3px;padding:7px 11px;box-shadow:0 4px 14px rgba(98,83,77,0.12);white-space:nowrap;">
+        <p style="font-size:11px;font-weight:700;color:#62534D;margin:0;">안녕! 나는 코니야 🦄</p>
+      </div>
+    </div>
+
+    <!-- 메인 헤드라인 -->
+    <h1 style="font-size:28px;font-weight:900;color:#62534D;line-height:1.25;margin:0 0 10px;letter-spacing:-0.5px;">
+      우리 아이 영양제<br><span style="background:linear-gradient(90deg,#E8847A,#C8B7EE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">코니가 딱 맞게</span><br>분석해줄게요
+    </h1>
+    <p style="font-size:13px;color:#9A8F8B;margin:0 0 24px;line-height:1.6;">영양성분 라벨을 사진으로 찍으면<br>월령에 맞게 이해하기 쉽게 분석해드려요 ✨</p>
+
+    <!-- 가치 3가지 -->
+    <div style="width:100%;max-width:310px;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+      <div style="display:flex;align-items:center;gap:12px;background:white;border-radius:16px;padding:12px 16px;box-shadow:0 2px 12px rgba(98,83,77,0.07);">
+        <div style="width:38px;height:38px;background:#FEF2F1;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">📸</div>
+        <div style="text-align:left;"><p style="font-size:13px;font-weight:800;color:#62534D;margin:0;">영양성분 라벨 촬영</p><p style="font-size:11px;color:#9A8F8B;margin:2px 0 0;">OCR 인식 시도 후 직접 확인·수정 가능</p></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:white;border-radius:16px;padding:12px 16px;box-shadow:0 2px 12px rgba(98,83,77,0.07);">
+        <div style="width:38px;height:38px;background:#EDE7FC;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">💬</div>
+        <div style="text-align:left;"><p style="font-size:13px;font-weight:800;color:#62534D;margin:0;">24시간 AI 코니 상담</p><p style="font-size:11px;color:#9A8F8B;margin:2px 0 0;">영양소 중복·섭취 간격·복용 시간</p></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:white;border-radius:16px;padding:12px 16px;box-shadow:0 2px 12px rgba(98,83,77,0.07);">
+        <div style="width:38px;height:38px;background:#EBF6F2;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🏥</div>
+        <div style="text-align:left;"><p style="font-size:13px;font-weight:800;color:#62534D;margin:0;">한국인 영양소 섭취기준 적용</p><p style="font-size:11px;color:#9A8F8B;margin:2px 0 0;">보건복지부 · 한국영양학회 기준</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 하단 CTA -->
+  <div style="padding:0 24px calc(env(safe-area-inset-bottom)+20px);flex-shrink:0;">
+    <button onclick="showObStep2()" style="width:100%;background:linear-gradient(135deg,#E8847A,#C8B7EE);color:white;border:none;border-radius:22px;padding:17px;font-size:17px;font-weight:800;cursor:pointer;box-shadow:0 6px 24px rgba(243,165,155,0.4);letter-spacing:-0.3px;">
+      제품 성분 확인하기 →
+    </button>
+    <button onclick="showScreen('chat')" style="width:100%;background:transparent;color:var(--primary-dark);border:1.5px solid var(--primary);border-radius:22px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;margin-top:8px;">
+      💬 궁금한 점 먼저 물어보기
+    </button>
+    <p style="text-align:center;font-size:11px;color:#C9C0BC;margin:10px 0 0;">무료 · 회원가입 없이 이용 가능</p>
+  </div>
+</div>
+
+<!-- ══ STEP 2: 정보 입력 ══ -->
+<div class="screen" id="screen-ob2" style="background:linear-gradient(160deg,#FEF2F1,#FBF7E8);flex-direction:column;">
+  <!-- 온보딩 2단계 상단 로고 -->
+  <div style="padding:16px 24px 0;display:flex;align-items:center;gap:8px;flex-shrink:0;">
+    <img src="/images/logo.png" alt="Nunicorn" height="20" style="display:block;">
+    <span style="font-size:10px;font-weight:700;color:#E8847A;letter-spacing:0.5px;">BETA</span>
+  </div>
+  <div class="ob-deco" style="width:120px;height:120px;background:#F3A59B;top:-40px;right:-20px;"></div>
+  <div class="ob-deco" style="width:70px;height:70px;background:#C8E1D4;bottom:100px;left:-15px;"></div>
+
+  <!-- 상단 뒤로가기 + 진행 표시 -->
+  <div style="display:flex;align-items:center;gap:12px;padding:calc(env(safe-area-inset-top)+14px) 20px 10px;flex-shrink:0;">
+    <button onclick="showScreen('ob')" class="bbtn" aria-label="뒤로가기"><svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#62534D;fill:none;stroke-width:2.5;stroke-linecap:round;"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <div style="flex:1;height:5px;background:#FFE0D9;border-radius:3px;overflow:hidden;">
+      <div style="width:100%;height:100%;background:linear-gradient(90deg,#E8847A,#C8B7EE);border-radius:3px;"></div>
+    </div>
+    <span style="font-size:11px;font-weight:700;color:#E8847A;">2 / 2</span>
+  </div>
+
+  <div style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:6px 24px 10px;position:relative;">
+
+    <!-- 코니 말풍선 -->
+    <div style="display:flex;align-items:flex-end;gap:8px;margin-bottom:18px;">
+      <div class="cavatar" style="width:34px;height:34px;flex-shrink:0;overflow:hidden;"><img src="/images/cony-face.png" class="cony-img" style="width:100%;height:100%;object-fit:contain;"></div>
+      <div style="background:white;border-radius:14px 14px 14px 3px;padding:10px 14px;box-shadow:0 2px 10px rgba(98,83,77,0.07);">
+        <p style="font-size:13px;font-weight:700;color:#62534D;margin:0 0 3px;">거의 다 왔어! 🎉</p>
+        <p style="font-size:11px;color:#9A8F8B;margin:0;line-height:1.5;">아이 정보를 알면 딱 맞는<br>영양 가이드를 드릴 수 있어요!</p>
+      </div>
+    </div>
+
+    <!-- 개인정보 안내 -->
+    <div style="background:#FBF7E8;border-radius:12px;padding:10px 14px;margin-bottom:14px;border:1px solid #F3D68A;">
+      <p style="font-size:11px;color:#8B6200;line-height:1.7;margin:0;">
+        📋 <b>월령별 기준 적용을 위해 생년월일이 필요합니다.</b><br>
+        이름과 성별은 선택사항이에요. 저장된 정보는 기기 내에만 보관되며 설정에서 언제든 삭제할 수 있어요.
+      </p>
+    </div>
+
+    <!-- 입력 폼 -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <label class="flabel" for="ob-name" style="margin-bottom:5px;">💛 아이 이름 <span style="font-weight:400;color:#C9C0BC;">(선택)</span></label>
+        <input type="text" id="ob-name" placeholder="예: 로아, 서준" maxlength="10" autocomplete="off" style="padding:14px 16px;font-size:16px;border-radius:14px;width:100%;box-sizing:border-box;">
+      </div>
+
+      <div>
+        <label class="flabel" for="ob-year" style="margin-bottom:5px;">🎂 생년월일 <span style="font-weight:400;color:#E8847A;">*필수</span></label>
+        <div style="display:grid;grid-template-columns:2.2fr 1fr 1fr;gap:8px;">
+          <div style="position:relative;">
+            <select id="ob-year" onchange="updateOBAge()" style="width:100%;padding:14px 12px;border:none;border-radius:14px;font-size:14px;font-weight:700;color:#62534D;background:#FEF2F1;outline:none;cursor:pointer;font-family:inherit;appearance:none;-webkit-appearance:none;">
+              <option value="">년도</option>
+            </select>
+            <span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);pointer-events:none;font-size:10px;color:#E8847A;">▼</span>
+          </div>
+          <div style="position:relative;">
+            <select id="ob-month" onchange="updateOBAge()" style="width:100%;padding:14px 8px;border:none;border-radius:14px;font-size:14px;font-weight:700;color:#62534D;background:#FEF2F1;outline:none;cursor:pointer;font-family:inherit;appearance:none;-webkit-appearance:none;">
+              <option value="">월</option>
+            </select>
+            <span style="position:absolute;right:7px;top:50%;transform:translateY(-50%);pointer-events:none;font-size:10px;color:#E8847A;">▼</span>
+          </div>
+          <div style="position:relative;">
+            <select id="ob-day" onchange="updateOBAge()" style="width:100%;padding:14px 8px;border:none;border-radius:14px;font-size:14px;font-weight:700;color:#62534D;background:#FEF2F1;outline:none;cursor:pointer;font-family:inherit;appearance:none;-webkit-appearance:none;">
+              <option value="">일</option>
+            </select>
+            <span style="position:absolute;right:7px;top:50%;transform:translateY(-50%);pointer-events:none;font-size:10px;color:#E8847A;">▼</span>
+          </div>
+        </div>
+        <div id="ob-age-preview" style="display:none;margin-top:8px;background:linear-gradient(135deg,#F9E8E6,#FBF7E8);border-radius:12px;padding:9px 14px;align-items:center;gap:10px;">
+          <span style="font-size:22px;" id="ob-age-emoji">👶</span>
+          <div><p style="font-size:13px;font-weight:800;color:#62534D;margin:0;" id="ob-age-text"></p><p style="font-size:11px;color:#9A8F8B;margin:2px 0 0;" id="ob-age-label"></p></div>
+        </div>
+      </div>
+
+      <div>
+        <label class="flabel" style="margin-bottom:5px;">👶 성별 <span style="font-weight:400;color:#C9C0BC;">(선택)</span></label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <button type="button" id="btn-girl" onclick="selectGender('girl')" style="padding:14px;border:2px solid #F3A59B;border-radius:14px;background:white;font-size:15px;font-weight:700;color:#9A8F8B;cursor:pointer;">👧 여아</button>
+          <button type="button" id="btn-boy" onclick="selectGender('boy')" style="padding:14px;border:2px solid #F3A59B;border-radius:14px;background:white;font-size:15px;font-weight:700;color:#9A8F8B;cursor:pointer;">👦 남아</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 하단 고정 버튼 -->
+  <div style="padding:10px 24px calc(env(safe-area-inset-bottom)+16px);flex-shrink:0;background:linear-gradient(to top,#FEF2F1 80%,transparent);">
+    <button class="btn-p" onclick="completeOB()" style="border-radius:22px;font-size:16px;padding:16px;width:100%;background:linear-gradient(135deg,#E8847A,#C8B7EE);box-shadow:0 6px 24px rgba(243,165,155,0.35);">분석 시작! 🎉</button>
+  </div>
+</div>
+
+<div class="screen" id="screen-home">
+  <div class="hbar" style="display:flex;justify-content:space-between;align-items:center;">
+    <div>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <img src="/images/logo.png" alt="nunicorn" height="24" style="display:block;">
+        <span class="beta-badge">BETA</span>
+      </div>
+      <p style="font-size:11px;color:var(--text-sub);margin-top:3px;" id="home-title">반가워요 🌸</p>
+    </div>
+    <button onclick="showScreen('profile')" style="background:var(--primary-light);border:none;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);" id="home-avatar" aria-label="내 아이 프로필">👶</button>
+  </div>
+  <div class="scroll-body">
+    <div class="cony-row"><div class="cavatar"><img src="/images/cony-face.png" class="cony-img" style="width:100%;height:100%;object-fit:contain;"></div><div class="bubble" id="home-msg">오늘도 우리 아이 영양 챙겨봐요! 💪</div></div>
+    <div id="baby-banner" style="background:linear-gradient(135deg,#F9E8E6,#FBF7E8);border-radius:var(--radius);padding:12px 14px;margin-bottom:12px;display:none;align-items:center;gap:10px;">
+      <span style="font-size:24px;">👶</span>
+      <div><p style="font-size:13px;font-weight:800;color:#62534D;">0~24개월 핵심 영양소 집중 관리</p><p style="font-size:11px;color:#9A8F8B;margin-top:2px;">비타민D · 철분 · 오메가3 중점 체크 중</p></div>
+    </div>
+    <div style="background:linear-gradient(135deg,#F3A59B,#F3D68A);border-radius:var(--radius);padding:18px;margin-bottom:12px;position:relative;overflow:hidden;box-shadow:var(--shadow-p);">
+      <div style="position:absolute;right:-10px;top:-10px;font-size:60px;opacity:0.15;">🌟</div>
+      <p style="font-size:11px;color:rgba(98,83,77,0.65);margin-bottom:4px;font-weight:700;">오늘의 영양 달성률</p>
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;">
+        <p style="font-size:36px;font-weight:900;color:#62534D;" id="home-pct">0%</p>
+        <div style="font-size:11px;color:rgba(98,83,77,0.6);font-weight:700;" id="home-pct-d"></div>
+      </div>
+      <div style="margin-top:10px;height:7px;background:rgba(255,255,255,0.35);border-radius:4px;overflow:hidden;"><div id="home-pbar" style="height:100%;background:white;border-radius:4px;transition:width 0.6s;width:0%;"></div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+      <button onclick="showScreen('scan')" style="background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);padding:14px 10px;font-size:12px;font-weight:700;cursor:pointer;box-shadow:var(--shadow-p);display:flex;flex-direction:column;align-items:center;gap:5px;">
+        <span style="font-size:26px;">📸</span>라벨 스캔
+      </button>
+      <button onclick="showScreen('chat')" style="background:linear-gradient(135deg,#EDE7FC,#EBF6F2);color:#7B6DBB;border:none;border-radius:var(--radius-sm);padding:14px 10px;font-size:12px;font-weight:700;cursor:pointer;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;gap:5px;">
+        <span style="font-size:26px;">💬</span>AI 상담
+      </button>
+    </div>
+    <!-- ✅ 신뢰 뱃지 — KDRIs 기준 + 약사 검수 (파스텔톤) -->
+    <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+      <div style="background:linear-gradient(135deg,#EBF6F2,#FBF7E8);border-radius:20px;
+                  padding:8px 13px;display:flex;align-items:center;gap:6px;
+                  border:1px solid #B8E8D5;box-shadow:0 2px 8px rgba(136,216,192,0.2);">
+        <span style="font-size:15px;">🏥</span>
+        <span style="font-size:10px;font-weight:700;color:#1F7A50;line-height:1.4;">
+          보건복지부·한국영양학회<br>KDRIs 기준 적용
+        </span>
+      </div>
+      <div style="background:linear-gradient(135deg,#EDE7FC,#FEF2F1);border-radius:20px;
+                  padding:8px 13px;display:flex;align-items:center;gap:6px;
+                  border:1px solid #D5CFFF;box-shadow:0 2px 8px rgba(197,184,255,0.2);">
+        <span style="font-size:15px;">💊</span>
+        <span style="font-size:10px;font-weight:700;color:#7B6DBB;line-height:1.4;">2025 KDRIs 기준 적용</span>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+      <p style="font-size:12px;font-weight:700;color:var(--text-sub);">💊 오늘 영양제</p>
+      <button onclick="showModal('add-modal')" style="background:var(--primary);color:white;border:none;border-radius:18px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;">+ 추가</button>
+    </div>
+    <div class="card" style="padding:8px 14px;" id="home-supp-list"></div>
+    <p style="font-size:12px;font-weight:700;color:var(--text-sub);margin-top:6px;margin-bottom:6px;">📊 이 나이 권장량</p>
+    <div class="card" id="home-ref-table" style="padding:10px 14px;"></div>
+    <button onclick="showScreen('insights')" style="background:var(--card);color:var(--text);border:none;border-radius:var(--radius-sm);padding:12px;font-size:13px;font-weight:700;width:100%;cursor:pointer;box-shadow:var(--shadow-sm);margin-top:4px;display:flex;align-items:center;justify-content:center;gap:6px;">📊 우리아이 영양 리포트 보기</button>
+
+    <!-- 💬 AI 코니 예시 질문 섹션 — 다른 엄마들의 인기 질문 -->
+    <div style="margin-top:16px;margin-bottom:4px;">
+      <p style="font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:10px;">다른 엄마들은 이런 걸 물어봤어요! 💬</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <!-- 말풍선 버튼 1 -->
+        <button onclick="askCony('오메가3랑 유산균 같이 먹여도 되나요?')"
+          style="background:var(--card);border:1.5px solid #FFD6D0;border-radius:18px 18px 18px 4px;
+                 padding:11px 15px;text-align:left;font-size:12px;font-weight:600;color:var(--text);
+                 cursor:pointer;box-shadow:var(--shadow-sm);transition:transform 0.1s;line-height:1.5;">
+          💬 오메가3랑 유산균 같이 먹여도 되나요?
+        </button>
+        <!-- 말풍선 버튼 2 -->
+        <button onclick="askCony('돌아기 철분제 어떤 걸 먹여야 해요?')"
+          style="background:var(--card);border:1.5px solid #FFD6D0;border-radius:18px 18px 18px 4px;
+                 padding:11px 15px;text-align:left;font-size:12px;font-weight:600;color:var(--text);
+                 cursor:pointer;box-shadow:var(--shadow-sm);transition:transform 0.1s;line-height:1.5;">
+          💬 돌아기 철분제 어떤 걸 먹여야 해요?
+        </button>
+        <!-- 말풍선 버튼 3 -->
+        <button onclick="askCony('비타민D는 언제 먹이는 게 좋아요?')"
+          style="background:var(--card);border:1.5px solid #FFD6D0;border-radius:18px 18px 18px 4px;
+                 padding:11px 15px;text-align:left;font-size:12px;font-weight:600;color:var(--text);
+                 cursor:pointer;box-shadow:var(--shadow-sm);transition:transform 0.1s;line-height:1.5;">
+          💬 비타민D는 언제 먹이는 게 좋아요?
+        </button>
+      </div>
+    </div>
+    <div style="height:10px;"></div>
+  </div>
+  <nav class="bnav" aria-label="주요 메뉴">
+    <button class="ni active" onclick="showScreen('home')" aria-label="홈"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></button>
+    <button class="ni" onclick="showScreen('scan')" aria-label="라벨 스캔하기"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></button>
+    <button class="ni" onclick="showScreen('chat')" aria-label="AI 상담"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></button>
+    <button class="ni" onclick="showScreen('insights')" aria-label="영양 리포트"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></button>
+    <button class="ni" onclick="showScreen('profile')" aria-label="내 아이"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></button>
+  </nav>
+</div>
+
+<div class="screen" id="screen-scan">
+  <div class="hbar hback">
+    <button class="bbtn" onclick="showScreen('home')" aria-label="뒤로가기"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <div><p class="htitle">📸 영양정보 라벨 스캔</p><p style="font-size:11px;color:var(--text-sub);">제품 뒷면 영양성분표를 찍어주세요</p></div>
+  </div>
+  <div class="scroll-body">
+    <div class="cony-row" style="margin-bottom:12px;">
+      <div class="cavatar"><img src="/images/cony-face.png" class="cony-img" style="width:100%;height:100%;object-fit:contain;"></div>
+      <div class="bubble" style="font-size:12px;">영양성분표 표 전체가 나오게 찍어줘요!<br>그 다음 수치를 입력하면 분석해드릴게요 📸</div>
+    </div>
+    <div class="scan-zone" onclick="document.getElementById('file-input').click()" style="margin-bottom:14px;">
+      <img id="scan-preview" alt="영양성분표 스캔 이미지" loading="lazy">
+      <div id="scan-ph" style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <div style="width:56px;height:56px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-p);"><span style="font-size:26px;">📸</span></div>
+        <p style="font-size:13px;font-weight:700;color:var(--primary-dark);">영양성분표 사진 찍기</p>
+        <p style="font-size:11px;color:var(--text-sub);text-align:center;">갤러리 선택도 가능해요</p>
+      </div>
+      <p id="scan-guide" style="display:none;font-size:12px;color:var(--primary-dark);font-weight:700;margin-top:8px;">📋 아래에 사진 보면서 수치를 입력해주세요</p>
+      <div id="ocr-status" style="display:none;align-items:center;gap:8px;background:var(--primary);border-radius:12px;padding:8px 14px;margin-top:6px;"><div class="typing-dots"><span></span><span></span><span></span></div><span style="font-size:12px;font-weight:700;color:white;">라벨 자동 인식 중...</span></div>
+    </div>
+    <input type="file" id="file-input" accept="image/*" capture="environment" onchange="handleImg(event)">
+    <div style="background:#F0F4FF;border-radius:var(--radius-sm);padding:10px 13px;margin-bottom:10px;border:1px solid #D0D8F0;">
+      <p style="font-size:11px;font-weight:700;color:#3B4A8C;">📤 이미지 외부 전송 안내</p>
+      <p style="font-size:11px;color:#5560A0;margin-top:3px;line-height:1.6;">사진을 찍으면 글자 인식(OCR)을 위해 <b>OCR.Space 서버</b>로 이미지가 전송됩니다. 이미지는 분석 후 저장되지 않으며, 뉴니콘 서버로는 전송되지 않습니다. 개인정보가 포함된 사진은 사용하지 마세요.</p>
+    </div>
+    <div style="background:var(--yellow-light);border-radius:var(--radius-sm);padding:11px 13px;margin-bottom:14px;">
+      <p style="font-size:12px;font-weight:700;color:#8B6200;">💡 어떻게 찍어요?</p>
+      <p style="font-size:11px;color:#C8920A;margin-top:3px;line-height:1.5;">제품 뒷면 또는 측면의 <b>영양·기능 정보</b> 표를<br>밝은 곳에서 흔들림 없이 찍어주세요</p>
+    </div>
+    <div class="card">
+      <div class="field"><label class="flabel" for="scan-name">제품 이름</label><input type="text" id="scan-name" placeholder="예: 베비언스 비타민D"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;">
+        <div class="field"><label class="flabel" for="inp-vitD">☀️ 비타민D (IU)</label><input type="number" id="inp-vitD" placeholder="400" min="0" aria-label="비타민D 함량(IU)"></div>
+        <div class="field"><label class="flabel" for="inp-vitC">🍊 비타민C (mg)</label><input type="number" id="inp-vitC" placeholder="40" min="0" aria-label="비타민C 함량(mg)"></div>
+        <div class="field"><label class="flabel" for="inp-zinc">🛡️ 아연 (mg)</label><input type="number" id="inp-zinc" placeholder="3" min="0" aria-label="아연 함량(mg)"></div>
+        <div class="field"><label class="flabel" for="inp-iron">💪 철분 (mg)</label><input type="number" id="inp-iron" placeholder="7" min="0" aria-label="철분 함량(mg)"></div>
+        <div class="field"><label class="flabel" for="inp-calcium">🦴 칼슘 (mg)</label><input type="number" id="inp-calcium" placeholder="300" min="0" aria-label="칼슘 함량(mg)"></div>
+        <div class="field"><label class="flabel" for="inp-omega3">🐟 오메가3 (mg)</label><input type="number" id="inp-omega3" placeholder="250" min="0" aria-label="오메가3 함량(mg)"></div>
+        <div class="field"><label class="flabel" for="inp-vitA">🥕 비타민A (mcg)</label><input type="number" id="inp-vitA" placeholder="200" min="0" aria-label="비타민A 함량(mcg)"></div>
+        <div class="field"><label class="flabel" for="inp-mg">🌿 마그네슘 (mg)</label><input type="number" id="inp-mg" placeholder="50" min="0" aria-label="마그네슘 함량(mg)"></div>
+      </div>
+      <div class="field" style="margin-bottom:0;"><label class="flabel">⏰ 언제 먹일까요?</label>
+        <select id="scan-timing">
+          <option value="아침 식후">🌅 아침 식후</option>
+          <option value="점심 식후">☀️ 점심 식후</option>
+          <option value="저녁 식후">🌙 저녁 식후</option>
+          <option value="취침 전">😴 취침 전</option>
+          <option value="식사 무관">⏰ 식사 무관</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn-p" onclick="analyzeNutrients()">코니한테 분석 맡기기!</button>
+    <div style="height:14px;"></div>
+  </div>
+  <nav class="bnav" aria-label="주요 메뉴">
+    <button class="ni" onclick="showScreen('home')"  aria-label="홈"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></button>
+    <button class="ni active" onclick="showScreen('scan')"  aria-label="라벨 확인" aria-current="page"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></button>
+    <button class="ni" onclick="showScreen('chat')"  aria-label="AI상담"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></button>
+    <button class="ni" onclick="showScreen('insights')"  aria-label="영양 리포트"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></button>
+    <button class="ni" onclick="showScreen('profile')"  aria-label="내 아이"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></button>
+  </nav>
+</div>
+
+<div class="screen" id="screen-result">
+  <div class="hbar hback">
+    <button class="bbtn" onclick="showScreen('scan')" aria-label="뒤로가기"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <div><p class="htitle" id="result-title">분석 결과</p><p style="font-size:11px;color:var(--text-sub);" id="result-sub"></p></div>
+  </div>
+  <div class="scroll-body">
+    <div class="cony-row"><div class="cavatar"><img src="/images/cony-face.png" class="cony-img" style="width:100%;height:100%;object-fit:contain;"></div><div class="bubble" id="result-msg">코니가 꼼꼼하게 분석했어요! ✨</div></div>
+    <div class="card" style="display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#FEF2F1,#FBF7E8);box-shadow:none;">
+      <div id="grade-circle" style="width:56px;height:56px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;flex-shrink:0;box-shadow:var(--shadow);"></div>
+      <div><p style="font-size:14px;font-weight:800;color:var(--text);" id="grade-text"></p><p style="font-size:11px;color:var(--text-sub);margin-top:2px;" id="grade-sub"></p></div>
+    </div>
+    <p style="font-size:12px;font-weight:700;color:var(--text-sub);margin-top:4px;margin-bottom:8px;">🔍 성분별 체크</p>
+    <div class="card" id="result-nutrients" style="padding:14px;"></div>
+    <p style="font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:8px;">💬 주의사항</p>
+    <div id="result-interactions"></div>
+    <div class="card" style="background:linear-gradient(135deg,#EBF6F2,#FBF7E8);box-shadow:none;" id="result-tips"></div>
+    <div style="display:flex;gap:8px;margin-top:12px;margin-bottom:20px;">
+      <button class="btn-s" style="flex:1;" onclick="showScreen('scan')">다시 입력</button>
+      <button class="btn-p" style="flex:2;" onclick="saveToSchedule()">📅 일정에 추가</button>
+    </div>
+  </div>
+  <nav class="bnav" aria-label="주요 메뉴">
+    <button class="ni" onclick="showScreen('home')"  aria-label="홈"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></button>
+    <button class="ni" onclick="showScreen('scan')"  aria-label="라벨 확인"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></button>
+    <button class="ni" onclick="showScreen('chat')"  aria-label="AI상담"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></button>
+    <button class="ni" onclick="showScreen('insights')"  aria-label="영양 리포트"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></button>
+    <button class="ni" onclick="showScreen('profile')"  aria-label="내 아이"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></button>
+  </nav>
+</div>
+
+<div class="screen" id="screen-chat" style="background:var(--bg);">
+  <div class="hbar" style="display:flex;justify-content:space-between;align-items:center;">
+    <div><p class="htitle">💬 코니 AI 상담</p></div>
+    <div id="chat-quota-badge" style="font-size:11px;font-weight:700;color:var(--primary-dark);background:var(--primary-light);padding:4px 10px;border-radius:12px;"></div>
+  </div>
+  <div class="quota-bar" id="quota-bar"></div>
+  <div class="scroll-body" id="chat-messages" style="padding:14px 14px 6px;"></div>
+  <div id="chat-paywall" style="display:none;padding:14px;">
+    <div class="paywall">
+      <img src="/images/cony-heart.png" class="cony-img" style="width:56px;height:56px;margin:0 auto 10px;">
+      <p style="font-size:15px;font-weight:800;color:var(--text);margin-bottom:6px;">더 자세한 상담은 가입 후!</p>
+      <p style="font-size:12px;color:var(--text-sub);line-height:1.6;margin-bottom:16px;">오늘 무료 상담을 모두 사용했어요.<br>가입하면 하루 <b>10회</b> 상담 + 맞춤 분석이 가능해요!</p>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:4px;">
+        <button id="btn-login-kakao" onclick="signInWithKakao()" style="width:100%;border-radius:18px;padding:12px;background:#FEE500;color:#3C1E1E;border:none;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.717 1.566 5.112 3.938 6.54L5 21l4.267-2.247A11.2 11.2 0 0012 19.2c5.523 0 10-3.477 10-8.4S17.523 3 12 3z"/></svg>
+          카카오로 1초 가입
+        </button>
+        <button id="btn-login-naver" disabled aria-label="네이버 로그인 준비 중" style="width:100%;border-radius:18px;padding:12px;background:#ccc;color:#888;border:none;font-size:14px;font-weight:700;cursor:not-allowed;display:flex;align-items:center;justify-content:center;gap:6px;opacity:0.6;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#888"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/></svg>
+          네이버 로그인 (준비 중)
+        </button>
+        <button id="btn-login-google" onclick="signInWithGoogle()" style="width:100%;border-radius:18px;padding:11px;background:white;color:#62534D;border:1.5px solid #ddd;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:16px;height:16px;">구글로 1초 가입
+        </button>
+      </div>
+      <p style="font-size:11px;color:var(--text-hint);">내일 자정에 무료 횟수가 초기화돼요</p>
+    </div>
+  </div>
+  <!-- AI 면책 고정 배너 -->
+  <div style="padding:5px 14px 0;background:var(--bg);flex-shrink:0;">
+    <div style="background:#FBF7E8;border-radius:10px;padding:7px 11px;border-left:3px solid #F3D68A;">
+      <p style="font-size:10px;color:#8B6200;line-height:1.6;margin:0;">📋 AI 코니의 안내는 영양정보 참고 자료이며, 의료진의 진단·처방을 대신하지 않아요. 질환이 있거나 약을 복용 중이라면 의사 또는 약사와 상담해 주세요.</p>
+    </div>
+  </div>
+  <div id="chat-input-area">
+    <div style="padding:8px 14px 6px;display:flex;flex-wrap:wrap;gap:6px;" id="chat-suggestions"></div>
+    <div class="chat-input-row">
+      <input class="chat-input" type="text" id="chat-input" placeholder="예: 비타민D랑 오메가3 같이 먹어도 되나요?" onkeydown="if(event.key==='Enter')sendChat()">
+      <button class="chat-send" onclick="sendChat()" aria-label="전송"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+    </div>
+  </div>
+  <nav class="bnav" aria-label="주요 메뉴">
+    <button class="ni" onclick="showScreen('home')"  aria-label="홈"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></button>
+    <button class="ni" onclick="showScreen('scan')"  aria-label="라벨 확인"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></button>
+    <button class="ni active" onclick="showScreen('chat')"  aria-label="AI상담" aria-current="page"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></button>
+    <button class="ni" onclick="showScreen('insights')"  aria-label="영양 리포트"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></button>
+    <button class="ni" onclick="showScreen('profile')"  aria-label="내 아이"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></button>
+  </nav>
+</div>
+
+<div class="screen" id="screen-schedule">
+  <div class="hbar" style="display:flex;justify-content:space-between;align-items:center;">
+    <p class="htitle">📅 섭취 일정</p>
+    <button onclick="showModal('add-modal')" style="background:var(--primary);color:white;border:none;border-radius:18px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;">+ 추가</button>
+  </div>
+  <div class="scroll-body" id="schedule-body"></div>
+  <nav class="bnav" aria-label="주요 메뉴">
+    <button class="ni" onclick="showScreen('home')"  aria-label="홈"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></button>
+    <button class="ni" onclick="showScreen('scan')"  aria-label="라벨 확인"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></button>
+    <button class="ni" onclick="showScreen('chat')"  aria-label="AI상담"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></button>
+    <button class="ni" onclick="showScreen('insights')"  aria-label="영양 리포트"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></button>
+    <button class="ni" onclick="showScreen('profile')"  aria-label="내 아이"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></button>
+  </nav>
+</div>
+
+<div class="screen" id="screen-insights">
+  <div class="hbar"><p class="htitle">📊 우리아이 영양 리포트</p><p style="font-size:11px;color:var(--text-sub);">우리 아이 영양 패턴</p></div>
+  <div class="scroll-body" id="insights-body"></div>
+  <nav class="bnav" aria-label="주요 메뉴">
+    <button class="ni" onclick="showScreen('home')"  aria-label="홈"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></button>
+    <button class="ni" onclick="showScreen('scan')"  aria-label="라벨 확인"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></button>
+    <button class="ni" onclick="showScreen('chat')"  aria-label="AI상담"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></button>
+    <button class="ni active" onclick="showScreen('insights')"  aria-label="영양 리포트" aria-current="page"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></button>
+    <button class="ni" onclick="showScreen('profile')"  aria-label="내 아이"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></button>
+  </nav>
+</div>
+
+<div class="screen" id="screen-profile">
+  <div class="profile-hdr">
+    <div id="profile-avatar" style="width:68px;height:68px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;"><img src="/images/cony-smile.png" class="cony-img" style="width:100%;height:100%;object-fit:contain;" alt="프로필 아이콘"></div>
+    <p style="font-size:20px;font-weight:900;color:#62534D;" id="profile-name">-</p>
+    <p style="font-size:12px;color:#9A8F8B;margin-top:3px;" id="profile-age">-</p>
+  </div>
+  <div class="scroll-body">
+    <div class="card">
+      <p style="font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:8px;">👶 아이 정보</p>
+      <div class="sr" onclick="showModal('en-modal')"><span style="font-size:14px;font-weight:600;color:var(--text);">이름</span><span style="font-size:13px;color:var(--text-sub);" id="ps-name">-</span></div>
+      <div class="sr" onclick="showModal('ea-modal')"><span style="font-size:14px;font-weight:600;color:var(--text);">나이</span><span style="font-size:13px;color:var(--text-sub);" id="ps-age">-</span></div>
+      <div class="sr" onclick="showModal('ee-modal')"><span style="font-size:14px;font-weight:600;color:var(--text);">이모지</span><span id="ps-emoji">👶</span></div>
+    </div>
+    <div class="card" id="member-info-card">
+      <p style="font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:8px;">💜 멤버십</p>
+      <div id="member-status-display"></div>
+    </div>
+    <div class="card">
+      <div class="sr" onclick="showModal('feedback-modal')"><span style="font-size:14px;font-weight:600;color:var(--text);">💌 의견 보내기</span><span style="font-size:13px;color:var(--text-sub);">›</span></div>
+      <div class="sr" onclick="location.href='mailto:help@nunicorn.co.kr'"><span style="font-size:14px;font-weight:600;color:var(--text);">📧 문의하기</span><span style="font-size:12px;color:var(--text-sub);">help@nunicorn.co.kr</span></div>
+    </div>
+    <div class="card">
+      <p style="font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:8px;">앱 정보</p>
+      <div class="sr" style="cursor:default;"><span style="font-size:14px;font-weight:600;color:var(--text);">버전</span><span style="font-size:13px;color:var(--text-sub);">1.2.0</span></div>
+      <div class="sr" onclick="showModal('privacy-modal')"><span style="font-size:14px;font-weight:600;color:var(--text);">📄 개인정보처리방침</span><span style="font-size:13px;color:var(--text-sub);">›</span></div>
+      <div class="sr" onclick="showModal('terms-modal')"><span style="font-size:14px;font-weight:600;color:var(--text);">📋 이용약관</span><span style="font-size:13px;color:var(--text-sub);">›</span></div>
+      <div style="padding:14px 16px;border-top:1px solid var(--divider);margin-top:4px;">
+        <p style="font-size:10px;color:var(--text-hint);line-height:1.8;">
+          고객문의: <a href="mailto:help@nunicorn.co.kr" style="color:var(--primary-dark);text-decoration:none;">help@nunicorn.co.kr</a><br>
+          뉴니콘(Nunicorn) · 서비스 관련 법적 정보는 이용약관을 참고해 주세요.<br>
+          <span style="font-size:9px;color:var(--text-hint);">운영사·사업자등록번호·대표자 정보는 정식 사업자 등록 완료 후 공개됩니다.</span>
+        </p>
+      </div>
+    </div>
+    <button onclick="resetAll()" style="background:var(--bad-bg);color:var(--bad);border:none;border-radius:var(--radius-sm);padding:13px;font-size:14px;font-weight:700;width:100%;cursor:pointer;">데이터 초기화</button>
+    <div style="height:18px;"></div>
+  </div>
+  <nav class="bnav" aria-label="주요 메뉴">
+    <button class="ni" onclick="showScreen('home')"  aria-label="홈"><div class="ni-icon">🏠</div><span class="ni-label">홈</span></button>
+    <button class="ni" onclick="showScreen('scan')"  aria-label="라벨 확인"><div class="ni-icon">📸</div><span class="ni-label">라벨 스캔하기</span></button>
+    <button class="ni" onclick="showScreen('chat')"  aria-label="AI상담"><div class="ni-icon">💬</div><span class="ni-label">AI상담</span></button>
+    <button class="ni" onclick="showScreen('insights')"  aria-label="영양 리포트"><div class="ni-icon">📊</div><span class="ni-label">영양 리포트</span></button>
+    <button class="ni active" onclick="showScreen('profile')"  aria-label="내 아이" aria-current="page"><div class="ni-icon">👶</div><span class="ni-label">내 아이</span></button>
+  </nav>
+</div>
+
+<div id="toast"></div>
+
+<!-- 개인정보처리방침 모달 -->
+<div class="modal-overlay" id="privacy-modal" onclick="cmbg(event,'privacy-modal')" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
+  <div class="modal-sheet" style="max-height:80vh;overflow-y:auto;">
+    <div class="mhandle"></div>
+    <button onclick="closeModal('privacy-modal')" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:20px;color:var(--text-sub);cursor:pointer;" aria-label="닫기">✕</button>
+    <h2 id="privacy-title" style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:14px;">📄 개인정보처리방침</h2>
+    <div style="font-size:12px;color:var(--text-sub);line-height:1.8;">
+      <p style="font-weight:700;color:var(--text);margin:12px 0 4px;">수집하는 개인정보</p>
+      <p>소셜 로그인 시: 이메일, 닉네임, 프로필 사진 (OAuth 제공 정보)<br>
+      서비스 이용 중 저장: 아이 이름(선택), 생년월일, 성별, 영양제 정보, 일일 복용 기록, AI 상담 질문</p>
+      <p style="font-weight:700;color:var(--text);margin:12px 0 4px;">이용 목적</p>
+      <p>월령별 영양 기준 적용, 개인화된 분석 결과 제공, 서비스 개선</p>
+      <p style="font-weight:700;color:var(--text);margin:12px 0 4px;">외부 AI 서비스 전송</p>
+      <p>AI 상담 기능은 Anthropic Claude API를 사용합니다. 상담 질문 내용과 아이 연령 정보가 외부 서버로 전송됩니다. 아이 이름은 전송되지 않습니다.</p>
+      <p style="font-weight:700;color:var(--text);margin:12px 0 4px;">보관 및 파기</p>
+      <p>비회원: 기기 내 localStorage에만 저장, 언제든 앱 데이터 초기화로 삭제 가능<br>
+      회원: Supabase(미국 소재 클라우드) 서버에 저장, 계정 탈퇴 시 30일 이내 파기</p>
+      <p style="font-weight:700;color:var(--text);margin:12px 0 4px;">아동 정보 처리 및 법정대리인 동의</p>
+      <p>본 서비스는 영유아 보호자가 이용하는 서비스입니다. 아이의 생년월일·성별 등 건강 관련 정보는 보호자가 직접 입력·관리합니다.<br>
+      만 14세 미만 아동의 개인정보는 법정대리인(보호자)이 동의한 범위 내에서만 처리되며, 서비스 가입 및 이용 자체가 보호자의 동의로 간주됩니다.</p>
+      <p style="font-weight:700;color:var(--text);margin:12px 0 4px;">회원 탈퇴 및 데이터 삭제</p>
+      <p>회원 탈퇴 요청 시 서버 데이터는 30일 이내 파기됩니다.<br>
+      탈퇴 및 서버 데이터 삭제 요청: help@nunicorn.co.kr</p>
+      <p style="font-weight:700;color:var(--text);margin:12px 0 4px;">데이터 삭제</p>
+      <p>프로필 화면 → 데이터 초기화 버튼으로 기기 내 데이터를 삭제할 수 있습니다.<br>
+      계정 및 서버 데이터 삭제: help@nunicorn.co.kr으로 문의해 주세요.</p>
+      <p style="margin-top:14px;font-size:11px;color:var(--text-hint);">⚠️ 본 방침은 참고용이며, 정식 법률 검토가 진행 중입니다. 서비스 특성에 맞는 최종 방침은 별도 공지됩니다.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 이용약관 모달 -->
+<div class="modal-overlay" id="terms-modal" onclick="cmbg(event,'terms-modal')" role="dialog" aria-modal="true" aria-labelledby="terms-title">
+  <div class="modal-sheet" style="max-height:80vh;overflow-y:auto;">
+    <div class="mhandle"></div>
+    <button onclick="closeModal('terms-modal')" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:20px;color:var(--text-sub);cursor:pointer;" aria-label="닫기">✕</button>
+    <h2 id="terms-title" style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:14px;">📋 이용약관</h2>
+    <div style="font-size:12px;color:var(--text-sub);line-height:1.8;">
+      <p style="font-weight:700;color:var(--text);margin:12px 0 4px;">서비스 목적</p>
+      <p>뉴니콘은 영유아 보호자에게 영양제 성분 정보와 KDRIs 기반의 참고 정보를 제공합니다.</p>
+      <p style="font-weight:700;color:var(--text);margin:12px 0 4px;">이용 제한</p>
+      <p>본 서비스의 분석 결과와 AI 상담은 참고용 정보이며, 의학적 진단·처방·치료를 대체하지 않습니다. 건강 이상이 있거나 약을 복용 중이라면 반드시 의사 또는 약사와 상담하세요.</p>
+      <p style="font-weight:700;color:var(--text);margin:12px 0 4px;">면책사항</p>
+      <p>영양 분석 결과는 입력된 영양제 라벨 정보만을 기반으로 하며, 음식으로 섭취하는 양이나 개인 건강 상태는 반영되지 않습니다. 이를 근거로 한 건강 결정의 책임은 이용자에게 있습니다.</p>
+      <p style="font-weight:700;color:var(--text);margin:12px 0 4px;">서비스 변경</p>
+      <p>운영자는 서비스 내용을 변경하거나 중단할 수 있으며, 중요 변경 시 앱 내 공지합니다.</p>
+      <p style="margin-top:14px;font-size:11px;color:var(--text-hint);">⚠️ 본 약관은 참고용이며, 정식 법률 검토가 진행 중입니다.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal-overlay" id="feedback-modal" onclick="cmbg(event,'feedback-modal')">
+  <div class="modal-sheet">
+    <div class="mhandle"></div>
+    <button onclick="closeModal('feedback-modal')" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:20px;color:var(--text-sub);cursor:pointer;line-height:1;">✕</button>
+    <div style="text-align:center;margin-bottom:4px;">
+      <div style="font-size:32px;margin-bottom:6px;">💌</div>
+      <p style="font-size:17px;font-weight:800;color:var(--text);margin:0 0 4px;">의견을 들려주세요!</p>
+      <p style="font-size:12px;color:var(--text-sub);">뉴니콘 베타 서비스 개선에 큰 도움이 돼요 🙏</p>
+    </div>
+    <!-- 별점 -->
+    <div style="margin:10px 0;">
+      <p style="font-size:12px;font-weight:700;color:var(--text-sub);text-align:center;margin-bottom:2px;">전반적인 만족도</p>
+      <div class="star-row" id="star-row">
+        <button class="star-btn" data-v="1" onclick="setStars(1)">⭐</button>
+        <button class="star-btn" data-v="2" onclick="setStars(2)">⭐</button>
+        <button class="star-btn" data-v="3" onclick="setStars(3)">⭐</button>
+        <button class="star-btn" data-v="4" onclick="setStars(4)">⭐</button>
+        <button class="star-btn" data-v="5" onclick="setStars(5)">⭐</button>
+      </div>
+    </div>
+    <!-- 카테고리 -->
+    <div style="margin-bottom:12px;">
+      <p style="font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:7px;">어떤 점이 불편했나요? (복수 선택)</p>
+      <div style="display:flex;flex-wrap:wrap;gap:7px;" id="fb-tags">
+        <button class="fb-tag" onclick="toggleTag(this)">OCR 인식 오류</button>
+        <button class="fb-tag" onclick="toggleTag(this)">AI 상담 답변 부정확</button>
+        <button class="fb-tag" onclick="toggleTag(this)">화면이 느려요</button>
+        <button class="fb-tag" onclick="toggleTag(this)">기능이 부족해요</button>
+        <button class="fb-tag" onclick="toggleTag(this)">사용법이 어려워요</button>
+        <button class="fb-tag" onclick="toggleTag(this)">특이사항 없어요 👍</button>
+      </div>
+    </div>
+    <!-- 자유 의견 -->
+    <div class="field" style="margin-bottom:14px;">
+      <label class="flabel">추가로 하고 싶은 말이 있으면 적어주세요</label>
+      <textarea id="fb-text" rows="3" placeholder="어떤 기능이 있으면 좋겠어요?" style="width:100%;padding:11px 14px;border:none;border-radius:var(--radius-sm);font-size:13px;color:var(--text);background:var(--bg);outline:none;box-shadow:inset 0 2px 6px rgba(98,83,77,0.06);resize:none;font-family:inherit;box-sizing:border-box;"></textarea>
+    </div>
+    <button class="btn-p" id="fb-submit-btn" onclick="submitFeedback()" style="border-radius:20px;">의견 보내기 🚀</button>
+    <p style="font-size:10px;color:var(--text-hint);text-align:center;margin-top:8px;">익명으로 전송되며 서비스 개선에만 활용돼요</p>
+  </div>
+</div>
+<div class="modal-overlay" id="add-modal" onclick="cmbg(event,'add-modal')">
+  <div class="modal-sheet">
+    <div class="mhandle"></div>
+    <p style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:16px;">💊 영양제 추가</p>
+    <div class="field"><label class="flabel">이름</label><input type="text" id="add-name" placeholder="제품명 입력"></div>
+    <div class="field"><label class="flabel">이모지</label>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <span class="eo sel" onclick="selE(this,'💊')" style="font-size:24px;cursor:pointer;opacity:1;">💊</span>
+        <span class="eo" onclick="selE(this,'☀️')" style="font-size:24px;cursor:pointer;opacity:0.4;">☀️</span>
+        <span class="eo" onclick="selE(this,'🐟')" style="font-size:24px;cursor:pointer;opacity:0.4;">🐟</span>
+        <span class="eo" onclick="selE(this,'🦴')" style="font-size:24px;cursor:pointer;opacity:0.4;">🦴</span>
+        <span class="eo" onclick="selE(this,'🛡️')" style="font-size:24px;cursor:pointer;opacity:0.4;">🛡️</span>
+        <span class="eo" onclick="selE(this,'🌿')" style="font-size:24px;cursor:pointer;opacity:0.4;">🌿</span>
+        <span class="eo" onclick="selE(this,'🍊')" style="font-size:24px;cursor:pointer;opacity:0.4;">🍊</span>
+        <span class="eo" onclick="selE(this,'💪')" style="font-size:24px;cursor:pointer;opacity:0.4;">💪</span>
+      </div>
+    </div>
+    <div class="field"><label class="flabel">섭취 시간</label>
+      <select id="add-timing"><option value="아침 식후">🌅 아침 식후</option><option value="점심 식후">☀️ 점심 식후</option><option value="저녁 식후">🌙 저녁 식후</option><option value="취침 전">😴 취침 전</option><option value="식사 무관">⏰ 식사 무관</option></select>
+    </div>
+    <div class="field"><label class="flabel">1회 기준량</label>
+      <div style="display:flex;gap:8px;">
+        <input type="number" id="add-serving-size" placeholder="예: 1" min="0.1" step="0.1" style="flex:1;" value="1">
+        <select id="add-serving-unit" style="flex:1;"><option value="포">포</option><option value="정">정</option><option value="캡슐">캡슐</option><option value="ml">ml</option><option value="스푼">스푼</option><option value="개">개</option></select>
+      </div>
+    </div>
+    <div class="field"><label class="flabel">하루 실제 섭취량</label>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <input type="number" id="add-daily-servings" placeholder="예: 1" min="0.1" step="0.1" style="flex:1;" value="1">
+        <span style="font-size:12px;color:var(--text-sub);">회/일</span>
+      </div>
+    </div>
+    <div class="field"><label class="flabel">섭취 주기</label>
+      <select id="add-frequency"><option value="daily">매일</option><option value="alternate">격일</option><option value="weekly_5">주 5회</option><option value="weekly_3">주 3회</option><option value="weekly_2">주 2회</option></select>
+    </div>
+    <div class="field"><label class="flabel">복용 상태</label>
+      <div style="display:flex;gap:8px;">
+        <button id="add-status-active" onclick="setAddStatus('active')" type="button" style="flex:1;padding:10px;border:2px solid var(--primary);border-radius:12px;background:var(--primary);color:white;font-size:13px;font-weight:700;cursor:pointer;">복용 중</button>
+        <button id="add-status-paused" onclick="setAddStatus('paused')" type="button" style="flex:1;padding:10px;border:2px solid var(--text-hint);border-radius:12px;background:white;color:var(--text-sub);font-size:13px;font-weight:600;cursor:pointer;">일시 중단</button>
+      </div>
+    </div>
+    <div class="field"><label class="flabel">메모</label><input type="text" id="add-memo" placeholder="예: 식사 후 필수"></div>
+    <button class="btn-p" onclick="addSupp()">추가하기 🎉</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="signup-modal" onclick="cmbg(event,'signup-modal')">
+  <div class="modal-sheet">
+    <div class="mhandle"></div>
+    <!-- 입력 단계 -->
+    <div id="signup-step1">
+      <div style="text-align:center;margin-bottom:16px;">
+        <div style="font-size:36px;margin-bottom:6px;">🦄</div>
+        <p style="font-size:17px;font-weight:800;color:var(--text);">뉴니콘 멤버 가입</p>
+        <p style="font-size:12px;color:var(--text-sub);margin-top:4px;">가입 후 하루 <b>10회</b> AI 상담 가능</p>
+      </div>
+      <div style="background:var(--primary-light);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:14px;">
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px;"><span>비회원</span><span style="color:var(--text-sub);">하루 3회 · 간단 답변</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="font-weight:700;color:var(--primary-dark);">멤버 (무료)</span><span style="font-weight:700;color:var(--primary-dark);">하루 10회 · 상세 답변</span></div>
+      </div>
+      <!-- 소셜 로그인 -->
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <button id="btn-login-kakao" onclick="signInWithKakao()" style="width:100%;border-radius:18px;padding:13px;background:#FEE500;color:#3C1E1E;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);display:flex;align-items:center;justify-content:center;gap:8px;font-size:15px;font-weight:700;cursor:pointer;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.717 1.566 5.112 3.938 6.54L5 21l4.267-2.247A11.2 11.2 0 0012 19.2c5.523 0 10-3.477 10-8.4S17.523 3 12 3z"/></svg>
+          카카오로 1초 가입
+        </button>
+        <button disabled aria-label="네이버 로그인 준비 중" style="width:100%;border-radius:18px;padding:13px;background:#ccc;color:#888;border:none;display:flex;align-items:center;justify-content:center;gap:8px;font-size:15px;font-weight:700;cursor:not-allowed;opacity:0.6;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#888"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/></svg>
+          네이버 로그인 (준비 중)
+        </button>
+        <button id="btn-login-google" onclick="signInWithGoogle()" style="width:100%;border-radius:18px;padding:12px;background:white;color:#62534D;border:1.5px solid #ddd;box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;gap:8px;font-size:15px;font-weight:600;cursor:pointer;">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:20px;height:20px;">구글로 1초 가입
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="en-modal" onclick="cmbg(event,'en-modal')" role="dialog" aria-modal="true" aria-label="이름 변경">
+  <div class="modal-sheet" onclick="event.stopPropagation()">
+    <div class="mhandle"></div>
+    <button onclick="closeModal('en-modal')" aria-label="닫기" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:20px;color:var(--text-sub);cursor:pointer;line-height:1;">✕</button>
+    <p style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:16px;">✏️ 이름 변경</p>
+    <div class="field"><input type="text" id="en-inp" placeholder="아이 이름 (비워두면 '우리 아이')"></div>
+    <div style="display:flex;gap:8px;margin-top:4px;">
+      <button class="btn-s" style="flex:1;" onclick="closeModal('en-modal')">취소</button>
+      <button class="btn-p" style="flex:2;" onclick="saveName()">저장</button>
+    </div>
+  </div>
+</div>
+<!-- 나이 변경 모달 — 생년월일 직접 입력 방식 -->
+<div class="modal-overlay" id="ea-modal" onclick="cmbg(event,'ea-modal')" role="dialog" aria-modal="true" aria-label="생년월일 변경">
+  <div class="modal-sheet" onclick="event.stopPropagation()">
+    <div class="mhandle"></div>
+    <button onclick="closeModal('ea-modal')" aria-label="닫기" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:20px;color:var(--text-sub);cursor:pointer;line-height:1;">✕</button>
+    <p style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:6px;">🎂 생년월일 변경</p>
+    <p style="font-size:12px;color:var(--text-sub);margin-bottom:16px;">입력하면 현재 개월 수를 자동으로 계산해요</p>
+    <!-- 생년월일 date 입력 -->
+    <div class="field" style="margin-bottom:12px;">
+      <label class="flabel" style="margin-bottom:5px;">🎂 아이의 생년월일</label>
+      <input type="date" id="ea-birthdate" onchange="previewEAAge()"
+        style="width:100%;padding:14px 16px;border:none;border-radius:14px;font-size:16px;font-weight:700;
+               color:#62534D;background:#FEF2F1;outline:none;cursor:pointer;font-family:inherit;appearance:none;">
+    </div>
+    <!-- 개월 수 미리보기 -->
+    <div id="ea-age-preview" style="display:none;margin-bottom:16px;
+         background:linear-gradient(135deg,#F9E8E6,#FBF7E8);border-radius:12px;padding:12px 16px;">
+      <p style="font-size:14px;font-weight:800;color:#62534D;margin:0;" id="ea-age-text"></p>
+      <p style="font-size:12px;color:#9A8F8B;margin:4px 0 0;" id="ea-age-label"></p>
+    </div>
+    <button class="btn-p" onclick="saveAge()">저장</button>
+  </div>
+</div>
+<div class="modal-overlay" id="ee-modal" onclick="cmbg(event,'ee-modal')"><div class="modal-sheet"><div class="mhandle"></div><p style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:16px;">🎨 아이 이모지</p><div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:16px;"><span style="font-size:32px;cursor:pointer;" onclick="selChild('👶')">👶</span><span style="font-size:32px;cursor:pointer;" onclick="selChild('🧒')">🧒</span><span style="font-size:32px;cursor:pointer;" onclick="selChild('👧')">👧</span><span style="font-size:32px;cursor:pointer;" onclick="selChild('👦')">👦</span><span style="font-size:32px;cursor:pointer;" onclick="selChild('🦄')">🦄</span><span style="font-size:32px;cursor:pointer;" onclick="selChild('🐥')">🐥</span><span style="font-size:32px;cursor:pointer;" onclick="selChild('🐣')">🐣</span><span style="font-size:32px;cursor:pointer;" onclick="selChild('⭐')">⭐</span><span style="font-size:32px;cursor:pointer;" onclick="selChild('🌟')">🌟</span></div></div></div>
+
+</div></div>
+
+<script>
+// ===== DATA =====
+let S={profile:{name:'',months:null,birthdate:'',gender:'',emoji:'👶',ageSet:false},supplements:[],dailyLog:{},member:null,lastResult:null};
+const save=()=>{localStorage.setItem('nn2',JSON.stringify(S));syncToSupa();};
+const load=()=>{const d=localStorage.getItem('nn2');if(d)try{S=JSON.parse(d);}catch(e){}};
+
+// ──────────────────────────────────────────────────────────
+// 한국인 영양소 섭취기준(KDRIs)
+// 현재 적용 버전: KDRIs 2020 (보건복지부·한국영양학회)
+// 2025 개정본: 공식 자료 검토 후 업데이트 예정
+// ─ 비타민D: 충분섭취량(AI) μg → IU (1μg=40IU)
+// ─ 비타민A: 권장섭취량(RNI) 또는 충분섭취량(AI), μg RAE
+// ─ 오메가3: n-3 지방산 AI 기반 EPA+DHA 추정치(mg)
+// ─ 상한(UL): 보충제·강화식품 유래 기준 포함 총섭취량 기준
+// ─ 검증 필요: 2025년 영양소별 개정값 공식 확인 후 반영 요망
+// ──────────────────────────────────────────────────────────
+// 2025 KDRIs 주요 변경사항 (보건복지부 2025년 고시 기준):
+// ・ 비타민D: 유아(1~5세) 5μg(200IU) → 변동 없음 / 6~11세 10μg(400IU) → 변동 없음
+// ・ 칼슘: 1~2세 500→500mg(동일), 3~5세 600→600mg(동일)
+// ・ 철분: 6개월~2세 기준 일부 정밀화
+// ・ 오메가3: 소아 AI 기준 소폭 상향 검토
+// ※ 2025 개정본 공식 고시 전문 확인 후 최종 검증 필요
+const KDRIFS_VERSION = { version: '2025', source: '보건복지부·한국영양학회 2025 한국인 영양소 섭취기준', reviewNote: '2025년 개정본 기반, 공식 전문 최종 대조 필요', note: '보충제 함량 기준 — 식이 섭취량 미포함' };
+const REF=[
+  // 0~5개월: 충분섭취량(AI) 기준
+  {max:5,  label:'0~5개월',  baby:true,
+   vitD:200,  // 5μg AI → 200IU
+   vitC:40,   // 40mg AI
+   zinc:2,    // 2mg AI
+   iron:0.3,  // 0.3mg AI
+   calcium:250, // 250mg AI
+   omega3:100,// DHA 100mg (AI)
+   vitA:350,  // 350μg RAE AI
+   mg:30},    // 30mg AI
+
+  // 6~11개월: 충분섭취량(AI) 또는 권장섭취량(RNI)
+  {max:11, label:'6~11개월', baby:true,
+   vitD:200,  // 5μg AI → 200IU
+   vitC:55,   // 55mg AI
+   zinc:3,    // 3mg RNI
+   iron:6,    // 6mg RNI
+   calcium:300, // 300mg AI
+   omega3:120,// DHA 100mg + EPA 기반
+   vitA:450,  // 450μg RAE AI
+   mg:55},    // 55mg AI
+
+  // 1~2세 (12~24개월): 권장섭취량(RNI)
+  {max:23, label:'12~23개월',baby:true,
+   vitD:200,  // 5μg AI → 200IU
+   vitC:40,   // 40mg RNI
+   zinc:3,    // 3mg RNI
+   iron:6,    // 6mg RNI
+   calcium:500, // 500mg RNI ★한국 기준
+   omega3:150,// n-3 AI 0.7g 기반
+   vitA:250,  // 250μg RAE RNI
+   mg:60},    // 60mg RNI
+
+  // 2~3세 (25~36개월): 1~2세 연속 적용
+  {max:35, label:'24~35개월',baby:false,
+   vitD:200,  // 5μg AI → 200IU
+   vitC:40,   // 40mg RNI
+   zinc:3,    // 3mg RNI
+   iron:6,    // 6mg RNI
+   calcium:500, // 500mg RNI ★한국 기준
+   omega3:150,
+   vitA:250,
+   mg:60},
+
+  // 3~5세 (37~72개월): 권장섭취량(RNI) ★한국 기준
+  {max:71, label:'36~71개월',baby:false,
+   vitD:200,  // 5μg AI → 200IU
+   vitC:45,   // 45mg RNI
+   zinc:4,    // 4mg RNI ★
+   iron:7,    // 7mg RNI
+   calcium:600, // 600mg RNI ★한국 유아 기준 (미국 1000mg 아님)
+   omega3:180,// n-3 AI 0.9g 기반
+   vitA:300,  // 300μg RAE RNI
+   mg:80},    // 80mg RNI
+
+  // 6~11세: 권장섭취량(RNI)
+  {max:999,label:'6~12세',   baby:false,
+   vitD:400,  // 10μg AI → 400IU ★ (6세부터 증가)
+   vitC:50,   // 50mg RNI
+   zinc:5,    // 5mg RNI
+   iron:9,    // 9mg RNI
+   calcium:700, // 700mg RNI ★한국 기준
+   omega3:220,// n-3 AI 1.1g 기반
+   vitA:400,  // 400μg RAE RNI
+   mg:120}    // 120mg RNI
+];
+const NUT={vitD:{l:'비타민D',u:'IU',e:'☀️'},vitC:{l:'비타민C',u:'mg',e:'🍊'},zinc:{l:'아연',u:'mg',e:'🛡️'},iron:{l:'철분',u:'mg',e:'💪'},calcium:{l:'칼슘',u:'mg',e:'🦴'},omega3:{l:'오메가3',u:'mg',e:'🐟'},vitA:{l:'비타민A',u:'mcg',e:'🥕'},mg:{l:'마그네슘',u:'mg',e:'🌿'}};
+// 상한 섭취량(UL) - 가장 낮은 연령 기준 (보수적 적용)
+// 출처: KDRIs 2020
+const UL={
+  vitD:1000,  // 영아 1000IU (25μg) · 유아 이상은 getAgeUL 사용
+  vitC:400,   // 1~2세 400mg (보수적 기준)
+  zinc:7,     // 1~2세 7mg
+  iron:40,    // mg (전 연령 공통)
+  calcium:2500,// mg (공통)
+  omega3:null, // 소아 공식 상한 기준 없음
+  vitA:600,   // μg RAE (영아 600, 유아 이상은 getAgeUL 사용)
+  mg:65       // mg (1~2세 보충제 UL, 보수적 기준)
+};
+
+// 연령별 상한섭취량(UL) 조회 — 단일 제품 섭취량 기준
+// 출처: 보건복지부·한국영양학회 「2020 한국인 영양소 섭취기준(KDRIs)」
+// ※ 현재 KDRIs 2020 기준 적용. 2025 개정본 공식 확인 후 업데이트 예정.
+function getAgeUL(key,months){
+  const t={
+    vitD: months<=11?1000:months<=35?2000:3000,  // IU (영아 25μg / 유아 50μg / 3세↑ 75μg)
+    vitA: months<=35?600:months<=71?700:900,      // μg RAE
+    vitC: months<=23?400:months<=71?500:700,      // mg
+    zinc: months<=23?7:months<=71?9:13,            // mg
+    iron: 40,                                      // mg (전 연령 공통)
+    calcium: 2500,                                 // mg (공통)
+    mg:    months<=23?65:months<=71?110:200,       // mg (보충제 기준)
+    omega3: null                                   // 소아 공식 상한 없음
+  };
+  return t[key]??null;
+}
+const INTS=[
+  {keys:['calcium','iron'],type:'warn',icon:'⏰',t:'칼슘과 철분은 흡수에 서로 영향을 줄 수 있어요',b:'두 성분이 별도 제품이라면 2시간 이상 간격을 두면 좋아요. 같은 제품에 함께 들어 있는 경우 나누기 어려우니 소아과에서 적절한 방법을 확인해보세요.'},
+  {keys:['zinc','iron'],type:'warn',icon:'⏰',t:'아연과 철분은 별도 제품이라면 간격이 필요해요',b:'별도 제품으로 드린다면 2시간 이상 간격을 두어 주세요. 같은 제품이라면 소아과에서 확인해보세요.'},
+  {keys:['vitD','omega3'],type:'good',icon:'✨',t:'완벽한 조합! 비타민D + 오메가3',b:'오메가3 지방이 비타민D 흡수를 쑥쑥 높여줘요. 같이 드세요!'},
+  {keys:['vitD','calcium'],type:'good',icon:'✨',t:'찰떡 궁합! 비타민D + 칼슘',b:'비타민D가 칼슘이 뼈에 잘 붙도록 도와줘요.'},
+  {keys:['vitC','iron'],type:'caution',icon:'💡',t:'비타민C가 철분 흡수를 도와줘요',b:'비타민C는 철분 흡수를 2~3배 높여줘요.'}
+];
+
+function hasAge(){return !!(S.profile.birthdate||(S.profile.ageSet&&S.profile.months!==null));}
+function getEffectiveMonths(){
+  if(S.profile.birthdate) return calcMonthsFromBirthdate(S.profile.birthdate);
+  return S.profile.months??18;
+}
+const getRef=()=>{const m=getEffectiveMonths();return REF.find(r=>m<=r.max)||REF[REF.length-1];};
+
+// 생년월일로 정확한 개월 수 계산
+function calcMonthsFromBirthdate(birthdate) {
+  if (!birthdate) return S.profile.months??18;
+  const birth = new Date(birthdate);
+  const now = new Date();
+  let months = (now.getFullYear() - birth.getFullYear()) * 12;
+  months += now.getMonth() - birth.getMonth();
+  if (now.getDate() < birth.getDate()) months--;
+  return Math.max(0, months);
+}
+
+function getAutoEmoji(months, gender) {
+  if (months <= 36) return '👶';
+  if (!gender) return '🧒'; // 성별 미선택 시 중립 이모지
+  return gender === 'girl' ? '👧' : '👦';
+}
+function getAgeLabel(months) {
+  // REF 배열 경계와 일치 (KDRIs 연령 구분 기준)
+  if (months <= 5)  return '0~5개월';
+  if (months <= 11) return '6~11개월';
+  if (months <= 23) return '12~23개월';
+  if (months <= 35) return '24~35개월';
+  if (months <= 71) return '36~71개월';
+  return '6~12세';
+}
+
+const today=()=>new Date().toISOString().slice(0,10);
+
+// ===== QUOTA =====
+const FREE_LIMIT=3, MEMBER_LIMIT=10;
+function getQuota(){
+  const t=today();
+  const key='nn_quota_'+t;
+  return parseInt(localStorage.getItem(key)||'0');
+}
+function incQuota(){
+  const t=today(); const key='nn_quota_'+t;
+  localStorage.setItem(key,getQuota()+1);
+}
+function getLimit(){return (supaUser||S.member)?MEMBER_LIMIT:FREE_LIMIT;}
+function quotaLeft(){return Math.max(0,getLimit()-getQuota());}
+function updateQuotaBadge(){
+  const left=quotaLeft();
+  document.getElementById('chat-quota-badge').textContent='남은 상담 '+left+'회';
+  const bar=document.getElementById('quota-bar');
+  const lim=getLimit();
+  bar.innerHTML=`<div style="width:${Math.round((lim-left)/lim*100)}%;height:3px;background:var(--primary);border-radius:2px;transition:width 0.3s;"></div><span style="font-size:10px;color:var(--text-sub);">${S.member?'멤버':'비회원'} · 하루 ${lim}회</span>`;
+  bar.style.cssText='display:flex;align-items:center;gap:10px;padding:6px 14px 4px;background:var(--card);border-bottom:1px solid rgba(98,83,77,0.06);flex-shrink:0;';
+}
+
+// ===== AI RESPONSES =====
+const AI_KB={
+  '비타민d':['비타민D','vitD'],
+  '철분':['철분','iron'],
+  '오메가3':['오메가3','omega3'],
+  '아연':['아연','zinc'],
+  '칼슘':['칼슘','calcium'],
+  '비타민c':['비타민C','vitC'],
+  '마그네슘':['마그네슘','mg']
+};
+
+function getAIResponse(q, isMember){
+  const ql=q.toLowerCase().replace(/\s/g,'');
+  const ref=getRef();
+  const name=S.profile.name||'아이';
+  const ageLabel=hasAge()?ref.label:'연령 미설정';
+
+  if((ql.includes('같이')||ql.includes('함께')||ql.includes('동시'))&&(ql.includes('먹'))){
+    if(ql.includes('비타민d')&&ql.includes('오메가3')) return `✨ 비타민D와 오메가3는 **최고의 조합**이에요!\n\n오메가3의 지방이 지용성 비타민D 흡수를 크게 높여줘요. 식사 후 함께 드리면 효과가 2배랍니다!${isMember?`\n\n💜 ${name}(${ageLabel}) 권장량: 비타민D ${ref.vitD}IU + 오메가3 ${ref.omega3}mg`:''}`;
+    if(ql.includes('칼슘')&&ql.includes('철분')) return `⏰ 칼슘과 철분은 **따로 먹이는 게 좋아요**!\n\n같이 먹으면 서로의 흡수를 방해해요. 아침에 칼슘, 저녁에 철분처럼 최소 2시간 간격을 두세요.${isMember?`\n\n${name}(${ageLabel}) 권장량: 칼슘 ${ref.calcium}mg, 철분 ${ref.iron}mg`:'\n\n더 자세한 복용 계획은 가입 후 확인하세요!'}`;
+    if(ql.includes('아연')&&ql.includes('철분')) return `⏰ 아연과 철분은 **흡수 경로가 같아서** 같이 먹으면 효율이 떨어져요.\n\n2시간 이상 간격을 두어 먹여주세요.${!isMember?'\n\n💜 더 자세한 일정 관리는 가입 후 가능해요!':''}`;
+    if(ql.includes('비타민d')&&ql.includes('칼슘')) return `✨ 비타민D와 칼슘은 **찰떡궁합**이에요!\n\n비타민D가 칼슘이 뼈에 잘 흡수되도록 도와줘요. 함께 드리면 좋아요.`;
+  }
+
+  if(ql.includes('권장량')||ql.includes('얼마')||ql.includes('몇mg')||ql.includes('몇iu')){
+    for(const [kw,[label,key]] of Object.entries(AI_KB)){
+      if(ql.includes(kw)&&ref[key]){
+        const short=`${name}(${ageLabel}) 기준 **${label} 권장량은 ${ref[key]}${NUT[key]?.u}**이에요.`;
+        if(!isMember) return short+'\n\n💜 구체적인 제품별 분석은 가입 후 이용하세요!';
+        return short+`\n\n상한 섭취량(UL)은 ${UL[key]||'미설정'}${NUT[key]?.u}이에요. 초과하지 않도록 주의하세요.\n\n라벨 스캔으로 지금 드시는 제품을 분석해 보세요! 📸`;
+      }
+    }
+  }
+
+  if(ql.includes('언제')||ql.includes('시간')||ql.includes('식전')||ql.includes('식후')||ql.includes('공복')){
+    if(ql.includes('철분')) return `💪 철분은 **공복 또는 비타민C와 함께** 드릴 때 흡수가 가장 잘 돼요!\n\n단, 공복에 속이 불편하다면 식후에 드려도 괜찮아요.${!isMember?'\n\n💜 맞춤 복용 스케줄은 가입 후 관리하세요!':''}`;
+    if(ql.includes('비타민d')||ql.includes('비타민a')) return `☀️ 지용성 비타민(D·A)은 **지방이 포함된 식사 후**에 드세요!\n\n공복에는 흡수가 잘 안 돼요. 아침이나 점심 식사 후가 좋아요.`;
+    if(ql.includes('유산균')||ql.includes('프로바이오틱')) return `🌿 유산균은 **식전 30분 또는 공복**이 가장 좋아요!\n\n위산이 적을 때 먹여야 유산균이 살아서 장까지 도달해요.${!isMember?'\n\n더 자세한 정보는 가입 후 이용하세요!':''}`;
+    if(ql.includes('오메가3')) return `🐟 오메가3는 **식사 중이나 직후**에 드리면 지방과 함께 흡수가 잘 돼요.\n\n보관 방법은 제품 라벨을 확인해주세요. 액상 제품은 냉장 보관이 필요한 경우가 많지만 제품마다 달라요.`;
+  }
+
+  if(ref.baby&&(ql.includes('이유식')||ql.includes('신생아')||ql.includes('영아'))){
+    if(!isMember) return `👶 0~24개월은 특히 **비타민D, 철분, 오메가3** 세 가지가 가장 중요해요.\n\n더 자세한 월령별 영양 가이드는 가입 후 확인하세요!`;
+    return `👶 **${ageLabel} 핵심 영양소**\n\n☀️ 비타민D ${ref.vitD}IU — 뼈와 면역 발달\n💪 철분 ${ref.iron}mg — 뇌 발달, 빈혈 예방\n🐟 오메가3 ${ref.omega3}mg — 뇌 신경 발달\n🛡️ 아연 ${ref.zinc}mg — 성장, 면역력\n\n라벨 스캔으로 지금 드시는 영양제가 이 기준에 맞는지 확인해 보세요!`;
+  }
+
+  const generalShort=`🦄 좋은 질문이에요! ${name}(${ageLabel}) 기준으로 말씀드리면, 영유아 영양제는 나이에 맞는 함량을 꼭 확인하는 게 중요해요.\n\n더 자세한 상담을 원하시면 가입 후 이용해주세요! 💜`;
+  const generalFull=`🦄 ${name}(${ageLabel})의 영양 관리에 대한 질문이네요!\n\n이 시기 핵심은 **과하지도 부족하지도 않게** 나이별 권장량에 맞추는 거예요. 라벨 스캔 기능으로 제품을 직접 분석해 보시면 더 정확해요!\n\n구체적으로 어떤 영양소가 궁금하신가요?`;
+  return isMember?generalFull:generalShort;
+}
+
+// 연령 미설정용 기본 추천 질문
+const SUGGESTIONS_DEFAULT = [
+  '아이 영양제 시작은 어떻게 해야 하나요?',
+  '비타민D는 언제 먹이는 게 좋나요?',
+  '칼슘이랑 철분 영양제는 따로 먹여야 하나요?',
+  '유산균은 식전 식후 언제 먹이는 게 좋나요?',
+  '편식하는 아이에게 필요한 영양소는?'
+];
+// 연령별 추천 질문 (연령 설정 후 사용)
+const SUGGESTIONS_BY_AGE = {
+  infant:  ['비타민D 권장량이 얼마예요?','모유 수유 중 철분은 따로 줘야 하나요?','오메가3는 언제부터 시작하나요?','유산균은 언제 먹이는 게 좋나요?','칼슘이랑 철분 영양제는 따로 먹여야 하나요?'],
+  toddler: ['비타민D는 언제 먹이는 게 좋나요?','유산균과 오메가3를 같이 먹여도 되나요?','칼슘이랑 철분 영양제는 따로 먹여야 하나요?','편식하는 아이에게 필요한 영양소는?','지금 먹이는 영양제 성분이 겹치지 않나요?'],
+  child:   ['비타민D 하루 얼마나 먹여야 하나요?','유산균과 오메가3를 같이 먹여도 되나요?','칼슘이랑 철분 영양제는 따로 먹여야 하나요?','아이 나이에 하루 몇 포를 먹이면 되나요?','지금 먹이는 영양제 성분이 겹치지 않나요?']
+};
+function getSuggestions(){
+  if(!hasAge()) return SUGGESTIONS_DEFAULT;
+  const m=getEffectiveMonths();
+  if(m<=23) return SUGGESTIONS_BY_AGE.infant;
+  if(m<=71) return SUGGESTIONS_BY_AGE.toddler;
+  return SUGGESTIONS_BY_AGE.child;
+}
+const SUGGESTIONS=SUGGESTIONS_DEFAULT;
+
+// ===== INIT =====
+
+// ===== SUPABASE =====
+const SUPA_URL = 'https://oxrdienywxsooygxvqgf.supabase.co';
+const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im94cmRpZW55d3hzb295Z3h2cWdmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzODgzNDMsImV4cCI6MjA5NTk2NDM0M30.rSpYrPX1H1BQetQdojMwO3SVBvFs9gfHhOPaUOo-eo8';
+let supa = null;
+let supaUser = null;
+
+function initSupa() {
+  try {
+    supa = window.supabase.createClient(SUPA_URL, SUPA_KEY);
+    supa.auth.onAuthStateChange(async (event, session) => {
+      supaUser = session?.user || null;
+      if (supaUser && event === 'SIGNED_IN') {
+        // 로그인 직후: 마이그레이션 → 데이터 로드 → 화면 복원
+        await runPendingMigration(supaUser.id);
+        await loadFromSupa();
+        const restoreScreen = localStorage.getItem('nn_restore_screen');
+        if (restoreScreen && restoreScreen !== 'ob' && restoreScreen !== 'ob2') {
+          localStorage.removeItem('nn_restore_screen');
+          showScreen(restoreScreen);
+        }
+        renderProfile();
+        renderHome();
+      } else if (supaUser) {
+        await loadFromSupa();
+        renderProfile();
+        renderHome();
+      }
+    });
+    // OAuth 리다이렉트 복귀 처리
+    supa.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        supaUser = session.user;
+        loadFromSupa().then(() => { renderProfile(); renderHome(); });
+      }
+    });
+  } catch(e) { console.warn('Supabase init error:', e); }
+}
+
+// ── 소셜 로그인 전 localStorage 데이터 스냅샷 저장 ──────────
+function savePendingMigration() {
+  const screenId = (document.querySelector('.screen.active')?.id || 'screen-home').replace('screen-', '');
+  const scanData = JSON.parse(localStorage.getItem('nn_a2') || '{"scans":[]}');
+  localStorage.setItem('nn_pending_migration', JSON.stringify({
+    profile:       S.profile,
+    supplements:   S.supplements,
+    scans:         scanData.scans || [],
+    restoreScreen: screenId
+  }));
+}
+
+// ── 로그인 후 Supabase로 데이터 마이그레이션 ─────────────────
+async function runPendingMigration(userId) {
+  const raw = localStorage.getItem('nn_pending_migration');
+  if (!raw) return;
+  let pending;
+  try { pending = JSON.parse(raw); } catch(e) { return; }
+  try {
+    // 1) 아이 정보 → user_children
+    if (pending.profile?.name) {
+      await supa.from('user_children').upsert({
+        user_id:   userId,
+        name:      pending.profile.name,
+        birthdate: pending.profile.birthdate || null,
+        gender:    pending.profile.gender    || '',
+        months:    pending.profile.months    ??null,
+        ageSet:    pending.profile.ageSet    ||false,
+        emoji:     pending.profile.emoji     || '👶'
+      }, { onConflict: 'user_id' });
+    }
+    // 2) 스캔 기록 → scan_history (summary 형태)
+    if (pending.scans?.length) {
+      const rows = pending.scans.map(s => ({
+        user_id:       userId,
+        product_name:  s.name || '',
+        age_label:     s.age  || '',
+        nutrient_keys: s.keys || [],
+        inputs:        {},
+        scanned_at:    s.ts ? new Date(s.ts).toISOString() : new Date().toISOString()
+      }));
+      await supa.from('scan_history').insert(rows);
+    }
+    // 3) 복원 화면 기록
+    if (pending.restoreScreen) {
+      localStorage.setItem('nn_restore_screen', pending.restoreScreen);
+    }
+    localStorage.removeItem('nn_pending_migration');
+    showToast('✅ 이전 데이터가 계정에 연동됐어요!');
+  } catch(e) {
+    console.warn('Migration error:', e);
+    localStorage.removeItem('nn_pending_migration');
+  }
+}
+
+async function signInWithKakao() {
+  console.log('카카오 로그인 시도');
+  if (!supa) return;
+  savePendingMigration();
+  await supa.auth.signInWithOAuth({
+    provider: 'kakao',
+    options: { redirectTo: window.location.origin }
+  });
+}
+
+async function signInWithNaver() {
+  console.log('네이버 로그인 시도');
+  showToast('네이버 로그인은 준비 중이에요. 카카오 또는 구글로 가입해주세요 😊');
+}
+
+async function signInWithGoogle() {
+  console.log('구글 로그인 시도');
+  if (!supa) return;
+  savePendingMigration();
+  await supa.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: window.location.origin }
+  });
+}
+
+async function signOutSupa() {
+  if (!supa) return;
+  await supa.auth.signOut();
+  supaUser = null;
+  showToast('로그아웃됐어요');
+  renderProfile();
+}
+
+async function syncToSupa() {
+  if (!supa || !supaUser) return;
+  try {
+    // user_children 동기화 (생년월일 포함)
+    if (S.profile.name) {
+      await supa.from('user_children').upsert({
+        user_id:   supaUser.id,
+        name:      S.profile.name,
+        birthdate: S.profile.birthdate || null,
+        gender:    S.profile.gender    || '',
+        months:    S.profile.months    ??null,
+        ageSet:    S.profile.ageSet    ||false,
+        emoji:     S.profile.emoji     || '👶'
+      }, { onConflict: 'user_id' });
+    }
+    // 기존 profiles 호환 유지
+    await supa.from('profiles').upsert({
+      id: supaUser.id,
+      name: S.profile.name,
+      months: S.profile.months,
+      emoji: S.profile.emoji
+    });
+    for (const s of S.supplements) {
+      await supa.from('supplements').upsert({
+        id: s.id, user_id: supaUser.id,
+        name: s.name, emoji: s.emoji,
+        timing: s.timing, memo: s.memo || ''
+      });
+    }
+    const t = today();
+    if (S.dailyLog[t]) {
+      for (const [suppId, done] of Object.entries(S.dailyLog[t])) {
+        if (done) {
+          await supa.from('daily_logs').upsert({
+            user_id: supaUser.id, supplement_id: suppId,
+            log_date: t, done: true
+          }, { onConflict: 'user_id,supplement_id,log_date' });
+        }
+      }
+    }
+  } catch(e) { console.warn('Supabase sync error:', e); }
+}
+
+async function loadFromSupa() {
+  if (!supa || !supaUser) return;
+  try {
+    // user_children 우선 로드 (생년월일 포함)
+    const { data: child } = await supa.from('user_children').select('*').eq('user_id', supaUser.id).single();
+    if (child?.name) {
+      S.profile.name      = child.name;
+      S.profile.birthdate = child.birthdate || S.profile.birthdate;
+      S.profile.gender    = child.gender    || S.profile.gender;
+      S.profile.months    = child.months    ??S.profile.months;
+      S.profile.ageSet    = child.ageSet    ||S.profile.ageSet;
+      S.profile.emoji     = child.emoji     || S.profile.emoji;
+    } else {
+      // fallback: 기존 profiles 테이블
+      const { data: profile } = await supa.from('profiles').select('*').eq('id', supaUser.id).single();
+      if (profile?.name) {
+        S.profile.name   = profile.name;
+        S.profile.months = profile.months || S.profile.months;
+        S.profile.emoji  = profile.emoji  || S.profile.emoji;
+      }
+    }
+    const { data: supps } = await supa.from('supplements').select('*').eq('user_id', supaUser.id);
+    if (supps?.length) {
+      S.supplements = supps.map(s => ({ id: s.id, name: s.name, emoji: s.emoji, timing: s.timing, memo: s.memo }));
+    }
+    const t = today();
+    const { data: logs } = await supa.from('daily_logs').select('*').eq('user_id', supaUser.id).eq('log_date', t);
+    if (logs?.length) {
+      if (!S.dailyLog[t]) S.dailyLog[t] = {};
+      logs.forEach(l => { S.dailyLog[t][l.supplement_id] = l.done; });
+    }
+    save();
+  } catch(e) { console.warn('Supabase load error:', e); }
+}
+
+window.addEventListener('DOMContentLoaded',()=>{
+  // 닫힌 모달 초기 접근성 처리
+  document.querySelectorAll('.modal-overlay').forEach(m=>{
+    if(!m.classList.contains('open')){
+      m.setAttribute('inert','');
+      m.setAttribute('aria-hidden','true');
+    }
+  });
+  load();
+  initSupa();
+  initOBSelects();
+  setupAgeGrid('edit-age-grid');
+  if(S.profile.name){showScreen('home');renderHome();}
+});
+
+// ===== SCREENS =====
+function showScreen(n){
+  clearToast();
+  document.querySelectorAll('.screen').forEach(s=>{s.classList.remove('active');s.style.display='';});
+  const _scr=document.getElementById('screen-'+n);
+  _scr.classList.add('active');
+  // 화면 전환 시 스크롤 최상단 이동
+  const _sb=_scr.querySelector('.scroll-body');
+  if(_sb) _sb.scrollTop=0;
+  document.querySelectorAll('.ni').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.ni').forEach(x=>{if(x.getAttribute('onclick')&&x.getAttribute('onclick').includes("'"+n+"'"))x.classList.add('active');});
+  if(n==='home')renderHome();
+  if(n==='schedule')renderSchedule();
+  if(n==='profile')renderProfile();
+  if(n==='insights')renderInsights();
+  if(n==='chat')initChat();
+}
+
+// ===== ONBOARDING =====
+let selMonths=18;
+function setupAgeGrid(id){
+  const g=document.getElementById(id);if(!g)return;
+  g.querySelectorAll('.age-btn').forEach(b=>b.addEventListener('click',()=>{
+    g.querySelectorAll('.age-btn').forEach(x=>x.classList.remove('selected'));
+    b.classList.add('selected');selMonths=parseInt(b.dataset.months);
+  }));
+}
+let selGender = '';
+function selectGender(g) {
+  selGender = g;
+  const btnGirl = document.getElementById('btn-girl');
+  const btnBoy = document.getElementById('btn-boy');
+  if (!btnGirl || !btnBoy) return;
+  if (g === 'girl') {
+    btnGirl.style.cssText = 'padding:14px;border:2.5px solid #F3A59B;border-radius:14px;background:#FEF2F1;font-size:14px;font-weight:800;color:#E8847A;cursor:pointer;transition:all 0.15s;';
+    btnBoy.style.cssText = 'padding:14px;border:2px solid #F3A59B;border-radius:14px;background:white;font-size:14px;font-weight:700;color:#9A8F8B;cursor:pointer;transition:all 0.15s;';
+  } else {
+    btnBoy.style.cssText = 'padding:14px;border:2.5px solid #C8E1D4;border-radius:14px;background:#EBF6F2;font-size:14px;font-weight:800;color:#2E9E84;cursor:pointer;transition:all 0.15s;';
+    btnGirl.style.cssText = 'padding:14px;border:2px solid #F3A59B;border-radius:14px;background:white;font-size:14px;font-weight:700;color:#9A8F8B;cursor:pointer;transition:all 0.15s;';
+  }
+  updateOBAge();
+}
+function initOBSelects() {
+  const now = new Date();
+  const yearSel = document.getElementById('ob-year');
+  const monthSel = document.getElementById('ob-month');
+  const daySel = document.getElementById('ob-day');
+  if (!yearSel) return;
+  for (let y = now.getFullYear(); y >= now.getFullYear()-12; y--) {
+    const opt = document.createElement('option'); opt.value = y; opt.textContent = y+'년'; yearSel.appendChild(opt);
+  }
+  for (let m = 1; m <= 12; m++) {
+    const opt = document.createElement('option'); opt.value = m; opt.textContent = m+'월'; monthSel.appendChild(opt);
+  }
+  for (let d = 1; d <= 31; d++) {
+    const opt = document.createElement('option'); opt.value = d; opt.textContent = d+'일'; daySel.appendChild(opt);
+  }
+}
+function updateOBAge() {
+  const y = document.getElementById('ob-year')?.value;
+  const m = document.getElementById('ob-month')?.value;
+  const d = document.getElementById('ob-day')?.value;
+  if (!y || !m || !d) return;
+  const birthdate = y+'-'+String(m).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+  const months = calcMonthsFromBirthdate(birthdate);
+  const preview = document.getElementById('ob-age-preview');
+  preview.style.display = 'flex';
+  const emoji = getAutoEmoji(months, selGender);
+  document.getElementById('ob-age-emoji').textContent = emoji;
+  document.getElementById('ob-age-text').textContent = '생후 '+months+'개월 ('+Math.floor(months/12)+'세 '+(months%12)+'개월)';
+  document.getElementById('ob-age-label').textContent = getAgeLabel(months)+' · '+(months<=24?'⭐ 핵심 성장기':'성장기');
+}
+
+function showObStep2() {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-ob2').classList.add('active');
+
+}
+function completeOB(){
+  const name=document.getElementById('ob-name').value.trim();
+  const y=document.getElementById('ob-year')?.value;
+  const m=document.getElementById('ob-month')?.value;
+  const d=document.getElementById('ob-day')?.value;
+  // 이름은 선택사항 — 비워두면 '우리 아이' 사용 (라벨에 (선택)으로 표시됨)
+  if(!y||!m||!d){showToast('생년월일을 입력해주세요 🎂');return;}
+  // 성별은 선택사항 — 미선택 시 중립 이모지 사용
+  const birthdate=y+'-'+String(m).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+  const months=calcMonthsFromBirthdate(birthdate);
+  S.profile.name=name||'우리 아이';
+  S.profile.birthdate=birthdate;
+  S.profile.gender=selGender||'';
+  S.profile.months=months;
+  S.profile.emoji=getAutoEmoji(months,selGender||'');
+  S.profile.ageSet=true;
+  save();showScreen('home');renderHome();
+}
+
+// ===== HOME =====
+function renderHome(){
+  const ref=getRef();
+  const exactMonths = S.profile.birthdate ? calcMonthsFromBirthdate(S.profile.birthdate) : S.profile.months;
+  if (S.profile.birthdate) { S.profile.months = exactMonths; S.profile.emoji = getAutoEmoji(exactMonths, S.profile.gender||''); }
+  document.getElementById('home-title').textContent=(S.profile.name&&S.profile.name!=='undefined') ? S.profile.name+'의 뉴니콘이에요 🌸' : '반가워요 🌸';
+  
+  const ha = document.getElementById('home-avatar');
+  if(S.profile.emoji==='🦄') {
+      ha.textContent='';
+      ha.innerHTML='<img src="/images/cony-side.png" class="cony-img" style="width:24px;height:24px;">';
+  } else {
+      ha.innerHTML='';
+      ha.textContent=S.profile.emoji;
+  }
+  
+  const bb=document.getElementById('baby-banner');
+  bb.style.display=ref.baby?'flex':'none';
+  const t=today();
+  if(!S.dailyLog[t])S.dailyLog[t]={};
+  const done=S.supplements.filter(x=>S.dailyLog[t][x.id]).length;
+  const tot=S.supplements.length;
+  const pct=tot?Math.round(done/tot*100):0;
+  document.getElementById('home-pct').textContent=pct+'%';
+  document.getElementById('home-pbar').style.width=pct+'%';
+  document.getElementById('home-pct-d').innerHTML=tot?done+'/'+tot+'개 완료':'영양제를 추가해보세요';
+  const exactM=S.profile.birthdate?calcMonthsFromBirthdate(S.profile.birthdate):(S.profile.months??18);
+  const msgs=hasAge()?['현재 '+exactM+'개월 '+S.profile.name+', 오늘도 영양 챙겨봐요! 💪','꾸준함이 최고의 영양제예요! 🌱','코니가 응원해요! 건강하게 🌈']:['아이 정보를 등록하면 월령별 분석을 받을 수 있어요 💜','코니가 도와드릴게요! 아이 정보 등록해보세요 🦄','아이 생년월일을 등록하면 더 정확한 안내가 가능해요 📋'];
+  document.getElementById('home-msg').textContent=pct===100?'오늘 모두 완료! 최고예요 🎉':pct>=50?'절반 넘었어요! 조금만 더 💪':msgs[new Date().getHours()%3];
+  const list=document.getElementById('home-supp-list');
+  if(!S.supplements.length){
+    list.innerHTML='<div style="text-align:center;padding:20px 0;"><div style="font-size:40px;margin-bottom:8px;">🌱</div><p style="font-size:13px;color:var(--text-sub);">라벨 스캔으로 영양제를 추가해보세요!</p></div>';
+  }else{
+    list.innerHTML=S.supplements.map(x=>{
+      const d=S.dailyLog[t][x.id];
+      const isPaused = x.status==='paused';
+      return `<div class="supp-item" style="${isPaused?'opacity:0.45;':''}">
+        <div class="savatar" style="background:${isPaused?'#F0F0F0':d?'#EBF6F2':'#FEF2F1'};">${x.emoji}</div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:13px;font-weight:700;color:var(--text);${d?'text-decoration:line-through;opacity:0.5;':''}">${x.name}${isPaused?' <span style="font-size:10px;font-weight:600;color:var(--text-hint);background:#F0F0F0;border-radius:8px;padding:1px 6px;">중단</span>':''}</div>
+          <div style="font-size:11px;color:var(--text-sub);">${x.timing}${x.memo?' · '+x.memo:''}${x.frequency&&x.frequency!=='daily'?' · '+{alternate:'격일',weekly_5:'주5회',weekly_3:'주3회',weekly_2:'주2회'}[x.frequency]:''}</div>
+        </div>
+        ${!isPaused?`<button class="chkbtn ${d?'done':''}" onclick="toggleChk('${x.id}')" aria-label="${x.name} ${d?'섭취 완료 취소':'섭취 완료로 표시'}" aria-pressed="${d?'true':'false'}"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></button>`:'<div style="width:28px;"></div>'}
+      </div>`;
+    }).join('');
+  }
+  const keys=ref.baby?['vitD','iron','omega3','zinc','calcium','vitC']:['vitD','vitC','zinc','iron','calcium','omega3'];
+  document.getElementById('home-ref-table').innerHTML=keys.map(k=>{
+    const n=NUT[k];const crit=ref.baby&&['vitD','iron','omega3'].includes(k);
+    return `<div style="display:flex;align-items:center;gap:7px;padding:8px 0;border-bottom:1px solid rgba(98,83,77,0.06);">
+      <span style="font-size:16px;width:20px;">${n.e}</span>
+      <span style="flex:1;font-size:12px;font-weight:${crit?800:600};color:${crit?'var(--primary-dark)':'var(--text)'};">${n.l}${crit?' ⭐':''}</span>
+      <span style="font-size:12px;font-weight:800;color:var(--primary-dark);">${ref[k]}${n.u}</span></div>`;
+  }).join('')+`<p style="font-size:10px;color:var(--text-hint);margin-top:6px;text-align:center;">${ref.label} 기준 일일 권장량 · KDRIs 기준 일일 권장량 · 음식 섭취량 미포함</p>`;
+}
+function toggleChk(id){
+  const t=today();if(!S.dailyLog[t])S.dailyLog[t]={};
+  S.dailyLog[t][id]=!S.dailyLog[t][id];save();renderHome();
+  const x=S.supplements.find(s=>s.id===id);
+  if(x&&S.dailyLog[t][id])showToast(x.emoji+' '+x.name+' 섭취 완료! 🎉');
+}
+
+// ===== SCAN =====
+function handleImg(e){
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    const p=document.getElementById('scan-preview');
+    p.src=ev.target.result;p.style.display='block';
+    document.getElementById('scan-ph').style.display='none';
+    document.getElementById('scan-guide').style.display='block';
+    showToast('🔍 라벨 분석 중...');
+    runOCR(ev.target.result);
+  };
+  r.readAsDataURL(f);
+}
+function runOCR(imgSrc){
+  const st=document.getElementById('ocr-status');
+  if(st){st.style.display='flex';}
+  // 이미지 리사이즈 (API 1MB 제한)
+  const img=new Image();
+  img.onload=()=>{
+    const c=document.createElement('canvas');
+    const max=1200;
+    const ratio=Math.min(max/img.width,max/img.height,1);
+    c.width=img.width*ratio; c.height=img.height*ratio;
+    c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+    const b64=c.toDataURL('image/jpeg',0.85).split(',')[1];
+    callOCRSpace(b64);
+  };
+  img.src=imgSrc;
+}
+// TODO[보안]: OCR.Space apikey('helloworld')가 프론트엔드에 노출되어 있습니다.
+// 실운영 전 /api/ocr 서버 프록시로 이동 필요. 현재 'helloworld'는 공용 무료 키이므로
+// 실제 비밀 키가 아니지만, 운영 키 발급 시 반드시 서버사이드로 이전해야 합니다.
+async function callOCRSpace(b64){
+  const st=document.getElementById('ocr-status');
+  try{
+    const fd=new FormData();
+    fd.append('base64Image','data:image/jpeg;base64,'+b64);
+    fd.append('language','kor');
+    fd.append('OCREngine','2');
+    fd.append('isOverlayRequired','false');
+    const res=await fetch('https://api.ocr.space/parse/image',{
+      method:'POST',
+      headers:{'apikey':'helloworld'},
+      body:fd
+    });
+    const json=await res.json();
+    if(st)st.style.display='none';
+    const text=json?.ParsedResults?.[0]?.ParsedText||'';
+    console.log('[OCR결과]',text);
+    if(!text){showToast('📋 인식 실패, 직접 입력해주세요');return;}
+    parseNutritionText(text);
+  }catch(e){
+    console.error(e);
+    if(st)st.style.display='none';
+    showToast('📋 네트워크 오류, 직접 입력해주세요');
+  }
+}
+function parseNutritionText(raw){
+  let t=raw.replace(/,/g,'').replace(/\r?\n/g,' ').replace(/\s+/g,' ');
+  console.log('[파싱]',t);
+  function find(pats){for(const p of pats){const m=t.match(p);if(m&&m[1]&&parseFloat(m[1])>0)return parseFloat(m[1]);}return null;}
+  const N='([0-9]+(?:\\.[0-9]+)?)';
+  const R={
+    vitD:[new RegExp('비타민\\s*[Dd][^0-9]{0,8}'+N+'\\s*IU','i'),new RegExp('[Dd]3[^0-9]{0,5}'+N+'\\s*IU','i')],
+    vitC:[new RegExp('비타민\\s*[Cc][^0-9]{0,8}'+N+'\\s*mg','i')],
+    zinc:[new RegExp('아연[^0-9]{0,8}'+N+'\\s*mg'),new RegExp('[Zz]inc[^0-9]{0,8}'+N+'\\s*mg','i')],
+    iron:[new RegExp('철분[^0-9]{0,8}'+N+'\\s*mg'),new RegExp('[Ii]ron[^0-9]{0,8}'+N+'\\s*mg','i')],
+    calcium:[new RegExp('칼슘[^0-9]{0,8}'+N+'\\s*mg'),new RegExp('[Cc]alcium[^0-9]{0,8}'+N+'\\s*mg','i')],
+    omega3:[
+      new RegExp('의\\s*합[^0-9]{0,8}'+N+'\\s*mg','i'),
+      new RegExp('EPA[\\s\\S]{1,8}DHA[^0-9]{0,12}'+N+'\\s*mg','i'),
+      new RegExp('오메가\\s*3[^0-9]{0,10}'+N+'\\s*mg'),
+      new RegExp('DHA[^0-9]{0,10}'+N+'\\s*mg','i')
+    ],
+    vitA:[new RegExp('비타민\\s*[Aa][^0-9]{0,8}'+N+'\\s*(?:mcg|ug)','i')],
+    mg:[new RegExp('마그네슘[^0-9]{0,8}'+N+'\\s*mg'),new RegExp('[Mm]agnesium[^0-9]{0,8}'+N+'\\s*mg','i')]
+  };
+  let filled=0;
+  Object.entries(R).forEach(([key,pats])=>{
+    const val=find(pats);
+    if(val!==null){const el=document.getElementById('inp-'+key);if(el){el.value=val;el.style.background='#EBF6F2';filled++;}}
+  });
+  showToast(filled>0?'✅ '+filled+'가지 성분 자동 인식됨!':'📋 인식 어려워요. 직접 입력해주세요');
+}
+
+
+// ===== ANALYSIS =====
+let lastResult=null;
+function analyzeNutrients(){
+  const name=document.getElementById('scan-name').value.trim()||'분석된 제품';
+  const inputs={};
+  ['vitD','vitC','zinc','iron','calcium','omega3','vitA','mg'].forEach(k=>{
+    const v=parseFloat(document.getElementById('inp-'+k).value);
+    if(!isNaN(v)&&v>0)inputs[k]=v;
+  });
+  if(!Object.keys(inputs).length){showToast('성분을 하나 이상 입력해주세요');return;}
+  const ref=getRef();
+  const activeSupps = S.supplements.filter(s=>(!s.status||s.status==='active'));
+  lastResult={name,inputs,ref,timing:document.getElementById('scan-timing').value,activeSupps};
+  logA('scan',{name,inputs});
+  // 로그인 상태면 scan_history에도 실시간 저장
+  if (supa && supaUser) {
+    supa.from('scan_history').insert({
+      user_id:       supaUser.id,
+      product_name:  name,
+      age_label:     ref.label,
+      nutrient_keys: Object.keys(inputs),
+      inputs:        inputs,
+      timing:        lastResult.timing,
+      scanned_at:    new Date().toISOString()
+    }).catch(e => console.warn('scan_history:', e));
+  }
+  renderResult(name,inputs,ref);showScreen('result');
+}
+function renderResult(name,inputs,ref){
+  document.getElementById('result-title').textContent=name;
+  const em=S.profile.birthdate?calcMonthsFromBirthdate(S.profile.birthdate):S.profile.months;document.getElementById('result-sub').textContent=(S.profile.name||'우리 아이')+' (생후 '+em+'개월 · '+ref.label+')'+(ref.baby?' 👶':'');
+  // ★ 종합 점수/등급 제거 — 단일 제품으로 결핍 판정 금지
+  // 대신 각 영양소별 보충 비율을 명확히 표시
+  const inputCount = Object.keys(inputs).length;
+  // 등급 원 → 분석 완료 표시
+  document.getElementById('grade-circle').textContent='📊';
+  document.getElementById('grade-circle').style.cssText=`width:56px;height:56px;border-radius:50%;background:#EBF6F2;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;flex-shrink:0;box-shadow:var(--shadow);`;
+  document.getElementById('grade-text').textContent='영양제 보충 비율 분석';
+  document.getElementById('grade-sub').textContent=`${inputCount}가지 성분 · 식이 섭취량 미포함 참고 결과`;
+  document.getElementById('result-msg').textContent='이 제품이 보충하는 양을 확인하세요. 식이 섭취량은 포함되지 않았어요. ✨';
+  const crit=ref.baby?['vitD','iron','omega3']:[];
+  const ageMo=S.profile.birthdate?calcMonthsFromBirthdate(S.profile.birthdate):S.profile.months;
+  let nh='';
+  Object.keys(inputs).forEach(k=>{
+    const n=NUT[k];if(!n)return;const val=inputs[k],rec=ref[k];if(!rec)return;
+    const pct=val/rec;const bp=Math.min(pct*100,200);
+    const ageULVal=getAgeUL(k,ageMo);
+    // ★ 핵심 수정: 제품 함량만으로 결핍/과다 판정하지 않음
+    // 대신 "이 제품이 권장량의 몇 %를 보충하는지" 표시
+    const ulRatio = ageULVal !== null ? val / ageULVal : null;
+    // ── 5단계 판정 (분석 결과가 서로 모순되지 않도록 단일 기준으로 파생) ──
+    // 1. 상한 초과  2. 상한 근접(≥80%)  3. 상한 미설정
+    // 4. 기준량 이상·상한 미만  5. 기준량 이하(보충 비율 표시)
+    let st,bc,statusLevel; // statusLevel: 1=위험,2=주의,3=정보,4=중립,5=정상
+    if(ageULVal!==null && val > ageULVal){
+      // ❶ 상한 초과 → 소아과 상담 권고
+      st=`<span class="tag tbad">⚠️ 상한(${ageULVal}${n.u}) 초과 — 소아과 확인 권장</span>`;
+      bc='#F3A59B'; statusLevel=1;
+    } else if(ageULVal!==null && ulRatio>=0.8){
+      // ❷ 상한 근접 → 추가 보충 전 확인
+      st=`<span class="tag twarn">상한의 ${Math.round(ulRatio*100)}% — 추가 보충 전 확인 필요</span>`;
+      bc='#F3D68A'; statusLevel=2;
+    } else if(k==='omega3'||ageULVal===null){
+      // ❸ 공식 상한 없음 — 중립 안내
+      st='<span class="tag" style="background:#EDE7FC;color:#7B6DBB;">공식 상한 기준 없음</span>';
+      bc='#C8E1D4'; statusLevel=3;
+    } else if(pct>1.0){
+      // ❹ 기준량 이상 · 상한 미만 → 문제 없음
+      st='<span class="tag" style="background:#EBF6F2;color:#2E9E84;">기준량 이상 · 상한 미만</span>';
+      bc='#C8E1D4'; statusLevel=4;
+    } else {
+      // ❺ 기준량 이하 → 보충 비율만 표시 (결핍 판정 금지)
+      st=`<span class="tag" style="background:#F0F0F0;color:#888;">기준의 ${Math.round(pct*100)}% 보충</span>`;
+      bc='#E8E8E8'; statusLevel=5;
+    }
+    const isc=crit.includes(k);
+    const ulTxt=ageULVal!==null?'상한 '+ageULVal+n.u:'공식 상한 없음';
+    nh+=`<div style="display:flex;align-items:center;gap:9px;margin-bottom:13px;${isc?'background:var(--yellow-light);border-radius:9px;padding:7px;margin-left:-4px;margin-right:-4px;':''}">
+      <span style="font-size:18px;width:24px;">${n.e}${isc?' ⭐':''}</span>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+          <span style="font-size:12px;font-weight:${isc?800:700};color:${isc?'#8B6200':'var(--text)'};">${n.l}</span>${st}</div>
+        <div class="pbar"><div class="pbar-f" style="width:${bp}%;background:${bc};"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:2px;">
+          <span style="font-size:10px;color:var(--text-hint);">일일 권장 ${rec}${n.u} · ${ulTxt} · 음식 제외</span>
+          <span style="font-size:10px;font-weight:700;color:var(--text-sub);">${val}${n.u} (${Math.round(pct*100)}%)</span>
+        </div>
+      </div></div>`;
+  });
+  document.getElementById('result-nutrients').innerHTML=nh;
+  const pk=Object.keys(inputs);let ih='';
+  INTS.forEach(i=>{
+    if(!i.keys.every(k=>pk.includes(k)))return;
+    logA('interaction',{key:i.keys.join('+')});
+    const bg=i.type==='good'?'var(--ok-bg)':i.type==='warn'?'var(--bad-bg)':'var(--warn-bg)';
+    const c=i.type==='good'?'#2E9E84':i.type==='warn'?'#D45A4A':'#C8920A';
+    ih+=`<div class="icard" style="background:${bg};"><span style="font-size:18px;">${i.icon}</span><div><div style="font-size:12px;font-weight:700;color:${c};margin-bottom:2px;">${i.t}</div><div style="font-size:11px;color:${c};line-height:1.5;">${i.b}</div></div></div>`;
+  });
+  // 상한 초과 성분이 있을 때 "특별한 주의사항 없어요" 표시 방지
+  const hasULExceed = Object.entries(inputs).some(([k,v])=>{ const ul=getAgeUL(k,ageMo); return ul!==null&&v>ul; });
+  if(!ih){
+    if(hasULExceed){
+      ih=`<div class="icard" style="background:var(--bad-bg);"><span style="font-size:18px;">⚠️</span><div><div style="font-size:12px;font-weight:700;color:#D45A4A;">상한섭취량 초과 성분이 있어요</div><div style="font-size:11px;color:#D45A4A;line-height:1.5;">소아과에서 적정 복용량을 확인해 주세요.</div></div></div>`;
+    } else {
+      ih=`<div class="icard" style="background:var(--ok-bg);"><span style="font-size:18px;">✨</span><div><div style="font-size:12px;font-weight:700;color:#2E9E84;">성분 간 특별한 주의사항 없어요</div><div style="font-size:11px;color:#2E9E84;">영양소가 사이좋게 흡수될 수 있어요 🎉</div></div></div>`;
+    }
+  }
+  document.getElementById('result-interactions').innerHTML=ih;
+  const tips=[];
+  if(ref.baby)tips.push('👶 0~24개월은 비타민D·철분·오메가3가 뇌 발달에 특히 중요해요!');
+  if(['vitD','vitA'].some(k=>inputs[k]))tips.push('🍳 지용성 비타민(D·A)은 지방이 든 식사 후에 드세요!');
+  if(inputs.iron)tips.push('⏰ 철분은 공복 또는 비타민C와 함께 먹이면 흡수가 잘 돼요!');
+  if(inputs.omega3)tips.push('🐟 오메가3는 식사 중이나 직후가 흡수에 유리해요. 보관 방법은 제품 라벨이나 설명서를 확인해주세요.');
+  tips.push('🦄 '+S.profile.name+'('+ref.label+') 기준으로 분석했어요!');
+  document.getElementById('result-tips').innerHTML=
+    '<p style="font-size:12px;font-weight:800;color:#2E9E84;margin-bottom:8px;">💡 코니의 안내</p>'+
+    tips.map(t=>`<p style="font-size:11px;color:#4A7A6A;margin-bottom:5px;line-height:1.5;">${t}</p>`).join('')+
+    `<div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(46,158,132,0.15);">
+      <p style="font-size:10px;color:#9A8F8B;line-height:1.7;">
+        📋 적용 기준: 보건복지부·한국영양학회 「2025 한국인 영양소 섭취기준(KDRIs)」 · 음식 섭취량 미포함<br>
+        ⚠️ 이 분석은 영양제 라벨의 보충량을 계산한 참고 자료예요. 음식으로 섭취하는 양, 혈액검사 결과, 개인 건강 상태는 반영되지 않으므로 실제 영양 결핍 여부는 판단할 수 없어요. 건강 이상이 있거나 다른 약을 복용 중이라면 소아과에서 확인해주세요.
+      </p>
+    </div>`;
+}
+function saveToSchedule(){
+  if(!lastResult)return;
+  addSuppDirect(lastResult.name,'💊',lastResult.timing,'분석에서 추가됨');
+  showToast('📅 일정에 추가했어요!');showScreen('schedule');
+}
+
+// ===== CHAT =====
+let chatHistory=[];
+function initChat(){
+  updateQuotaBadge();
+  const msgs=document.getElementById('chat-messages');
+  if(!msgs.innerHTML){
+    chatHistory=[];
+    const ref=getRef();
+    const exactM = S.profile.birthdate ? calcMonthsFromBirthdate(S.profile.birthdate) : (S.profile.months??18);
+    let wMsg;
+    if(!hasAge()){
+      wMsg=`안녕하세요! 저는 **코니**예요 🦄\n\n아이 연령이 아직 설정되지 않았어요.\n일반적인 영양정보로 안내하며, 월령별 분석을 위해 아이 정보를 등록해 주세요. 👶\n\n궁금한 것을 먼저 물어봐도 괜찮아요!`;
+    } else {
+      const ageStr = S.profile.birthdate ? `생후 ${exactM}개월` : ref.label;
+      wMsg=`안녕하세요! 저는 **코니**예요 🦄\n\n${S.profile.name}(${ageStr}) 영양제에 대해 뭐든 물어보세요! ${ref.baby?'👶 이 시기는 특히 비타민D, 철분, 오메가3가 중요해요!':''}`;
+    }
+    addChatMsg('ai',wMsg);
+  }
+  renderSuggestions();
+  checkPaywall();
+}
+function checkPaywall(){
+  const left=quotaLeft();
+  const pw=document.getElementById('chat-paywall');
+  const ia=document.getElementById('chat-input-area');
+  if(left<=0){pw.style.display='block';ia.style.display='none';}
+  else{pw.style.display='none';ia.style.display='block';}
+  updateQuotaBadge();
+}
+function renderSuggestions(){
+  const sug=document.getElementById('chat-suggestions');
+  sug.innerHTML='';
+  getSuggestions().slice(0,3).forEach(function(s){
+    const btn=document.createElement('button');
+    btn.textContent=s;
+    btn.style.cssText='background:var(--primary-light);color:var(--primary-dark);border:none;border-radius:18px;padding:6px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;';
+    btn.addEventListener('click',function(){selectSuggestion(s);});
+    sug.appendChild(btn);
+  });
+}
+function selectSuggestion(s){
+  document.getElementById('chat-input').value=s;
+  sendChat();
+}
+// AI 응답 텍스트를 안전하게 DOM으로 변환 (**bold** → <b>, \n → <br>)
+// 서버가 생성한 마크다운만 처리; 사용자 입력에는 절대 사용 금지
+function _safeMdToDom(text){
+  const parts=text.split(/(\*\*.*?\*\*|\n)/g);
+  const frag=document.createDocumentFragment();
+  parts.forEach(function(p){
+    if(p==='\n'){frag.appendChild(document.createElement('br'));}
+    else if(/^\*\*(.*)\*\*$/.test(p)){const b=document.createElement('b');b.textContent=p.slice(2,-2);frag.appendChild(b);}
+    else if(p){frag.appendChild(document.createTextNode(p));}
+  });
+  return frag;
+}
+function addChatMsg(role,text){
+  const msgs=document.getElementById('chat-messages');
+  const div=document.createElement('div');
+  div.className='chat-msg '+role;
+  const bubble=document.createElement('div');
+  bubble.className='chat-bubble';
+  if(role==='ai'){
+    // AI 응답: 서버에서 온 텍스트이므로 마크다운 변환 허용 (XSS 방어: DOM API 사용)
+    bubble.appendChild(_safeMdToDom(text));
+    const avatar=document.createElement('div');
+    avatar.className='cavatar';
+    avatar.style.cssText='width:36px;height:36px;overflow:hidden;';
+    const img=document.createElement('img');
+    img.src='/images/cony-face.png';
+    img.className='cony-img';
+    img.style.cssText='width:100%;height:100%;object-fit:contain;';
+    avatar.appendChild(img);
+    div.appendChild(avatar);
+  }else{
+    // 사용자 입력: textContent 강제 — XSS 완전 차단
+    bubble.textContent=text;
+  }
+  div.appendChild(bubble);
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+function addTyping(){
+  const msgs=document.getElementById('chat-messages');
+  const div=document.createElement('div');
+  div.className='chat-msg ai';div.id='typing-indicator';
+  div.innerHTML=`<div class="cavatar" style="width:36px;height:36px;overflow:hidden;"><img src="/images/cony-face.png" class="cony-img" style="width:100%;height:100%;object-fit:contain;"></div><div class="chat-bubble"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
+  msgs.appendChild(div);msgs.scrollTop=msgs.scrollHeight;
+}
+function removeTyping(){const t=document.getElementById('typing-indicator');if(t)t.remove();}
+
+// 중복 전송 방지 플래그
+let isSendingChat = false;
+
+async function sendChat(){
+  if(quotaLeft()<=0){checkPaywall();return;}
+  if(isSendingChat) return; // 중복 전송 방지 (idempotency)
+  const inp=document.getElementById('chat-input');
+  const q=inp.value.trim();if(!q)return;
+
+  isSendingChat = true;
+  inp.value='';
+  inp.disabled = true;
+  addChatMsg('user',q);
+  // ★ 핵심 수정: incQuota()를 여기서 호출하지 않음 → 성공 후에만 차감
+  addTyping();
+  document.getElementById('chat-suggestions').innerHTML='';
+
+  const ref=getRef();
+  if(typeof gtag==='function') gtag('event','ai_chat_sent',{child_age:ref.label});
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        message: q,
+        childAge: ref.label,
+        childMonths: S.profile.months||null,
+        // 개인정보 최소화: 이름 대신 연령 라벨만 전송, userId는 익명 식별용
+        userId: S.member?.id||null,
+        disclaimerShown: true,
+        supplements: S.supplements.filter(s=>(!s.status||s.status==='active')).map(s=>s.name).slice(0,10)
+      })
+    });
+    let data;
+    try { data = await res.json(); }
+    catch(jsonErr) {
+      removeTyping();
+      addChatRetryMsg(q, '지금은 상담 연결이 원활하지 않아요. 잠시 후 다시 시도해 주세요. 🦄');
+      isSendingChat = false; inp.disabled = false;
+      return;
+    }
+    removeTyping();
+    // 서버 오류 또는 빈 응답 → 차감 없이 재시도 제공
+    if(data.error || !data.reply){
+      addChatRetryMsg(q, data.error || '잠시 후 다시 시도해 주세요. 🦄');
+      isSendingChat = false; inp.disabled = false;
+      return;
+    }
+    // ★ 서버가 quotaDeducted: false를 반환한 경우(RED 차단·응급) 횟수 미차감
+    if (data.quotaDeducted !== false) {
+      incQuota(); updateQuotaBadge();
+    }
+    addChatMsg('ai', data.reply);
+    if(typeof gtag==='function') gtag('event','ai_chat_completed',{child_age:ref.label});
+    if(quotaLeft()<=0) setTimeout(checkPaywall, 800);
+    else if(!S.member && quotaLeft()===1){
+      setTimeout(()=>addChatMsg('ai','💜 무료 상담이 1회 남았어요. 가입하면 하루 10회까지 이용 가능해요!'),1200);
+    }
+  } catch(e) {
+    removeTyping();
+    const msg = e.name==='AbortError'
+      ? '응답 시간이 초과됐어요. 잠시 후 다시 시도해 주세요. 🦄'
+      : '연결이 일시적으로 끊겼어요. 잠시 후 다시 시도해 주세요. 🦄';
+    addChatRetryMsg(q, msg);
+  }
+  isSendingChat = false;
+  inp.disabled = false;
+}
+
+// 오류 메시지 + 재시도 버튼 출력 (DOM API 사용 — XSS/정규식 버그 제거)
+function addChatRetryMsg(question, errorMsg) {
+  const msgs = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'chat-msg ai';
+
+  const avatar = document.createElement('div');
+  avatar.className = 'cavatar';
+  avatar.style.cssText = 'width:36px;height:36px;overflow:hidden;';
+  const img = document.createElement('img');
+  img.src = '/images/cony-face.png';
+  img.className = 'cony-img';
+  img.style.cssText = 'width:100%;height:100%;object-fit:contain;';
+  avatar.appendChild(img);
+
+  const wrapper = document.createElement('div');
+  const bubble = document.createElement('div');
+  bubble.className = 'chat-bubble';
+  bubble.textContent = errorMsg || '잠시 후 다시 시도해 주세요. 🦄';
+
+  const btn = document.createElement('button');
+  btn.textContent = '↩ 다시 시도';
+  btn.style.cssText = 'margin-top:6px;background:var(--primary-light);color:var(--primary-dark);border:none;border-radius:14px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;';
+  // 클로저로 원본 question 문자열 캡처 — 이스케이프 불필요
+  btn.addEventListener('click', function() { retryChat(question); });
+
+  wrapper.appendChild(bubble);
+  wrapper.appendChild(btn);
+  div.appendChild(avatar);
+  div.appendChild(wrapper);
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+// 재시도: 마지막 사용자 메시지와 오류 메시지를 제거하고 재전송
+function retryChat(question) {
+  const msgs = document.getElementById('chat-messages');
+  // 마지막 AI 메시지(오류) 제거
+  const aiMsgs = [...msgs.querySelectorAll('.chat-msg.ai')];
+  if(aiMsgs.length) aiMsgs[aiMsgs.length-1].remove();
+  // 마지막 사용자 메시지 제거
+  const userMsgs = [...msgs.querySelectorAll('.chat-msg.user')];
+  if(userMsgs.length) userMsgs[userMsgs.length-1].remove();
+  document.getElementById('chat-input').value = question;
+  sendChat();
+}
+
+// 예시 질문 버튼 → AI상담 화면 열고 자동 전송
+function askCony(question){
+  showScreen('chat');
+  // 화면 전환 후 약간의 딜레이를 두고 입력창에 질문 세팅 & 전송
+  setTimeout(()=>{
+    const inp=document.getElementById('chat-input');
+    if(inp){inp.value=question;sendChat();}
+  },350);
+}
+
+// ===== SIGNUP =====
+async function doSignup(){
+  const email=document.getElementById('su-email').value.trim();
+  const pw=document.getElementById('su-pw').value;
+  if(!email){showToast('이메일을 입력해주세요');return;}
+  if(!email.includes('@')){showToast('올바른 이메일을 입력해주세요');return;}
+  if(!pw||pw.length<6){showToast('비밀번호를 6자 이상 입력해주세요');return;}
+  if(!supa){showToast('잠시 후 다시 시도해주세요');return;}
+
+  const btn=document.querySelector('#signup-step1 .btn-p');
+  if(btn){btn.textContent='전송 중...';btn.disabled=true;}
+
+  try {
+    const {error}=await supa.auth.signUp({
+      email, password:pw,
+      options:{ emailRedirectTo: window.location.origin }
+    });
+    if(btn){btn.textContent='✉️ 인증 메일 받기';btn.disabled=false;}
+    if(error){
+      if(error.message.includes('already registered')){
+        showToast('이미 가입된 이메일이에요. 로그인해주세요.');
+      } else {
+        showToast('오류: '+error.message);
+      }
+      return;
+    }
+    // 성공 → 확인 화면으로 전환
+    document.getElementById('signup-step1').style.display='none';
+    document.getElementById('signup-step2').style.display='block';
+    document.getElementById('su-email-sent').textContent=
+      email+'로 인증 링크를 보냈어요.';
+  } catch(e) {
+    if(btn){btn.textContent='✉️ 인증 메일 받기';btn.disabled=false;}
+    showToast('오류가 발생했어요. 다시 시도해주세요.');
+  }
+}
+
+// ===== ANALYTICS =====
+function logA(type,data){
+  const key='nn_a2';const ref=getRef();
+  let a=JSON.parse(localStorage.getItem(key)||'{"scans":[],"deficiencies":{},"interactions":{},"ageGroups":{},"total":0}');
+  a.total=(a.total||0)+1;
+  if(type==='scan'){
+    a.scans.push({ts:Date.now(),name:data.name,age:ref.label,keys:Object.keys(data.inputs||{})});
+    if(a.scans.length>300)a.scans=a.scans.slice(-300);
+    a.ageGroups[ref.label]=(a.ageGroups[ref.label]||0)+1;
+    Object.keys(data.inputs||{}).forEach(k=>{const p=data.inputs[k]/(ref[k]||1);if(p<0.5)a.deficiencies[k]=(a.deficiencies[k]||0)+1;});
+  }
+  if(type==='interaction')a.interactions[data.key]=(a.interactions[data.key]||0)+1;
+  localStorage.setItem(key,JSON.stringify(a));
+}
+function getA(){return JSON.parse(localStorage.getItem('nn_a2')||'{"scans":[],"deficiencies":{},"interactions":{},"ageGroups":{},"total":0}');}
+
+// ===== SCHEDULE =====
+const TORD=['아침 식후','점심 식후','저녁 식후','취침 전','식사 무관'];
+const TIPS={'아침 식후':'지용성 비타민은 아침 식사 후가 최적 ☀️','점심 식후':'놓친 아침 영양제 대안으로 좋아요 🌞','저녁 식후':'철분·아연은 저녁 식후 권장 🌙','취침 전':'마그네슘·칼슘은 자기 전이 효과적 😴','식사 무관':'편한 시간에 규칙적으로 ⏰'};
+const TICN={'아침 식후':'🌅','점심 식후':'☀️','저녁 식후':'🌙','취침 전':'😴','식사 무관':'⏰'};
+function renderSchedule(){
+  const body=document.getElementById('schedule-body');
+  if(!S.supplements.length){body.innerHTML='<div style="text-align:center;padding:40px 20px;"><img src="/images/cony-question.png" class="cony-img" style="width:72px;height:72px;margin:0 auto 10px;"><p style="font-size:13px;color:var(--text-sub);">라벨 스캔으로 영양제를 추가해봐요!</p></div>';return;}
+  const t=today();if(!S.dailyLog[t])S.dailyLog[t]={};
+  let html='';const bt={};
+  S.supplements.forEach(s=>{if(!bt[s.timing])bt[s.timing]=[];bt[s.timing].push(s);});
+  TORD.forEach(tm=>{
+    if(!bt[tm])return;
+    html+=`<div style="margin-bottom:16px;padding:0 16px;"><div style="display:flex;align-items:center;gap:7px;margin-bottom:6px;font-size:12px;font-weight:700;color:var(--text-sub);"><span style="width:7px;height:7px;border-radius:50%;background:var(--primary);display:inline-block;"></span>${TICN[tm]} ${tm}</div><p style="font-size:10px;color:var(--text-hint);margin-bottom:8px;padding-left:14px;">${TIPS[tm]}</p>`;
+    bt[tm].forEach(s=>{
+      const d=S.dailyLog[t][s.id];
+      html+=`<div class="card" style="padding:11px 13px;display:flex;align-items:center;gap:10px;margin-bottom:7px;${d?'opacity:0.55;':''}">
+        <span style="font-size:22px;">${s.emoji}</span>
+        <div style="flex:1;"><div style="font-size:12px;font-weight:700;color:var(--text);${d?'text-decoration:line-through;':''}">${s.name}</div>${s.memo?`<div style="font-size:10px;color:var(--text-sub);">${s.memo}</div>`:''}</div>
+        <button class="chkbtn ${d?'done':''}" onclick="toggleChk('${s.id}');renderSchedule()"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></button>
+        <button onclick="delSupp('${s.id}')" style="background:var(--bad-bg);color:var(--bad);border:none;border-radius:7px;padding:6px 8px;font-size:11px;cursor:pointer;">🗑</button>
+      </div>`;
+    });
+    html+='</div>';
+  });
+  body.innerHTML=html;
+}
+
+// ===== INSIGHTS =====
+function renderInsights(){
+  const body=document.getElementById('insights-body');
+  const a=getA();const total=a.scans.length;
+  if(!total){
+    body.innerHTML=`<div style="padding:16px;"><div class="cony-row"><div class="cavatar"><img src="/images/cony-face.png" class="cony-img" style="width:100%;height:100%;object-fit:contain;"></div><div class="bubble" style="font-size:12px;">아직 데이터가 없어요!<br>라벨 스캔을 하면 여기에 패턴이 쌓여요 📊</div></div><div style="text-align:center;padding:30px 0;"><img src="/images/cony-read.png" class="cony-img" style="width:72px;height:72px;margin:0 auto 10px;"><p style="font-size:13px;color:var(--text-sub);">스캔할수록 인사이트가 쌓여요!</p></div><button class="btn-p" onclick="showScreen('scan')" style="margin-top:8px;">📸 라벨 스캔하러 가기</button></div>`;
+    return;
+  }
+  const defTop=Object.entries(a.deficiencies).sort((x,y)=>y[1]-x[1]).slice(0,3);
+  const ageTop=Object.entries(a.ageGroups).sort((x,y)=>y[1]-x[1]);
+  const maxA=ageTop[0]?.[1]||1;
+  let html=`<div style="padding:16px;">
+    <div class="cony-row"><div class="cavatar"><img src="/images/cony-face.png" class="cony-img" style="width:100%;height:100%;object-fit:contain;"></div><div class="bubble" style="font-size:12px;">총 <b>${total}번</b> 스캔! 패턴을 분석해봤어요 📊</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:14px;">
+      <div style="background:var(--primary-light);border-radius:var(--radius-sm);padding:12px;text-align:center;"><p style="font-size:10px;color:var(--primary-dark);font-weight:700;margin-bottom:3px;">총 스캔</p><p style="font-size:26px;font-weight:900;color:var(--primary-dark);">${total}</p></div>
+      <div style="background:var(--mint-light);border-radius:var(--radius-sm);padding:12px;text-align:center;"><p style="font-size:10px;color:#2E9E84;font-weight:700;margin-bottom:3px;">등록 영양제</p><p style="font-size:26px;font-weight:900;color:#2E9E84;">${S.supplements.length}</p></div>
+    </div>`;
+  if(defTop.length){
+    html+=`<p style="font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:8px;">📊 자주 권장량보다 적게 보충된 영양소</p><div class="card" style="padding:13px;">`;
+    defTop.forEach(([k,cnt])=>{
+      const n=NUT[k];if(!n)return;const p=Math.round(cnt/total*100);
+      html+=`<div style="margin-bottom:10px;"><div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:12px;font-weight:700;">${n.e} ${n.l}</span><span style="font-size:11px;color:#C8920A;font-weight:700;">${cnt}회 (${p}%)</span></div><div class="pbar"><div class="pbar-f" style="width:${p}%;background:#F3D68A;"></div></div></div>`;
+    });
+    html+='</div>';
+  }
+  if(ageTop.length){
+    html+=`<p style="font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:8px;">👶 나이별 분석 현황</p><div class="card" style="padding:13px;">`;
+    ageTop.forEach(([label,cnt])=>{
+      const p=Math.round(cnt/maxA*100);
+      html+=`<div style="margin-bottom:8px;"><div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:11px;font-weight:600;">${label}</span><span style="font-size:11px;color:var(--primary-dark);font-weight:700;">${cnt}회</span></div><div class="pbar"><div class="pbar-f" style="width:${p}%;background:var(--primary);"></div></div></div>`;
+    });
+    html+='</div>';
+  }
+  const topDef=defTop[0]?.[0];const topName=topDef?NUT[topDef]?.l:'';
+  html+=`<div style="background:var(--primary-light);border-radius:var(--radius-sm);padding:13px;margin-top:4px;">
+    <p style="font-size:12px;font-weight:800;color:var(--primary-dark);margin-bottom:5px;">🦄 코니의 총평</p>
+    <p style="font-size:11px;color:var(--primary-dark);line-height:1.6;">${
+      topName
+        ? (S.profile.name||'우리 아이')+'의 영양제에서 권장량 대비 보충 비율이 낮은 영양소는 <b>'+topName+'</b>이에요. 음식 섭취량이 포함되지 않은 수치예요. 💜'
+        : total===1
+          ? '첫 번째 영양 분석을 완료했어요! 앞으로도 함께 확인해봐요 🎉'
+          : total===2
+            ? '영양 상태를 한 번 더 확인했어요. 꾸준히 관찰하면 패턴을 알 수 있어요 💜'
+            : '꾸준히 영양 상태를 확인하고 있어요. 훌륭해요! 🎉'
+    }</p>
+  </div>
+  <div style="background:var(--bg-secondary,#F5F5F5);border-radius:10px;padding:10px 14px;margin-top:8px;margin-bottom:4px;">
+    <p style="font-size:10px;color:var(--text-hint,#C9C0BC);line-height:1.6;text-align:center;">📋 본 데이터는 <b>보건복지부·한국영양학회</b><br>「한국인 영양소 섭취기준(KDRIs)」을 따릅니다 · 음식 섭취량 미포함</p>
+  </div>
+  <button class="btn-p" onclick="showScreen('scan')" style="margin-top:8px;margin-bottom:8px;">📸 오늘도 스캔하기</button>
+  </div>`;
+  body.innerHTML=html;
+}
+
+// ===== PROFILE =====
+function renderProfile(){
+  const ref=getRef();
+  // 컨테이너(#profile-avatar)를 절대 교체하지 않고 내부만 갱신 — 멱등성 보장
+  const pa = document.getElementById('profile-avatar');
+  if(!pa) return; // 방어 처리
+  pa.innerHTML='';
+  if(S.profile.emoji==='🦄') {
+      const img=document.createElement('img');
+      img.src='/images/cony-smile.png';
+      img.className='cony-img';
+      img.alt='코니';
+      img.style.cssText='width:100%;height:100%;object-fit:contain;';
+      pa.appendChild(img);
+  } else {
+      const span = document.createElement('span');
+      span.style.cssText='width:68px;height:68px;background:var(--card);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;box-shadow:var(--shadow);';
+      span.setAttribute('aria-hidden','true');
+      span.textContent=S.profile.emoji;
+      pa.appendChild(span);
+  }
+  // 연령 미설정 → '연령 미설정' 표시 / 생년월일 있으면 정확한 개월수
+  const exactMonths = S.profile.birthdate ? calcMonthsFromBirthdate(S.profile.birthdate) : (S.profile.months??18);
+  const ageDisplay = !hasAge() ? '연령 미설정'
+    : S.profile.birthdate
+      ? '생후 ' + exactMonths + '개월 (만 ' + Math.floor(exactMonths/12) + '세 ' + (exactMonths%12) + '개월)'
+      : ref.label;
+  document.getElementById('profile-name').textContent=S.profile.name;
+  document.getElementById('profile-age').textContent=ageDisplay+(ref.baby?' 👶':'')+' · '+S.supplements.length+'가지 영양제';
+  document.getElementById('ps-name').textContent=S.profile.name;
+  document.getElementById('ps-age').textContent=ageDisplay;
+  document.getElementById('ps-emoji').textContent=S.profile.emoji;
+  const ms=document.getElementById('member-status-display');
+  if(supaUser){
+    ms.innerHTML=`<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;"><div style="display:flex;align-items:center;gap:8px;"><span style="font-size:20px;">🌟</span><div><p style="font-size:13px;font-weight:700;color:var(--text);">${supaUser.user_metadata?.full_name||supaUser.email}</p><p style="font-size:11px;color:var(--text-sub);">하루 10회 상담 · ${supaUser.email}</p></div></div><button onclick="signOutSupa()" style="background:var(--bg);border:none;border-radius:10px;padding:6px 10px;font-size:11px;color:var(--text-sub);cursor:pointer;">로그아웃</button></div>`;
+  } else if(S.member){
+    ms.innerHTML=`<div style="display:flex;align-items:center;gap:8px;"><span style="font-size:20px;">🌟</span><div><p style="font-size:13px;font-weight:700;color:var(--text);">${S.member.name}</p><p style="font-size:11px;color:var(--text-sub);">하루 10회 상담 · ${S.member.email}</p></div></div>`;
+  }else{
+    ms.innerHTML=`<div style="text-align:center;padding:8px 0;">
+      <p style="font-size:12px;color:var(--text-sub);margin-bottom:10px;">비회원 · 하루 3회 무료 상담</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <button id="btn-login-kakao" onclick="signInWithKakao()" style="width:100%;border-radius:18px;padding:12px;background:#FEE500;color:#3C1E1E;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:700;cursor:pointer;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.717 1.566 5.112 3.938 6.54L5 21l4.267-2.247A11.2 11.2 0 0012 19.2c5.523 0 10-3.477 10-8.4S17.523 3 12 3z"/></svg>
+          카카오로 로그인
+        </button>
+        <button disabled aria-label="네이버 로그인 준비 중" style="width:100%;border-radius:18px;padding:12px;background:#ccc;color:#888;border:none;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:700;cursor:not-allowed;opacity:0.6;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#888"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/></svg>
+          네이버 로그인 (준비 중)
+        </button>
+        <button id="btn-login-google" onclick="signInWithGoogle()" style="width:100%;border-radius:18px;padding:11px;background:white;color:#62534D;border:1.5px solid #ddd;box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:600;cursor:pointer;">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:18px;height:18px;">구글로 로그인
+        </button>
+      </div>
+    </div>`;
+  }
+}
+function saveName(){
+  const v=document.getElementById('en-inp').value.trim();
+  const finalName=v||'우리 아이';
+  S.profile.name=finalName;
+  save();
+  closeModal('en-modal');
+  renderProfile();
+  renderHome();
+  showToast('이름 변경됨 💛');
+}
+
+// 생년월일 → 개월 수 미리보기 (ea-modal)
+function previewEAAge(){
+  const bd=document.getElementById('ea-birthdate')?.value;
+  const preview=document.getElementById('ea-age-preview');
+  if(!bd){preview.style.display='none';return;}
+  const months=calcMonthsFromBirthdate(bd);
+  const label=getAgeLabel(months);
+  const emoji=months<=12?'👶':months<=36?'🧒':'🧒';
+  document.getElementById('ea-age-text').textContent=
+    emoji+' 생후 '+months+'개월 (만 '+Math.floor(months/12)+'세 '+(months%12)+'개월)';
+  document.getElementById('ea-age-label').textContent=
+    label+' · '+(months<=24?'⭐ 핵심 성장기':'성장기');
+  preview.style.display='block';
+}
+// 생년월일로 나이 저장 (date input 버전)
+function saveAge(){
+  const bd=document.getElementById('ea-birthdate')?.value;
+  if(!bd){showToast('생년월일을 입력해주세요');return;}
+  const months=calcMonthsFromBirthdate(bd);
+  if(months<0||months>200){showToast('올바른 날짜를 입력해주세요');return;}
+  S.profile.birthdate=bd;
+  S.profile.months=months;
+  S.profile.ageSet=true;
+  save();closeModal('ea-modal');renderProfile();renderHome();showToast('나이 변경됨 🎂');
+}
+function selChild(e){S.profile.emoji=e;save();closeModal('ee-modal');renderProfile();renderHome();}
+
+// ===== SUPPS =====
+let selEmoji='💊';
+let addSuppStatus='active';
+let isSavingSupp=false; // 중복 저장 방지
+function selE(el,v){document.querySelectorAll('.eo').forEach(e=>e.style.opacity='0.4');el.style.opacity='1';selEmoji=v;}
+function setAddStatus(s){
+  addSuppStatus=s;
+  const a=document.getElementById('add-status-active');
+  const p=document.getElementById('add-status-paused');
+  if(a&&p){
+    if(s==='active'){
+      a.style.cssText='flex:1;padding:10px;border:2px solid var(--primary);border-radius:12px;background:var(--primary);color:white;font-size:13px;font-weight:700;cursor:pointer;';
+      p.style.cssText='flex:1;padding:10px;border:2px solid var(--text-hint);border-radius:12px;background:white;color:var(--text-sub);font-size:13px;font-weight:600;cursor:pointer;';
+    }else{
+      a.style.cssText='flex:1;padding:10px;border:2px solid var(--text-hint);border-radius:12px;background:white;color:var(--text-sub);font-size:13px;font-weight:600;cursor:pointer;';
+      p.style.cssText='flex:1;padding:10px;border:2px solid var(--primary);border-radius:12px;background:var(--primary);color:white;font-size:13px;font-weight:700;cursor:pointer;';
+    }
+  }
+}
+function addSupp(){
+  if(isSavingSupp) return; // 중복 클릭 방지
+  const name=document.getElementById('add-name').value.trim();
+  if(!name){showToast('영양제 이름을 입력해주세요');return;}
+  // 동일 이름 중복 확인
+  const duplicate = S.supplements.find(s=>s.name===name);
+  if(duplicate){showToast('같은 이름의 영양제가 이미 있어요. 이름을 바꿔보세요.');return;}
+  isSavingSupp=true;
+  const saveBtn=document.querySelector('#add-modal .btn-p');
+  if(saveBtn){saveBtn.disabled=true;saveBtn.textContent='저장 중...';}
+  const servingSize=parseFloat(document.getElementById('add-serving-size')?.value)||1;
+  const servingUnit=document.getElementById('add-serving-unit')?.value||'정';
+  const dailyServings=parseFloat(document.getElementById('add-daily-servings')?.value)||1;
+  const frequency=document.getElementById('add-frequency')?.value||'daily';
+  try{
+    addSuppDirect(name,selEmoji,document.getElementById('add-timing').value,document.getElementById('add-memo').value.trim(),
+      {servingSize,servingUnit,dailyServings,frequency,status:addSuppStatus});
+    closeModal('add-modal');
+    // 입력 초기화
+    document.getElementById('add-name').value='';
+    document.getElementById('add-memo').value='';
+    if(document.getElementById('add-serving-size')) document.getElementById('add-serving-size').value='';
+    if(document.getElementById('add-daily-servings')) document.getElementById('add-daily-servings').value='1';
+    addSuppStatus='active'; setAddStatus('active');
+    showToast(selEmoji+' 영양제가 등록되었어요! 🎉');
+  } catch(e){
+    showToast('저장에 실패했어요. 다시 시도해주세요.');
+  } finally{
+    isSavingSupp=false;
+    if(saveBtn){saveBtn.disabled=false;saveBtn.textContent='저장하기';}
+  }
+}
+function addSuppDirect(name,emoji,timing,memo,extra={}){
+  S.supplements.push({
+    id:'s_'+Date.now(),name,emoji,timing,memo,
+    servingSize: extra.servingSize||1,
+    servingUnit: extra.servingUnit||'정',
+    dailyServings: extra.dailyServings||1,
+    frequency: extra.frequency||'daily',
+    status: extra.status||'active'
+  });
+  save();renderHome();renderSchedule();
+}
+function delSupp(id){
+  if(!confirm('삭제할까요?'))return;
+  S.supplements=S.supplements.filter(s=>s.id!==id);
+  Object.keys(S.dailyLog).forEach(d=>delete S.dailyLog[d][id]);
+  save();renderSchedule();renderHome();showToast('삭제됨');
+}
+
+// ===== MODAL =====
+let _modalOpener = null;
+function showModal(id){
+  const el = document.getElementById(id);
+  el.classList.add('open');
+  el.removeAttribute('inert');
+  el.setAttribute('aria-hidden','false');
+  _modalOpener = document.activeElement;
+  // 첫 번째 포커스 가능 요소로 포커스 이동
+  setTimeout(()=>{
+    const f=el.querySelector('button:not([disabled]),input,textarea,select,a[href]');
+    if(f) f.focus();
+  },300);
+  // 이름 모달: 현재 이름 채우기
+  if(id==='en-modal') document.getElementById('en-inp').value=S.profile.name;
+  // 생년월일 모달: 기존 생년월일 채우고 미리보기 갱신
+  if(id==='ea-modal'){
+    const inp=document.getElementById('ea-birthdate');
+    if(inp && S.profile.birthdate) inp.value=S.profile.birthdate;
+    previewEAAge();
+  }
+}
+
+// ESC 키로 열린 모달 닫기
+document.addEventListener('keydown', function(e){
+  if(e.key!=='Escape') return;
+  const open=document.querySelector('.modal-overlay.open');
+  if(open) closeModal(open.id);
+});
+
+function closeModal(id){
+  const el = document.getElementById(id);
+  el.classList.remove('open');
+  el.setAttribute('inert','');
+  el.setAttribute('aria-hidden','true');
+  // 포커스를 모달을 연 버튼으로 복귀
+  if(_modalOpener && typeof _modalOpener.focus==='function') _modalOpener.focus();
+  _modalOpener = null;
+  // signup 모달 초기화
+  if(id==='signup-modal'){
+    const s1=document.getElementById('signup-step1');
+    const s2=document.getElementById('signup-step2');
+    if(s1)s1.style.display='block';
+    if(s2)s2.style.display='none';
+  }
+}
+function cmbg(e,id){if(e.target.id===id)closeModal(id);}
+// ESC로 열린 모달 닫기
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Escape') return;
+  const open=document.querySelector('.modal-overlay.open');
+  if(open) closeModal(open.id);
+});
+
+// ===== TOAST =====
+function clearToast(){const t=document.getElementById('toast');if(t)t.classList.remove('show');}
+let _toastTimer=null;
+function showToast(msg,dur=2400){const t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.add('show');if(_toastTimer)clearTimeout(_toastTimer);_toastTimer=setTimeout(()=>t.classList.remove('show'),dur);}
+
+// 예시 질문 버튼 → AI상담 화면 열고 자동 전송
+function askCony(question){
+  showScreen('chat');
+  // 화면 전환 후 약간의 딜레이를 두고 입력창에 질문 세팅 & 전송
+  setTimeout(()=>{
+    const inp=document.getElementById('chat-input');
+    if(inp){inp.value=question;sendChat();}
+  },350);
+}
+
+// ===== FEEDBACK =====
+let fbStars = 0;
+
+function setStars(n) {
+  fbStars = n;
+  document.querySelectorAll('#star-row .star-btn').forEach((b, i) => {
+    b.classList.toggle('on', i < n);
+  });
+}
+
+function toggleTag(el) {
+  el.classList.toggle('sel');
+}
+
+async function submitFeedback() {
+  const btn = document.getElementById('fb-submit-btn');
+  const text = document.getElementById('fb-text').value.trim();
+  const tags = [...document.querySelectorAll('#fb-tags .fb-tag.sel')].map(b => b.textContent);
+
+  if (!fbStars) { showToast('별점을 선택해주세요 ⭐'); return; }
+
+  btn.disabled = true;
+  btn.textContent = '전송 중...';
+
+  const payload = {
+    rating    : fbStars,
+    tags      : tags,
+    message   : text,
+    age_label : getRef().label,
+    child_months: S.profile.months || null,
+    created_at: new Date().toISOString(),
+  };
+
+  let saved = false;
+  // Supabase에 저장 시도
+  if (supa) {
+    try {
+      const { error } = await supa.from('feedback').insert([payload]);
+      if (!error) saved = true;
+    } catch(e) {}
+  }
+  // fallback: localStorage에 임시 저장
+  if (!saved) {
+    const fbList = JSON.parse(localStorage.getItem('nn_fb') || '[]');
+    fbList.push(payload);
+    localStorage.setItem('nn_fb', JSON.stringify(fbList));
+    saved = true;
+  }
+
+  closeModal('feedback-modal');
+  // 초기화
+  fbStars = 0;
+  document.querySelectorAll('#star-row .star-btn').forEach(b => b.classList.remove('on'));
+  document.querySelectorAll('#fb-tags .fb-tag').forEach(b => b.classList.remove('sel'));
+  document.getElementById('fb-text').value = '';
+  btn.disabled = false;
+  btn.textContent = '의견 보내기 🚀';
+
+  showToast('소중한 의견 감사해요! 💜');
+}
+
+function resetAll(){if(!confirm('모든 데이터를 삭제할까요?'))return;localStorage.clear();location.reload();}
+</script>
+</body>
+</html>
