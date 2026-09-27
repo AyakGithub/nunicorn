@@ -25,7 +25,7 @@ echo Staging all changes...
 git add -A -- . ":!.github"
 
 echo Committing...
-git commit -m "fix(result): hide no-caution card when combined total exceeds UL"
+git commit -m "fix(paywall): replace dead social buttons with email magic-link login box"
 if %ERRORLEVEL% NEQ 0 (
     echo Nothing to commit or commit failed.
 )

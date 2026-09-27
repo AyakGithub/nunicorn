@@ -696,19 +696,7 @@ button.ni { background:none; border:none; font-family:inherit; }
       <img src="/images/cony-heart.png" class="cony-img" style="width:56px;height:56px;margin:0 auto 10px;">
       <p style="font-size:15px;font-weight:800;color:var(--text);margin-bottom:6px;">더 자세한 상담은 가입 후!</p>
       <p style="font-size:12px;color:var(--text-sub);line-height:1.6;margin-bottom:16px;">오늘 무료 상담을 모두 사용했어요.<br>가입하면 하루 <b>10회</b> 상담 + 맞춤 분석이 가능해요!</p>
-      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:4px;">
-        <button id="btn-login-kakao" onclick="signInWithKakao()" style="width:100%;border-radius:18px;padding:12px;background:#FEE500;color:#3C1E1E;border:none;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.717 1.566 5.112 3.938 6.54L5 21l4.267-2.247A11.2 11.2 0 0012 19.2c5.523 0 10-3.477 10-8.4S17.523 3 12 3z"/></svg>
-          카카오로 1초 가입
-        </button>
-        <button id="btn-login-naver" disabled aria-label="네이버 로그인 준비 중" style="width:100%;border-radius:18px;padding:12px;background:#ccc;color:#888;border:none;font-size:14px;font-weight:700;cursor:not-allowed;display:flex;align-items:center;justify-content:center;gap:6px;opacity:0.6;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="#888"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/></svg>
-          네이버 로그인 (준비 중)
-        </button>
-        <button id="btn-login-google" onclick="signInWithGoogle()" style="width:100%;border-radius:18px;padding:11px;background:white;color:#62534D;border:1.5px solid #ddd;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;">
-          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:16px;height:16px;">구글로 1초 가입
-        </button>
-      </div>
+      <div class="login-box" data-ctx="paywall" style="margin-bottom:4px;text-align:left;"></div>
       <p style="font-size:11px;color:var(--text-hint);">내일 자정에 무료 횟수가 초기화돼요</p>
     </div>
   </div>
