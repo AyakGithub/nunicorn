@@ -155,8 +155,8 @@ test('S7b: YELLOW_PATTERNS 수가 기대값(6)과 일치한다', () => {
   );
 });
 
-test('S7c: EMERGENCY_KEYWORDS 수가 기대값(21)과 일치한다', () => {
-  assert.equal(EMERGENCY_KEYWORDS.length, 21,
+test('S7c: EMERGENCY_KEYWORDS 수가 기대값(25)과 일치한다', () => {
+  assert.equal(EMERGENCY_KEYWORDS.length, 25,
     `EMERGENCY_KEYWORDS 수가 변경됐습니다 (${EMERGENCY_KEYWORDS.length}개). health-safety.md와 동기화 확인 필요`
   );
 });

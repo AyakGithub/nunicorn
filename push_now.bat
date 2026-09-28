@@ -25,7 +25,7 @@ echo Staging all changes...
 git add -A -- . ":!.github"
 
 echo Committing...
-git commit -m "fix(paywall): replace dead social buttons with email magic-link login box"
+git commit -m "feat(safety): OCR confidence banner with per-level input highlight; refine emergency keywords (remove bare blood match, add real emergencies)"
 if %ERRORLEVEL% NEQ 0 (
     echo Nothing to commit or commit failed.
 )

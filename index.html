@@ -592,7 +592,8 @@ button.ni { background:none; border:none; font-family:inherit; }
         <p style="font-size:11px;color:var(--text-sub);text-align:center;">갤러리 선택도 가능해요</p>
       </div>
       <p id="scan-guide" style="display:none;font-size:12px;color:var(--primary-dark);font-weight:700;margin-top:8px;">📋 아래에 사진 보면서 수치를 입력해주세요</p>
-      <div id="ocr-status" style="display:none;align-items:center;gap:8px;background:var(--primary);border-radius:12px;padding:8px 14px;margin-top:6px;"><div class="typing-dots"><span></span><span></span><span></span></div><span style="font-size:12px;font-weight:700;color:white;">라벨 자동 인식 중...</span></div>
+      <div id="ocr-conf-note" style="display:none;border-radius:12px;padding:9px 13px;margin-top:8px;font-size:12px;line-height:1.55;font-weight:600;"></div>
+    <div id="ocr-status" style="display:none;align-items:center;gap:8px;background:var(--primary);border-radius:12px;padding:8px 14px;margin-top:6px;"><div class="typing-dots"><span></span><span></span><span></span></div><span style="font-size:12px;font-weight:700;color:white;">라벨 자동 인식 중...</span></div>
     </div>
     <input type="file" id="file-input" accept="image/*" capture="environment" onchange="handleImg(event)">
     <div style="background:#F0F4FF;border-radius:var(--radius-sm);padding:10px 13px;margin-bottom:10px;border:1px solid #D0D8F0;">
@@ -1867,6 +1868,7 @@ function handleImg(e){
     p.src=ev.target.result;p.style.display='block';
     document.getElementById('scan-ph').style.display='none';
     document.getElementById('scan-guide').style.display='block';
+    const _n=document.getElementById('ocr-conf-note'); if(_n)_n.style.display='none';
     showToast('🔍 라벨 분석 중...');
     runOCR(ev.target.result);
   };
@@ -1906,17 +1908,32 @@ async function callOCRServer(b64){
       const el=document.getElementById('inp-'+key);
       if(el && v && v.amount>0){
         el.value = key==='probiotic' ? Math.round(v.amount/1e8*10)/10 : v.amount;
-        el.style.background='#EBF6F2'; filled++;
+        const conf=json.confidence||'medium';
+        el.style.background = conf==='high' ? '#EBF6F2' : '#FBF3D9'; // 확신 낮으면 노란 배경
+        filled++;
         if(NUT[key]?.ext) extFilled=true;
       }
     });
     if(extFilled) toggleExtNutrients(true);
     const pn=document.getElementById('scan-name');
     if(pn){ pn.value = json.productName || pn.value || ''; }
+    const note=document.getElementById('ocr-conf-note');
     if(filled>0){
+      const conf=json.confidence||'medium';
+      if(note){
+        note.style.display='block';
+        if(conf==='high'){ note.style.background='#EBF6F2'; note.style.color='#2E9E84';
+          note.innerHTML='✅ '+filled+'가지 성분을 인식했어요. 그래도 <b>라벨 원본과 숫자를 한 번 대조</b>해 주세요.'; }
+        else if(conf==='medium'){ note.style.background='#FBF3D9'; note.style.color='#8B6200';
+          note.innerHTML='🟡 인식 확신이 <b>보통</b>이에요. 노란 칸의 숫자를 <b>라벨과 꼭 대조</b>하고 다르면 고쳐주세요.'; }
+        else { note.style.background='#FDEBE8'; note.style.color='#C0392B';
+          note.innerHTML='⚠️ 인식 확신이 <b>낮아요</b>. 아래 숫자를 그대로 믿지 말고 <b>라벨을 보며 직접 확인·수정</b>해 주세요. 사진을 더 밝고 크게 다시 찍으면 정확해져요.'; }
+      }
       showToast('✅ '+filled+'가지 성분 자동 인식됨!'+(json.productName?' · '+json.productName:''));
       if(json.notes) console.log('[OCR 메모]', json.notes);
     } else {
+      if(note){ note.style.display='block'; note.style.background='#FDEBE8'; note.style.color='#C0392B';
+        note.innerHTML='📋 성분표를 찾지 못했어요. 성분표가 <b>잘 보이게 다시 촬영</b>하거나 직접 입력해 주세요.'+(json.notes?'<br><span style="font-weight:400;font-size:11px;">('+escapeHtml(String(json.notes)).slice(0,80)+')</span>':''); }
       showToast('📋 성분표를 찾지 못했어요. 성분표가 잘 보이게 다시 찍거나 직접 입력해주세요');
     }
   }catch(e){
