@@ -25,7 +25,7 @@ echo Staging all changes...
 git add -A -- . ":!.github"
 
 echo Committing...
-git commit -m "feat(safety): OCR confidence banner with per-level input highlight; refine emergency keywords (remove bare blood match, add real emergencies)"
+git commit -m "feat(legal): add business registration info to footers and terms (Hitch Company, 533-67-00750)"
 if %ERRORLEVEL% NEQ 0 (
     echo Nothing to commit or commit failed.
 )
